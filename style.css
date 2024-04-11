@@ -16,6 +16,7 @@ body {
 header {
     padding: 60px 0;
     width: 100%; /* Added to stretch header to full width */
+    position: relative;
     /* z-index: 1000; Added to ensure header is on top of other content */
 }
 
