@@ -61,6 +61,11 @@ nav ul.menu li a:hover {
     display: flex;
 }
 
+.social-icons img {
+    max-width: 24%;
+}
+
+
 section {
     margin-bottom: 30px;
 }
