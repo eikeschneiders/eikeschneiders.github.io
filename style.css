@@ -188,24 +188,19 @@ hr.center-ball:before {
 #projects {
     display: flex;
     flex-wrap: wrap;
-}
-
-.project-row {
-    display: flex;
-    width: 100%;
+    justify-content: space-between; /* Distribute space between projects */
 }
 
 .project {
-    flex: 1;
-    padding: 20px;
+    flex-basis: calc(50% - 10px); /* Adjust to accommodate margins */
     box-sizing: border-box;
     border: 1px solid #ddd;
-    margin-right: 10px; /* Adjust margin to create space between projects */
-    margin-bottom: 20px; /* Adjust margin to create space between rows */
+    padding: 20px;
+    margin-bottom: 20px;
 }
 
-/* Clear the right margin of the last project in each row */
-.project:last-child {
+/* Clear the margin of the last project in each row */
+.project:nth-child(2n) {
     margin-right: 0;
 }
 
