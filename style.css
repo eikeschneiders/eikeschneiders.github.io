@@ -159,6 +159,33 @@ a:hover {
 }
 
 
+hr{
+  
+  border: 0;
+  height: 1px;
+  width: 10%;
+  position: relative;
+  margin: 30px auto;
+  
+  
+  &.center-ball{
+    background: $aqua;
+    
+    &:before{
+      content: "";
+      width: 6px;
+      height: 6px;
+      background: $aqua;
+      display: inline-block;
+      border: 2px solid $aqua;
+      @include border-radius(50%);
+      position: absolute;
+      top: -4px;
+      left: 50%;
+      margin: 0 0 0 -3px;
+    }
+  }
+
 
 /* Responsive styles */
 @media only screen and (max-width: 600px) {
