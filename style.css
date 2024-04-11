@@ -2,9 +2,15 @@ body {
     font-family: "Avenir Next", "Trebuchet MS", sans-serif;
     color: #333;
     max-width: 1060px;
-    margin: 0 auto;
+    /*margin: 0 auto;*/
     position: relative; /* Added to make header position:relative */
 }
+
+.container {
+    margin: max(2em, 5%) auto; /* Minimum margin of 2em or 5% of the viewport width, centered horizontally */
+    max-width: 1060px; /* Adjust the max-width as needed */
+}
+
 
 /* Header styles */
 header {
