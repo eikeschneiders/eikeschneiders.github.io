@@ -20,9 +20,13 @@ header {
 
 #intro_image {
     flex: 0 0 40%; /* flex-grow: 0, flex-shrink: 0, flex-basis: 40% */
+    max-width: 100%; /* Ensure the image does not exceed the width of its container */
 }
 
-
+#intro_image img {
+    max-width: 100%; /* Ensure the image does not exceed the width of its container */
+    height: auto; /* Maintain aspect ratio */
+}
 
 section {
     margin-bottom: 30px;
