@@ -10,6 +10,15 @@ header {
     padding: 20px 0;
 }
 
+#intro_text{
+    background-color: green;
+    max-width: 60%;
+}
+
+#intro_image{
+    background-color: blue;
+    max-width: 40%;
+}
 
 section {
     margin-bottom: 30px;
