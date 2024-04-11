@@ -93,3 +93,22 @@ a {
 a:hover {
     color: black;
 }
+
+
+
+/* Responsive styles */
+@media only screen and (min-width: 600px) {
+    #intro {
+        flex-direction: row;
+    }
+
+    #intro_text {
+        flex: 60%;
+        padding-right: 20px;
+        text-align: left;
+    }
+
+    #intro_image {
+        flex: 40%;
+        padding-left: 20px;
+    }
