@@ -49,11 +49,16 @@ nav ul.menu li a:hover {
     flex: 0 0 30%; /* flex-grow: 0, flex-shrink: 0, flex-basis: 40% */
     max-width: 100%; /* Ensure the image does not exceed the width of its container */
     margin: auto;
+    flex-wrap: wrap; /* Allow items to wrap to the next row if necessary */
 }
 
 #intro_image img {
     max-width: 100%; /* Ensure the image does not exceed the width of its container */
     height: auto; /* Maintain aspect ratio */
+}
+
+.social-icons {
+    display: flex;
 }
 
 section {
