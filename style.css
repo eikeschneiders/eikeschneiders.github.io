@@ -192,7 +192,7 @@ hr.center-ball:before {
 }
 
 .project {
-    flex-basis: calc(50% - 10px); /* Adjust to accommodate margins */
+    flex-basis: calc(40% - 10px); /* Adjust to accommodate margins */
     box-sizing: border-box;
     border: 1px solid #ddd;
     padding: 20px;
