@@ -192,7 +192,6 @@ hr.center-ball:before {
 }
 
 .project {
-    flex-basis: calc(40% - 10px); /* Adjust to accommodate margins */
     box-sizing: border-box;
     border: 1px solid #ddd;
     padding: 20px;
@@ -203,9 +202,6 @@ hr.center-ball:before {
 .project:nth-child(2n) {
     margin-right: 0;
 }
-
-/* Adjust styles as needed */
-
 
 
 /* Responsive styles */
