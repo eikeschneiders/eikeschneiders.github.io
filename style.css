@@ -1,11 +1,11 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f8f8f8;
     color: #333;
-    max-width: 900px;
-    margin: 0 auto;
+    max-width: 900px !important;
+    margin: 0 auto !important;
 }
 
 header {
@@ -16,8 +16,6 @@ header {
 }
 
 main {
-    max-width: 900px;
-    margin: 0 auto;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
