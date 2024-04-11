@@ -3,15 +3,26 @@ body {
     color: #333;
     max-width: 1060px;
     margin: 0 auto;
+    position: relative; /* Added to make header position:relative */
 }
 
+/* Header styles */
 header {
+    background-color: #f2f2f2;
     padding: 60px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%; /* Added to stretch header to full width */
+    z-index: 1000; /* Added to ensure header is on top of other content */
 }
 
 nav ul.menu {
     list-style-type: none;
     padding: 0;
+    margin: 0; /* Added to remove default margin */
+    position: absolute;
+    top: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
 }
 
 nav ul.menu li {
