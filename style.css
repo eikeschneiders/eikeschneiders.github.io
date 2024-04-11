@@ -1,11 +1,10 @@
 body {
-    font-family: "Arial", sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f8f8f8;
     color: #333;
 }
-
 
 header {
     background-color: #333;
@@ -15,10 +14,8 @@ header {
 }
 
 main {
-    max-width: 800px;
-    background-color: green;
-    margin: auto;
-    margin: 20px auto;
+    max-width: 900px;
+    margin: 0 auto;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
@@ -79,4 +76,3 @@ li:before {
     position: absolute;
     left: 0;
 }
-
