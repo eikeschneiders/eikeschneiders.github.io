@@ -82,3 +82,14 @@ li:before {
     position: absolute;
     left: 0;
 }
+
+/* Set the default color for links */
+a {
+    color: #c36;
+    text-decoration: none; /* Optionally remove underlines from links */
+}
+
+/* Change link color to black on hover */
+a:hover {
+    color: black;
+}
