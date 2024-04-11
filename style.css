@@ -62,7 +62,7 @@ nav ul.menu li a:hover {
 }
 
 .social-icons img {
-    max-width: 24%;
+    max-width: 24% !important;
 }
 
 
