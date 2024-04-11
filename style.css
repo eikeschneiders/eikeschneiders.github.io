@@ -2,7 +2,7 @@ body {
     font-family: "Avenir Next", "Trebuchet MS", sans-serif;
     color: #333;
     max-width: 1060px;
-    /*margin: 0 auto;*/
+    margin: 0 auto;
     position: relative; /* Added to make header position:relative */
 }
 
