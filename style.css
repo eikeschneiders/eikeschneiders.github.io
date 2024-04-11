@@ -8,6 +8,7 @@ body {
 
 #wrapper{
     width: 1140px;
+    background-color: green;
     margin: auto;
 }
 
