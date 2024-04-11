@@ -171,16 +171,16 @@ hr {
 }
 
 hr.center-ball {
-  background: blue;
+  background: #c36;
 }
 
 hr.center-ball:before {
   content: "";
   width: 6px;
   height: 6px;
-  background: blue;
+  background: #c36;
   display: inline-block;
-  border: 2px solid blue;
+  border: 2px solid #c36;
   border-radius: 50%; /* Assuming you have a mixin called 'border-radius' */
   position: absolute;
   top: -4px;
