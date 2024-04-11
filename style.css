@@ -19,71 +19,9 @@ nav ul.menu {
     margin: 0; /* Added to remove default margin */
     position: absolute;
     top: 20px; /* Adjust as needed */
-    /* right: 20px; /* Adjust as needed */
-
-    right: -100%;
-    transition: right 0.3s ease; /* Smooth transition */
-    background-color: #fff; /* Background color for the menu */
-    border: 1px solid #ddd; /* Border for the menu */
-    border-radius: 5px; /* Rounded corners for the menu */
+    right: 20px; /* Adjust as needed */
 }
 
-/* THIS */
-nav ul.menu.active {
-    right: 20px; /* Displayed position */
-}
-
-nav ul.menu li {
-    margin-bottom: 10px;
-}
-
-nav ul.menu li:last-child {
-    margin-bottom: 0;
-}
-
-nav ul.menu li a {
-    color: #333;
-    text-decoration: none;
-    padding: 5px 10px;
-    display: block; /* Added to make menu items clickable */
-}
-
-nav ul.menu li a:hover {
-    background-color: #ddd;
-}
-
-/* Menu icon styles */
-#menu-icon {
-    display: none; /* Initially hidden */
-    cursor: pointer;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 24px;
-}
-
-/* Media query for mobile responsiveness */
-@media screen and (max-width: 768px) {
-    nav ul.menu {
-        top: 60px; /* Adjust as needed */
-        width: 200px; /* Adjust as needed */
-    }
-
-    #menu-icon {
-        display: block; /* Displayed on small screens */
-    }
-
-    nav ul.menu li {
-        display: block;
-    }
-
-    nav ul.menu.active {
-        right: 0;
-    }
-}
-/* UNTIL HERE */
-
-/* THIS COMMENTED
 nav ul.menu li {
     list-style-type: none;
     display: inline;
@@ -100,7 +38,6 @@ nav ul.menu li a:hover {
     padding: 5px;
 }
 
-*/
 #intro {
     display: flex;
 }
@@ -191,7 +128,7 @@ a:hover {
 
 
 
-/* Responsive styles 
+/* Responsive styles */
 @media only screen and (max-width: 600px) {
 
     body {
@@ -212,4 +149,3 @@ a:hover {
         display: none;
     }
 }
-*/
