@@ -125,6 +125,21 @@ a:hover {
     color: black;
 }
 
+/* CSS for Gallery */
+#gallery {
+    margin-top: 20px; /* Added for spacing */
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px; /* Added for spacing between rows */
+}
+
+.row img {
+    width: 48%; /* Each image takes up 48% of the row */
+}
+
 
 
 /* Responsive styles */
