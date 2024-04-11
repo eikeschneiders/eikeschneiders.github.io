@@ -39,16 +39,10 @@
             <p><a href="https://dl.acm.org/doi/10.1145/3565995.3566046" target="_blank" rel="noreferrer noopener">Designing for Trust: Autonomous Animal – Centric Robotic &amp; AI Systems</a>. <em><strong>ACI’2022</strong></em></p>
         </section>
 
-    <div id="overlay">
-        <div id="overlayContent">
-            <img id="overlayImage" src="" alt="Overlay Image">
-        </div>
-    </div>
-
         <section id="gallery">
             <h2>Gallery</h2>
             <div class="row">
-                <img id="thumbnail" src="/images/1.jpg">
+                <img src="/images/1.jpg">
                 <img src="/images/2.png">
             </div>
             <div class="row">
@@ -61,31 +55,5 @@
             </div>
         </section>
     </div>
-
-    <script type="text/javascript">
-        // Get the thumbnail image element
-        const thumbnail = document.getElementById("thumbnail");
-
-        // Get the overlay element
-        const overlay = document.getElementById("overlay");
-
-        // Get the overlay image element
-        const overlayImage = document.getElementById("overlayImage");
-
-        // Add click event listener to thumbnail
-        thumbnail.addEventListener("click", function() {
-          // Set the source of the overlay image to the clicked thumbnail's source
-          overlayImage.src = this.src;
-          
-          // Show the overlay
-          overlay.style.display = "block";
-        });
-
-        // Add click event listener to close the overlay when clicked
-        overlay.addEventListener("click", function() {
-          // Hide the overlay
-          overlay.style.display = "none";
-        });
-    </script>
 </body>
 </html>
