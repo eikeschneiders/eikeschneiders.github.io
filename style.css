@@ -105,6 +105,7 @@ li {
     position: relative;
 }
 
+/*
 li:before {
     content: "\2022";
     color: #333;
@@ -112,6 +113,7 @@ li:before {
     position: absolute;
     left: 0;
 }
+*/
 
 /* Set the default color for links */
 a {
