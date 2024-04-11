@@ -2,7 +2,6 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: greenyellow;
     color: #333;
     max-width: 900px !important;
     margin: 0 auto !important;
@@ -11,7 +10,6 @@ body {
 header {
     background-color: #333;
     color: #fff;
-    text-align: center;
     padding: 20px 0;
 }
 
