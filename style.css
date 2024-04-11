@@ -19,8 +19,9 @@ header {
 }
 
 #intro_image {
-    flex: 0 0 40%; /* flex-grow: 0, flex-shrink: 0, flex-basis: 40% */
+    flex: 0 0 30%; /* flex-grow: 0, flex-shrink: 0, flex-basis: 40% */
     max-width: 100%; /* Ensure the image does not exceed the width of its container */
+    margin: auto;
 }
 
 #intro_image img {
