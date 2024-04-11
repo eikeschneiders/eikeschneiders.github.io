@@ -185,7 +185,32 @@ hr.center-ball:before {
   margin: 0 0 0 -3px;
 }
 
-  
+#projects {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.project-row {
+    display: flex;
+    width: 100%;
+}
+
+.project {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    margin-right: 10px; /* Adjust margin to create space between projects */
+    margin-bottom: 20px; /* Adjust margin to create space between rows */
+}
+
+/* Clear the right margin of the last project in each row */
+.project:last-child {
+    margin-right: 0;
+}
+
+/* Adjust styles as needed */
+
 
 
 /* Responsive styles */
