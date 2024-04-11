@@ -119,6 +119,11 @@ a:hover {
 
 /* Responsive styles */
 @media only screen and (max-width: 600px) {
+
+    body {
+        margin-bottom: 2%;
+    }
+
     #intro {
         flex-direction: row;
     }
@@ -132,3 +137,4 @@ a:hover {
     #intro_image {
         display: none;
     }
+}
