@@ -10,12 +10,18 @@ header {
     padding: 20px 0;
 }
 
-#intro_elem{
-    background-color: green;
-    max-width: 49%;
-    display: inline-block;
+#intro {
+    display: flex;
 }
+
+#intro_text {
+    flex: 0 0 60%; /* flex-grow: 0, flex-shrink: 0, flex-basis: 60% */
 }
+
+#intro_image {
+    flex: 0 0 40%; /* flex-grow: 0, flex-shrink: 0, flex-basis: 40% */
+}
+
 
 
 section {
