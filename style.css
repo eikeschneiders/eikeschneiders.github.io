@@ -6,11 +6,6 @@ body {
     color: #333;
 }
 
-#wrapper{
-    width: 1140px;
-    background-color: green;
-    margin: auto;
-}
 
 header {
     background-color: #333;
@@ -21,6 +16,8 @@ header {
 
 main {
     max-width: 800px;
+    background-color: green;
+    margin: auto;
     margin: 20px auto;
     padding: 20px;
     background-color: #fff;
