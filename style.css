@@ -9,6 +9,26 @@ header {
     padding: 60px 0;
 }
 
+nav ul.menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul.menu li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul.menu li a {
+    color: #333;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+nav ul.menu li a:hover {
+    background-color: #ddd;
+}
+
 #intro {
     display: flex;
 }
