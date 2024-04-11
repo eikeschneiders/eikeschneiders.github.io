@@ -8,10 +8,7 @@ body {
 
 /* Header styles */
 header {
-    background-color: #f2f2f2;
     padding: 60px 0;
-    text-align: center;
-    position: fixed;
     width: 100%; /* Added to stretch header to full width */
     z-index: 1000; /* Added to ensure header is on top of other content */
 }
