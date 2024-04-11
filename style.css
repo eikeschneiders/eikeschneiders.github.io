@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f0f0f0;
 }
 
 header {
@@ -15,6 +16,9 @@ main {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 section {
@@ -28,6 +32,7 @@ h1, h2, h3 {
 img {
     max-width: 100%;
     height: auto;
+    border-radius: 5px;
 }
 
 ul {
@@ -37,4 +42,15 @@ ul {
 
 li {
     margin-bottom: 5px;
+    padding-left: 20px;
+    position: relative;
 }
+
+li:before {
+    content: "\2022";
+    color: #333;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
