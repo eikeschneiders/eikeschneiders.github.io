@@ -6,6 +6,11 @@ body {
     color: #333;
 }
 
+#wrapper{
+    width: 500px;
+    margin: auto;
+}
+
 header {
     background-color: #333;
     color: #fff;
