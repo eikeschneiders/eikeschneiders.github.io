@@ -105,15 +105,15 @@ li {
     position: relative;
 }
 
-/*
-li:before {
+
+#news li:before {
     content: "\2022";
     color: #333;
     font-weight: bold;
     position: absolute;
     left: 0;
 }
-*/
+
 
 /* Set the default color for links */
 a {
