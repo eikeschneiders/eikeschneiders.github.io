@@ -35,6 +35,7 @@ nav ul.menu li a {
 
 nav ul.menu li a:hover {
     background-color: #ddd;
+    padding: 5px;
 }
 
 #intro {
