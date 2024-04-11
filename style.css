@@ -171,15 +171,15 @@ hr{
   
   
   &.center-ball{
-    background: #c36;
+    background: blue;
     
     &:before{
       content: "";
       width: 6px;
       height: 6px;
-      background: #c36;
+      background: blue;
       display: inline-block;
-      border: 2px solid #c36;
+      border: 2px solid blue;
       @include border-radius(50%);
       position: absolute;
       top: -4px;
