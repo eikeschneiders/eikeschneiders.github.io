@@ -59,6 +59,7 @@ nav ul.menu li a:hover {
 
 .social-icons {
     display: flex;
+    padding-top:15px;
 }
 
 .social-icons img {
