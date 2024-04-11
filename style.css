@@ -4,9 +4,6 @@ body {
     padding: 0;
     background-color: greenyellow;
     color: #333;
-}
-
-#wrapper{
     max-width: 900px !important;
     margin: 0 auto !important;
 }
