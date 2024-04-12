@@ -13,10 +13,9 @@ body {
 
 
 #logo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 10px; /* Adjust margin as needed */
+    font-family: georgia, serif;
+    position: absolute;
+    margin: 10px; /* Adjust margin as needed */
 }
 
 /* Header styles */
