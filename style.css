@@ -12,6 +12,13 @@ body {
 }
 
 
+#logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 10px; /* Adjust margin as needed */
+}
+
 /* Header styles */
 header {
     padding: 60px 0;
