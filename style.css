@@ -235,5 +235,6 @@ hr.center-ball:before {
     border: 1px solid #ddd;
     padding: 20px;
     margin-bottom: 20px;
+    float: none;
 }
 }
