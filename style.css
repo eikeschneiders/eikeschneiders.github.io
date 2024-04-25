@@ -197,6 +197,9 @@ hr.center-ball:before {
     border: 1px solid #ddd;
     padding: 20px;
     margin-bottom: 20px;
+    margin:1%;
+    max-width: 45%;
+    float: left;
 }
 
 /* Clear the margin of the last project in each row */
@@ -226,4 +229,11 @@ hr.center-ball:before {
     #intro_image {
         display: none;
     }
+
+    .project {
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+}
 }
