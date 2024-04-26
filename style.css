@@ -158,6 +158,12 @@ a:hover {
     margin: auto;
 }
 
+.award {
+    background-color: #c8f7c8;
+    border-radius: 10px;
+    padding: 0px 10px;
+}
+
 .row {
     display: flex;
     justify-content: space-between;
