@@ -159,6 +159,9 @@ a:hover {
     width: 48%; /* Each image takes up 48% of the row */
 }
 
+#honours li {
+    list-style-type: octal;
+}
 
 
 hr {
