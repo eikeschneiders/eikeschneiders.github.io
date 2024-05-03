@@ -52,11 +52,13 @@
 
     var tax1_case = {
       type: jsPsychHtmlKeyboardResponse,
-      stimulus: `<h3>Case 1</h3>
+      stimulus: `<h3>Case</h3>
         <p>Max was injured after the faulty wall in his apartment fell on him, which was never repaired by his landlord despite continued reminders, costing Max 5000 pounds in medical bills. Max wants to sue his landlord under UK law. Advise max on how UK law applies here. Include references to relevant legislation.</p>`
     };
     timeline.push(tax1_case)
 
+
+/*
     var tax1_llm_reponse = {
       type: jsPsychHtmlKeyboardResponse,
       stimulus: `<h3>Case</h3>
@@ -71,6 +73,7 @@
       stimulus: ``
     };
 
+*/
 
     var likert = {
       type: jsPsychSurveyLikert,
@@ -80,7 +83,8 @@
         <p>Max was injured after the faulty wall in his apartment fell on him, which was never repaired by his landlord despite continued reminders, costing Max 5000 pounds in medical bills. Max wants to sue his landlord under UK law. Advise max on how UK law applies here. Include references to relevant legislation.</p><br>
         <h3>Advice</h3>
         <p>Under UK law, particularly the Landlord and Tenant Act 1985 and the Defective Premises Act 1972, Max likely has a strong case against his landlord for negligence regarding the faulty wall in his apartment. Landlords are obligated to maintain the structure of the property, including walls, and ensure the premises are fit for habitation. Max should gather evidence such as medical bills and correspondence with the landlord to support his case. </p>
-          ,<h3>Response</h3>`,
+          <h3>Response</h3>
+          <p>In the described situation, I would feel confident acting on the advice provided.</p>`,
           labels: [
             "Strongly Disagree", 
             "",
@@ -96,8 +100,6 @@
       ]
     };
     timeline.push(likert)
-
-
 
 
     jsPsych.run(timeline);
