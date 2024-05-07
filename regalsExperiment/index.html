@@ -29,6 +29,15 @@
 
     var timeline = [];
 
+    var tax_cases = [
+        `<p>Max was injured after the faulty wall in his apartment fell on him, which was never repaired by his landlord despite continued reminders, costing Max 5000 pounds in medical bills. Max wants to sue his landlord under UK law. Advise max on how UK law applies here. Include references to relevant legislation.</p>`,
+        `<p>My landlord is asking for 4 months of security deposit to get a place at my student hall of residence. He got angry when I said I could not afford it and said he will find someone else who will pay him that.<br>Can you give me advice about this situation in UK law, referencing relevant laws I can use against him?</p>`,
+        `<p>My landlord keeps entering my apartment without any notice. This keeps happening even after I've asked them to let me know in advance. Please give me legal advice about this, referring to relevant UK law.</p>`
+      ]
+
+    var tax_cases = jsPsych.randomization.shuffle(tax_cases);
+
+
     const welcome = {
       type: jsPsychHtmlKeyboardResponse,
       stimulus: 
@@ -49,7 +58,7 @@
       //post_trial_gap: 2000
     };
     timeline.push(instructions)
-
+/*
     var tax1_case = {
       type: jsPsychHtmlKeyboardResponse,
       stimulus: `<h3>Case</h3>
@@ -58,7 +67,7 @@
     timeline.push(tax1_case)
 
 
-/*
+
     var tax1_llm_reponse = {
       type: jsPsychHtmlKeyboardResponse,
       stimulus: `<h3>Case</h3>
@@ -75,31 +84,51 @@
 
 */
 
-    var likert = {
+for (let i = 0; i < tax_cases.length; i++) {
+  timeline.push({
+    timeline: [{
       type: jsPsychSurveyLikert,
-      questions: [
-        {
-          prompt: `<h3>Case</h3>
-        <p>Max was injured after the faulty wall in his apartment fell on him, which was never repaired by his landlord despite continued reminders, costing Max 5000 pounds in medical bills. Max wants to sue his landlord under UK law. Advise max on how UK law applies here. Include references to relevant legislation.</p><br>
-        <h3>Advice</h3>
-        <p>Under UK law, particularly the Landlord and Tenant Act 1985 and the Defective Premises Act 1972, Max likely has a strong case against his landlord for negligence regarding the faulty wall in his apartment. Landlords are obligated to maintain the structure of the property, including walls, and ensure the premises are fit for habitation. Max should gather evidence such as medical bills and correspondence with the landlord to support his case. </p>
-          <h3>Response</h3>
-          <p>In the described situation, I would feel confident acting on the advice provided.</p>`,
-          labels: [
-            "Strongly Disagree", 
-            "",
-            "",
-            "", 
-            "Neutral",
-            "",
-            "",
-            "", 
-            "Strongly Agree"
-          ]
-        }
-      ]
-    };
-    timeline.push(likert)
+      questions: [{
+        prompt: `<h3>Case ${i+1} ${tax_cases[i]}</h3>`,
+        labels: [
+          "Strongly Disagree",
+          "",
+          "",
+          "",
+          "Neutral",
+          "",
+          "",
+          "",
+          "Strongly Agree"
+        ]
+      }]
+    }]
+  });
+}
+
+/*
+      var likert = {
+        type: jsPsychSurveyLikert,
+        questions: [
+          {
+            prompt: `<h3>Case</h3>`, tax_cases[i]
+            labels: [
+              "Strongly Disagree", 
+              "",
+              "",
+              "", 
+              "Neutral",
+              "",
+              "",
+              "", 
+              "Strongly Agree"
+            ]
+          }
+        ]
+      }
+      timeline.push(likert)
+    }
+*/
 
 
     jsPsych.run(timeline);
