@@ -50,16 +50,6 @@
 
     timeline.push(consent)
 
-      // Turn fullscreen on
-    timeline.push({
-    type: 'fullscreen',
-    fullscreen_mode: true,
-    data: {
-      Condition: 'REMOVE', // For easier data processing
-      Running: 'Fullscreen on'
-    }
-    });
-
     /*const welcome = {
       type: jsPsychHtmlKeyboardResponse,
       stimulus: 
@@ -235,9 +225,8 @@
         }]
       });
     }
-
+*/
     jsPsych.run(timeline);
-    */
   </script>
 
 </html>
