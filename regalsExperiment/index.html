@@ -44,7 +44,7 @@
       pages: [ 
         `<img width="30%" src='img/tas.png'></img><h3>REGALS: Responsible 
           Employment of Generative AI for Legal Services.</h3>
-          
+
         <h4>Why we are asking you to take part in our survey</h4> 
         <p>This research project seeks to understand people's willingness 
           to take legal advice from different sources. We are specifically 
@@ -122,6 +122,18 @@
         show_clickable_nav: true
     };
     timeline.push(welcome)
+
+    var consentQuestion = {
+      type: jsPsychInstructions,
+      pages: ['By clicking \"I agree\", you affirm that you are at least 18 years of age, which is the minimum age to participate in this study, and that you understand the nature of your participation in this research.<p>If you do not wish to participate, please close this window.'],
+      show_clickable_nav: true,
+      button_label_next: "I agree",
+      data: {
+          Condition: 'REMOVE', // For easier data processing
+          Running: 'Consent'
+        }
+    }
+    timeline.push(consentQuestion)
 
 
     var instructions = {
