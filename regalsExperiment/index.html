@@ -36,7 +36,7 @@
     var timeline = [];
 
     var welcome = {
-      type: 'instructions',
+      type: jsPsychInstructions,
       pages: [ 
         `<img width="30%" src='img/tas.png'></img><h3>REGALS: Responsible Employment of Generative AI for Legal Services.</h3>
         
@@ -74,11 +74,6 @@
 
         <p>Press any key to begin.</p>`,
         ],
-        show_clickable_nav: true,
-      data: {
-        Condition: 'REMOVE', // For easier data processing
-        Running: 'Participant Information Statement'
-    }
     };
     timeline.push(welcome)
 
