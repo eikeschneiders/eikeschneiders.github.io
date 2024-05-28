@@ -1,4 +1,4 @@
-var welcome = {
+var ethics = {
   type: jsPsychInstructions,
   pages: [ 
     `<img width="30%" src='img/tas.png'></img><h3>REGALS: Responsible 
@@ -97,4 +97,4 @@ var consentQuestion = {
 }
 
 var welcome = { timeline: [] };
-welcome.timeline.push(PIS, consentQuestion);
+welcome.timeline.push(ethics, consentQuestion);
