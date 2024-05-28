@@ -118,5 +118,3 @@ var debrief = {
       Running: 'Debrief'
   }
 };
-
-consent.timeline.push(debrief)
