@@ -12,37 +12,14 @@
     <script src="https://unpkg.com/@jspsych/plugin-instructions@1.1.4"></script>
 
     <script src="welcome.js"></script>
+    <script src="instructions.js"></script>
     <script src="LLMCases.js"></script>
     <script src="lawyerCases.js"></script>
 
     <link href="jspsych/jspsych.css" rel="stylesheet" type="text/css" />
-    <style type="text/css">
-      p{
-        max-width: 100%;
-      }
 
-      .jspsych-content-wrapper{
-        max-width: 70%;
-      }
-      
-      #jspsych-content{
-        text-align: left;
-        padding-bottom: 5%;
-      }
+    <link rel="stylesheet" href="style.css">
 
-      #jspsych-html-keyboard-response-stimulus{
-        text-align: left;
-      }
-
-      .jspsych-btn{
-        float:center;
-      }
-
-      .jspsych-survey-likert-statement{
-        text-align: center;
-      }
-
-    </style>
   </head>
   
   <body></body>
@@ -52,22 +29,7 @@
 
     var timeline = [];
 
-    
     timeline.push(welcome)
-
-    var instructions = {
-      type: jsPsychInstructions,
-      pages: [ 
-        `<p>In this experiment you will be presented with short descriptions 
-          of legal cases.</p>
-        <p>Following each case, you will be presented with legal advice. </p>
-        <p>Please rank on the subsequently presented scale how confident you 
-          would be to act on the advice provided.</p>
-        <p>Press any key to begin.</p>`,
-        ],
-      show_clickable_nav: true,
-      allow_backward: false
-    };
     timeline.push(instructions)
 
     var cases_LLM = tax_cases_LLM.concat(plan_cases_LLM, prop_cases_LLM)
@@ -78,7 +40,11 @@
 
     var all_cases = jsPsych.randomization.shuffle(cases_LLM.concat(cases_Lawyer));
 
-    for (let i = 0; i < all_cases.length; i++) {
+
+    // Define the number of cases for each participant
+    var num_cases = 18;
+
+    for (let i = 0; i < num_cases; i++) {
       timeline.push({
         timeline: [{
           type: jsPsychSurveyLikert,

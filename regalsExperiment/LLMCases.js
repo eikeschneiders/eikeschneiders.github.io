@@ -7,6 +7,7 @@ var tax_cases_LLM = [
       have been given a bill from the solicitors for the inheritance tax.
        Please give me legal advice about this, referring to relevant UK law?
     </p><br>
+
     <h3>Advice</h3>
     <p>Under UK law, the responsibility for settling inheritance tax and 
       outstanding debts of a deceased individual typically falls on their 
@@ -154,7 +155,87 @@ var plan_cases_LLM = [
   </p>
   
   <h3 style="text-align: center">In the described situation, I would feel 
-        confident acting on the advice provided:</h3><br>`
+        confident acting on the advice provided:</h3><br>`,
+
+    `<p>We live near the London Greenbelt. Someone has started building 
+    on a field near our property, including fences, a stable, various 
+    hedges and a road to the highway. This is a major road that now has 
+    traffic on it. There has been no planning application made for this. 
+    Please give me legal advice about this, referring to relevant 
+    sections of UK law?</p><br>
+
+    <h3>Advice</h3>
+    <p>The situation you've described raises concerns regarding potential 
+    breaches of UK planning laws, particularly those related to 
+    unauthorized development on greenbelt land. Under the Town and Country 
+    Planning Act 1990, development generally requires planning permission, 
+    and failure to obtain such permission can constitute a legal offense. 
+    Section 55 of the Act outlines that carrying out development without 
+    planning permission is unlawful, unless exempted by other provisions 
+    of the Act. Additionally, the Highways Act 1980 may be relevant, 
+    especially concerning the construction of a road leading to a major 
+    highway without proper authorization, potentially posing safety risks. 
+    It's imperative to act swiftly, documenting the unauthorized development 
+    and contacting the local planning authority to investigate the matter. 
+    Enforcement action, such as serving an enforcement notice under Section 
+    172 of the Act, may be pursued to compel the removal of the unauthorized 
+    structures and restore compliance with planning regulations. Seeking legal 
+    counsel specialized in planning law is advisable to navigate the complexities 
+    of this situation effectively and safeguard your interests.</p><br>
+
+    <h3 style="text-align: center">In the described situation, I would feel 
+    confident acting on the advice provided:</h3><br>`,
+
+    `<p>We are currently trying to sell our house, but the buyer is asking 
+    difficult questions about our home office. The home office was built and 
+    installed when my work became remote, but I did not receive planning 
+    permission for it. Will this now affect the sale of my property? Please 
+    give me legal advice about this, referring to relevant sections of 
+    UK law?</p><br>
+
+    <h3>Advice</h3>
+    <p>In the UK, the lack of planning permission for a home office built 
+    without proper authorization could indeed affect the sale of your property, 
+    potentially leading to legal complications under the Town and Country 
+    Planning Act 1990. Failure to obtain planning permission for such 
+    development may result in enforcement action by the local planning authority. 
+    While there are exemptions and permitted development rights that may apply 
+    to small-scale home improvements, it's crucial to address this issue 
+    proactively by seeking retrospective planning permission or exploring 
+    other options to regularize the status of the home office. Additionally, 
+    full disclosure of this matter to potential buyers during the sale 
+    process is advisable to avoid any allegations of misrepresentation. 
+    Consulting with a qualified solicitor specializing in property law is 
+    recommended to determine the specific legal implications and the best 
+    course of action based on the circumstances of your case.</p><br>
+
+    <h3 style="text-align: center">In the described situation, I would feel 
+    confident acting on the advice provided:</h3><br>`,
+
+    `<p>I am in the middle of building a fence with my neighbour's property, 
+    who has objected to the proposed colour of the fence. The council has 
+    rejected my planning permission and told me that I cannot use a colour and 
+    must install a basic timber fence, and that our planned metal fence does 
+    not comply with local regulations. Please give me legal advice about this, 
+    referring to relevant sections of UK law?</p><br>
+
+    <h3>Advice</h3>
+    <p>In the context of UK property law, it's essential to adhere to local 
+    planning regulations enforced by the council, as failure to do so can 
+    result in legal consequences. The rejection of planning permission and 
+    insistence on installing a basic timber fence instead of a proposed 
+    metal one signifies non-compliance with local regulations. Sections 106 
+    and 14 of the Town and Country Planning Act 1990 and the Planning 
+    (Listed Buildings and Conservation Areas) Act 1990 empower local 
+    authorities to enforce conditions to ensure compliance with policies, 
+    particularly in conservation areas. To avoid potential fines and 
+    enforcement actions, it's advisable to comply with the council's 
+    directives, seek guidance on alternative options, and consult a 
+    legal professional specializing in property law and planning regulations 
+    for further assistance.</p><br>
+    
+    <h3 style="text-align: center">In the described situation, I would feel 
+    confident acting on the advice provided:</h3><br>`
   ]
 
 var prop_cases_LLM = [
@@ -222,5 +303,67 @@ var prop_cases_LLM = [
         navigating your specific situation effectively.</p><br>
 
       <h3 style="text-align: center">In the described situation, I would feel 
+        confident acting on the advice provided:</h3><br>`,
+
+    `<p>My landlord keeps entering my apartment without any notice. This keeps 
+    happening even after I've asked them to let me know in advance.</p>
+     <p>Please give me legal advice about this, referring to relevant UK 
+     law and sections of the law. </p>
+     <br>
+
+    <h3>Advice</h3>
+    <p>As your legal advisor, it's imperative to address this matter promptly 
+    and in accordance with relevant UK law. The Landlord and Tenant Act 1985, 
+    particularly Section 11, establishes the implied covenant of quiet 
+    enjoyment, which entails your right as a tenant to undisturbed use of the 
+    property. Additionally, the Protection from Eviction Act 1977 safeguards 
+    tenants from unlawful interference by landlords. Your landlord's repeated 
+    entry without notice constitutes a breach of these statutory provisions. 
+    Document each instance meticulously, including dates, times, and any 
+    communication with the landlord regarding the matter. Subsequently, issue 
+    a formal written request to the landlord, emphasizing your rights under 
+    Section 11 of the Landlord and Tenant Act and demanding compliance with 
+    notice requirements. Should the unauthorized entries persist, consider 
+    seeking legal recourse through a solicitor specializing in landlord-tenant 
+    disputes, who can advise you on further steps, potentially including 
+    initiating legal proceedings or filing a complaint with relevant housing 
+    authorities. It's crucial to assert your rights as a tenant and take 
+    appropriate action to rectify this violation of your privacy and tenancy 
+    rights.</p><br>
+    
+    <h3 style="text-align: center">In the described situation, I would feel 
+        confident acting on the advice provided:</h3><br>`,
+
+    `<p>I moved into my new house yesterday, and have found mold in several 
+    rooms, and a rat in the basement! Can I now sue my landlord? Please give 
+    me legal advice on this. I live in the UK. 
+    </p><br>
+
+    <h3>Advice</h3>
+    <p></p><br>
+    <h3 style="text-align: center">In the described situation, I would feel 
+        confident acting on the advice provided:</h3><br>`,
+
+    `<p>The electricity in my apartment is not functioning at the moment, and 
+    yet the landlord has refused to reduce my rent until it comes back online. 
+    What can I do about this? Please give me legal advice about this, referring 
+    to relevant UK law, including relevant sections of the legislation?</p><br>
+
+    <h3>Advice</h3>
+    <p>In the UK, landlords have legal responsibilities under the Landlord and 
+    Tenant Act 1985 and the Housing Act 2004 to ensure rental properties meet 
+    certain standards, including the provision of essential services like 
+    electricity. Section 11 of the Landlord and Tenant Act 1985 imposes an 
+    obligation on landlords to maintain the structure and exterior of the 
+    property, as well as installations for the supply of water, gas, 
+    electricity, sanitation, and heating. Additionally, under the Housing Act 
+    2004, landlords have a duty to ensure that properties are fit for human 
+    habitation, which includes the provision of essential services like 
+    electricity. These legislative provisions establish the legal framework 
+    within which landlords must operate and provide recourse for tenants if 
+    landlords fail to meet their obligations regarding electricity supply 
+    in rental properties.</p><br>
+    
+    <h3 style="text-align: center">In the described situation, I would feel 
         confident acting on the advice provided:</h3><br>`
   ]

@@ -1,0 +1,24 @@
+p{
+    max-width: 100%;
+  }
+
+  .jspsych-content-wrapper{
+    max-width: 70%;
+  }
+  
+  #jspsych-content{
+    text-align: left;
+    padding-bottom: 5%;
+  }
+
+  #jspsych-html-keyboard-response-stimulus{
+    text-align: left;
+  }
+
+  .jspsych-btn{
+    float:center;
+  }
+
+  .jspsych-survey-likert-statement{
+    text-align: center;
+  }
