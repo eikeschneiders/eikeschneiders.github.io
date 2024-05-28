@@ -120,7 +120,7 @@
           anonymous and we cannot track who provided it.</p>`,
         ],
         show_clickable_nav: true,
-        allow_keys: false
+        key_forward: " "
     };
     timeline.push(welcome)
 
@@ -128,7 +128,7 @@
       type: jsPsychInstructions,
       pages: ['By clicking \"I agree\", you affirm that you are at least 18 years of age, which is the minimum age to participate in this study, and that you understand the nature of your participation in this research.<p>If you do not wish to participate, please close this window.'],
       show_clickable_nav: true,
-      allow_keys: false,
+      key_forward: " ",
       button_label_next: "I agree",
       data: {
           Condition: 'REMOVE', // For easier data processing
@@ -147,7 +147,7 @@
         <p>Press any key to begin.</p>`,
         ],
       show_clickable_nav: true,
-      allow_keys: falst
+      key_forward: " "
     };
     timeline.push(instructions)
 
@@ -189,7 +189,7 @@
           rental digger and looks about to 'accidentally' knock the house down 
           without permission.  Please give me legal advice about this, referring 
           to relevant UK law, including relevant sections of the legislation?</p><br>
-
+          
         <h3>Advice</h3>
           <p>In the UK, demolishing a property without proper authorization is 
             illegal under the Town and Country Planning Act 1990, specifically 
