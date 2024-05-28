@@ -32,11 +32,10 @@
     timeline.push(consent)
     timeline.push(instructions)
 
-    var cases_LLM = tax_cases_LLM.concat(plan_cases_LLM, prop_cases_LLM)
-    cases_LLM = jsPsych.randomization.shuffle(cases_LLM)
-
-    var cases_Lawyer = tax_cases_Lawyer.concat(plan_cases_Lawyer, prop_cases_Lawyer)
-    cases_Lawyer = jsPsych.randomization.shuffle(cases_Lawyer)
+    
+    var cases_LLM = jsPsych.randomization.shuffle(tax_cases_LLM.concat(plan_cases_LLM, prop_cases_LLM))
+    var cases_Lawyer = jsPsych.randomization.shuffle(tax_cases_Lawyer.concat(plan_cases_Lawyer, prop_cases_Lawyer))
+    //cases_Lawyer = jsPsych.randomization.shuffle(cases_Lawyer)
 
     var all_cases = jsPsych.randomization.shuffle(cases_LLM.concat(cases_Lawyer));
 
@@ -44,12 +43,21 @@
     // Define the number of cases for each participant
     var num_cases = 2;
 
+    var rnd_id = getRandomInt(1, 10000);  // Generates a random integer between 1 and 100
+    var blinded = ""
+
+    if (rnd_id % 2 == 0) {
+      blinded = "Lawyer Generate";
+    }
+
     for (let i = 0; i < num_cases; i++) {
+      
+
       timeline.push({
         timeline: [{
           type: jsPsychSurveyLikert,
           questions: [{
-            prompt: `<h3>Case ${i+1}</h3> ${all_cases[i]}`,
+            prompt: `<h3>Case ${i+1}, ${blinded}</h3> ${all_cases[i]}`,
             labels: [
               "1: Strongly Disagree",
               "2",
