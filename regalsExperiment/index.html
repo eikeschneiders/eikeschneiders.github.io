@@ -76,7 +76,7 @@
     var cases_Lawyer = tax_cases_Lawyer.concat(plan_cases_Lawyer, prop_cases_Lawyer)
     cases_Lawyer = jsPsych.randomization.shuffle(cases_Lawyer)
 
-    var all_cases = jsPsych.randomization.shuffle(cases_LLM, cases_Lawyer)
+    var all_cases = jsPsych.randomization.shuffle(cases_LLM.concat(cases_Lawyer));
 
     for (let i = 0; i < all_cases.length; i++) {
       timeline.push({
