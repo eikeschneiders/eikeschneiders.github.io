@@ -126,3 +126,4 @@ var debrief = {
       Condition: 'REMOVE', // For easier data processing
       Running: 'Debrief'
   }
+};
