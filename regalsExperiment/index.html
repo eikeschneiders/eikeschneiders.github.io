@@ -76,13 +76,14 @@
     var cases_Lawyer = tax_cases_Lawyer.concat(plan_cases_Lawyer, prop_cases_Lawyer)
     cases_Lawyer = jsPsych.randomization.shuffle(cases_Lawyer)
 
+    var all_cases = jsPsych.randomization.shuffle(cases_LLM, cases_Lawyer)
 
-    for (let i = 0; i < cases_LLM.length; i++) {
+    for (let i = 0; i < all_cases.length; i++) {
       timeline.push({
         timeline: [{
           type: jsPsychSurveyLikert,
           questions: [{
-            prompt: `<h3>Case ${i+1}</h3> ${cases_LLM[i]}`,
+            prompt: `<h3>Case ${i+1}</h3> ${all_cases[i]}`,
             labels: [
               "1: Strongly Disagree",
               "2",
