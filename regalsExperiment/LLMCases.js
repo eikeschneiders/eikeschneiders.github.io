@@ -8,7 +8,7 @@ var tax_cases_LLM = [
        Please give me legal advice about this, referring to relevant UK law?
     </p><br>
 
-    <h3>Advice</h3>
+    <h3>Advice (Note: Tax LLM 1)</h3>
     <p>Under UK law, the responsibility for settling inheritance tax and 
       outstanding debts of a deceased individual typically falls on their 
       estate, managed by the appointed personal representatives. While 
@@ -35,7 +35,7 @@ var tax_cases_LLM = [
       sections of said law?
     </p><br>
 
-    <h3>Advice</h3>
+    <h3>Advice (Note: Tax LLM 2)</h3>
     <p>Nick should be aware of the potential capital gains tax (CGT) 
       implications when selling his apartment in Greenwich, considering the 
       significant increase in its value since purchase. In the UK, CGT 
@@ -66,7 +66,7 @@ var tax_cases_LLM = [
       sections of said law?
     </p><br>
     
-    <h3>Advice</h3>
+    <h3>Advice (Note: Tax LLM 3)</h3>
     <p>In the UK, employees are typically subject to PAYE taxation, with 
       employers deducting income tax and National Insurance contributions 
       from wages. If you've been informed of owing taxes despite your 
@@ -81,7 +81,85 @@ var tax_cases_LLM = [
     </p>
     
     <h3 style="text-align: center">In the described situation, I would feel 
-        confident acting on the advice provided:</h3><br>`
+    confident acting on the advice provided:</h3><br>`,
+
+    `<p>I've been working for a popular fast-food chain in the city on a 
+    zero-hour contract for two years. Yesterday, I was told that I owe 
+    the government a lot of money in taxes, even though my employer said 
+    they were deducting tax from my pay during my employment term. I'm 
+    struggling to pay rent as it is and cannot afford the bill. Please 
+    give me legal advice about this, referring to relevant UK law and 
+    sections of said law?
+    </p><br>
+
+    <h3>Advice (Note: Tax LLM 4)</h3>
+    <p>In the UK, employees are typically subject to PAYE taxation, with 
+    employers deducting income tax and National Insurance contributions 
+    from wages. If you've been informed of owing taxes despite your 
+    employer deducting tax, review your payslips and P60 for errors and 
+    contact HM Revenue & Customs (HMRC) for clarification. If your 
+    employer has made mistakes, they may be liable for any shortfall, and 
+    you could be entitled to reimbursement of overpaid taxes. 
+    Alternatively, if additional income or factors contribute to the owed 
+    taxes, you may need to arrange a payment plan with HMRC. Seeking 
+    advice from a tax advisor or lawyer is recommended to navigate the 
+    process and ensure your rights are upheld under UK tax laws.
+    </p>
+
+    <h3 style="text-align: center">In the described situation, I would feel 
+    confident acting on the advice provided:</h3><br>`,
+
+    `<p>I've been working for a popular fast-food chain in the city on a 
+    zero-hour contract for two years. Yesterday, I was told that I owe 
+    the government a lot of money in taxes, even though my employer said 
+    they were deducting tax from my pay during my employment term. I'm 
+    struggling to pay rent as it is and cannot afford the bill. Please 
+    give me legal advice about this, referring to relevant UK law and 
+    sections of said law?
+    </p><br>
+
+    <h3>Advice (Note: Tax LLM 5)</h3>
+    <p>In the UK, employees are typically subject to PAYE taxation, with 
+    employers deducting income tax and National Insurance contributions 
+    from wages. If you've been informed of owing taxes despite your 
+    employer deducting tax, review your payslips and P60 for errors and 
+    contact HM Revenue & Customs (HMRC) for clarification. If your 
+    employer has made mistakes, they may be liable for any shortfall, and 
+    you could be entitled to reimbursement of overpaid taxes. 
+    Alternatively, if additional income or factors contribute to the owed 
+    taxes, you may need to arrange a payment plan with HMRC. Seeking 
+    advice from a tax advisor or lawyer is recommended to navigate the 
+    process and ensure your rights are upheld under UK tax laws.
+    </p>
+
+    <h3 style="text-align: center">In the described situation, I would feel 
+    confident acting on the advice provided:</h3><br>`,
+
+    `<p>I've been working for a popular fast-food chain in the city on a 
+    zero-hour contract for two years. Yesterday, I was told that I owe 
+    the government a lot of money in taxes, even though my employer said 
+    they were deducting tax from my pay during my employment term. I'm 
+    struggling to pay rent as it is and cannot afford the bill. Please 
+    give me legal advice about this, referring to relevant UK law and 
+    sections of said law?
+    </p><br>
+
+    <h3>Advice (Note: Tax LLM 6)</h3>
+    <p>In the UK, employees are typically subject to PAYE taxation, with 
+    employers deducting income tax and National Insurance contributions 
+    from wages. If you've been informed of owing taxes despite your 
+    employer deducting tax, review your payslips and P60 for errors and 
+    contact HM Revenue & Customs (HMRC) for clarification. If your 
+    employer has made mistakes, they may be liable for any shortfall, and 
+    you could be entitled to reimbursement of overpaid taxes. 
+    Alternatively, if additional income or factors contribute to the owed 
+    taxes, you may need to arrange a payment plan with HMRC. Seeking 
+    advice from a tax advisor or lawyer is recommended to navigate the 
+    process and ensure your rights are upheld under UK tax laws.
+    </p>
+
+    <h3 style="text-align: center">In the described situation, I would feel 
+    confident acting on the advice provided:</h3><br>`
     ]
 
 var plan_cases_LLM = [
@@ -91,7 +169,7 @@ var plan_cases_LLM = [
       without permission.  Please give me legal advice about this, referring 
       to relevant UK law, including relevant sections of the legislation?</p><br>
       
-    <h3>Advice</h3>
+    <h3>Advice (Note: Plan LLM 1)</h3>
       <p>In the UK, demolishing a property without proper authorization is 
         illegal under the Town and Country Planning Act 1990, specifically 
         Section 196, which prohibits such actions in conservation areas 
@@ -114,7 +192,7 @@ var plan_cases_LLM = [
       referring to relevant UK law?
     </p><br>
     
-    <h3>Advice</h3>
+    <h3>Advice (Note: Plan LLM 2)</h3>
       <p>As a lawyer, I must emphasize the importance of proceeding with 
         caution when considering expansion onto public land in the UK. 
         The Town and Country Planning Act 1990, along with associated 
@@ -139,7 +217,7 @@ var plan_cases_LLM = [
       relevant UK law?
       </p><br>
     
-    <h3>Advice</h3>
+    <h3>Advice (Note: Plan LLM 3)</h3>
       <p>In the UK, the need for planning permission to construct a 
         basement beneath your property depends on various factors, 
         including the project's scale, impact on neighboring properties, 
@@ -164,7 +242,7 @@ var plan_cases_LLM = [
     Please give me legal advice about this, referring to relevant 
     sections of UK law?</p><br>
 
-    <h3>Advice</h3>
+    <h3>Advice (Note: Plan LLM 4)</h3>
     <p>The situation you've described raises concerns regarding potential 
     breaches of UK planning laws, particularly those related to 
     unauthorized development on greenbelt land. Under the Town and Country 
@@ -193,7 +271,7 @@ var plan_cases_LLM = [
     give me legal advice about this, referring to relevant sections of 
     UK law?</p><br>
 
-    <h3>Advice</h3>
+    <h3>Advice (Note: Plan LLM 5)</h3>
     <p>In the UK, the lack of planning permission for a home office built 
     without proper authorization could indeed affect the sale of your property, 
     potentially leading to legal complications under the Town and Country 
@@ -219,7 +297,7 @@ var plan_cases_LLM = [
     not comply with local regulations. Please give me legal advice about this, 
     referring to relevant sections of UK law?</p><br>
 
-    <h3>Advice</h3>
+    <h3>Advice (Note: Plan LLM 6)</h3>
     <p>In the context of UK property law, it's essential to adhere to local 
     planning regulations enforced by the council, as failure to do so can 
     result in legal consequences. The rejection of planning permission and 
@@ -246,7 +324,7 @@ var prop_cases_LLM = [
   <p>Advise Max on how UK law applies here. Include references to relevant 
     legislation.</p><br>
   
-  <h3>Advice</h3>
+  <h3>Advice (Note: Prop LLM 1)</h3>
   <p>Under UK law, particularly the Landlord and Tenant Act 1985 and the 
     Defective Premises Act 1972, Max likely has a strong case against his 
     landlord for negligence regarding the faulty wall in his apartment. 
@@ -267,7 +345,7 @@ var prop_cases_LLM = [
     moved in. Could you advise me about the legality of this in UK law, 
     with reference to relevant legislation?</p><br>
 
-    <h3>Advice</h3>
+    <h3>Advice (Note: Prop LLM 2)</h3>
     <p>In the UK, the legality of pet ownership in rental properties 
       hinges on the terms of the tenancy agreement and relevant housing 
       legislation. While landlords can include "no pets" clauses, previous 
@@ -290,7 +368,7 @@ var prop_cases_LLM = [
       <p>Can you give me advice about this situation in UK law, referencing 
         relevant laws I can use against him? </p><br>
 
-      <h3>Advice</h3>
+      <h3>Advice (Note: Prop LLM 3)</h3>
       <p>In the UK, landlords are generally limited by law to requesting 
         a security deposit equivalent to one to two months' rent, and 
         demanding four months may be excessive and potentially unlawful 
@@ -311,7 +389,7 @@ var prop_cases_LLM = [
      law and sections of the law. </p>
      <br>
 
-    <h3>Advice</h3>
+    <h3>Advice (Note: Prop LLM 4)</h3>
     <p>As your legal advisor, it's imperative to address this matter promptly 
     and in accordance with relevant UK law. The Landlord and Tenant Act 1985, 
     particularly Section 11, establishes the implied covenant of quiet 
@@ -339,7 +417,7 @@ var prop_cases_LLM = [
     me legal advice on this. I live in the UK. 
     </p><br>
 
-    <h3>Advice</h3>
+    <h3>Advice< (Note: Prop LLM 5)/h3>
     <p></p><br>
     <h3 style="text-align: center">In the described situation, I would feel 
         confident acting on the advice provided:</h3><br>`,
@@ -349,7 +427,7 @@ var prop_cases_LLM = [
     What can I do about this? Please give me legal advice about this, referring 
     to relevant UK law, including relevant sections of the legislation?</p><br>
 
-    <h3>Advice</h3>
+    <h3>Advice (Note: Prop LLM 6)</h3>
     <p>In the UK, landlords have legal responsibilities under the Landlord and 
     Tenant Act 1985 and the Housing Act 2004 to ensure rental properties meet 
     certain standards, including the provision of essential services like 
