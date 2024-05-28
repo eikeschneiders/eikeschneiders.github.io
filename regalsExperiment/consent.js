@@ -109,7 +109,8 @@ var debrief = {
   type: jsPsychInstructions,
   pages:
       [
-          '<p><img src="images/tas.png" width="254px" height="55px" style="float:left"></img>'
+          '<p><img src="img/tas.png" width="30%" style="float:left"></img>' +
+          'Debrief with some relevant info...'
       ],
   show_clickable_nav: false,
   data: {
@@ -117,3 +118,5 @@ var debrief = {
       Running: 'Debrief'
   }
 };
+
+consent.timeline.push(debrief)
