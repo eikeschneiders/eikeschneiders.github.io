@@ -4,7 +4,7 @@ var consentQuestion = {
     show_clickable_nav: true,
     key_forward: " ",
     button_label_next: "I agree",
-    allow_backward: true,
+    allow_backward: false,
     data: {
         Condition: 'REMOVE', // For easier data processing
         Running: 'Consent'

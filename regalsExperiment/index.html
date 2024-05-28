@@ -12,7 +12,7 @@
     <script src="https://unpkg.com/@jspsych/plugin-instructions@1.1.4"></script>
 
     <script src="welcome.js"></script>
-    <script src="consent.js"></script>
+    
 
 
     <link href="jspsych/jspsych.css" rel="stylesheet" type="text/css" />
@@ -54,7 +54,7 @@
 
     
     timeline.push(welcome)
-    timeline.push(consentQuestion)
+    
 
 
     var instructions = {
@@ -67,7 +67,7 @@
         ],
       show_clickable_nav: true,
       key_forward: " ",
-      allow_backward: true
+      allow_backward: false
     };
     timeline.push(instructions)
 
