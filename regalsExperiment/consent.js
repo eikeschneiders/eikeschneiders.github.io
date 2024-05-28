@@ -85,7 +85,12 @@ var PIS = {
 
 var consentQuestion = {
   type: jsPsychInstructions,
-  pages: ['By clicking \"I agree\", you affirm that you are at least 18 years of age, which is the minimum age to participate in this study, and that you understand the nature of your participation in this research.<p>If you do not wish to participate, please close this window.'],
+  pages: [
+    'By clicking \"I agree\", you affirm that you are at least 18 years of age, ' +
+    'which is the minimum age to participate in this study, and that you understand ' +
+    'the nature of your participation in this research.<p>If you do not wish to ' +
+    'participate, please close this window.'
+  ],
   show_clickable_nav: true,
   key_forward: " ",
   button_label_next: "I agree",
@@ -104,19 +109,7 @@ var debrief = {
   type: jsPsychInstructions,
   pages:
       [
-          '<p><img src="images/tas.png" width="254px" height="55px" style="float:left"></img>' +
-
-          '<br><br><p style = "left:3%; text-align: left;"><b>Guessing and memory<br>Debriefing statement </b><i>(written) </i>(Version no 1, 20/10/19)<br><b>ERGO ID: 52932</b>' +
-
-          '<br><br>The aim of this research was to explore...' +
-
-          '<br><br>Your data will...' +
-
-          '<br><br><b>Important:</b> Please do not share the information we provide in...' +
-
-          '<br><br>Signature: E.SCHNEIDERS, Date 28/05/24 <br> Name: Dr Eike Schneiders' +
-
-          '<br><br>If you have questions about your rights as a participant in this research....'
+          '<p><img src="images/tas.png" width="254px" height="55px" style="float:left"></img>'
       ],
   show_clickable_nav: false,
   data: {
