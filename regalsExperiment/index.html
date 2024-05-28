@@ -13,6 +13,7 @@
 
     <script src="welcome.js"></script>
     <script src="LLMCases.js"></script>
+    <script src="lawyerCases.js"></script>
 
     <link href="jspsych/jspsych.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
@@ -71,7 +72,9 @@
 
     var cases_LLM = tax_cases_LLM.concat(plan_cases_LLM, prop_cases_LLM)
     cases_LLM = jsPsych.randomization.shuffle(cases_LLM)
-  
+
+    var cases_Lawyer = tax_cases_Lawyer.concat(plan_cases_Lawyer, prop_cases_Lawyer)
+    cases_Lawyer = jsPsych.randomization.shuffle(cases_Lawyer)
 
 
     for (let i = 0; i < cases_LLM.length; i++) {
