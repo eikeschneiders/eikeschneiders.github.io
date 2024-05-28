@@ -53,11 +53,13 @@
     participant_LLM.push(...plan_cases_LLM.slice(0,3));
     participant_LLM.push(...prop_cases_LLM.slice(0,3));
     
-    participant_LLM.push(...tax_cases_Lawyer.slice(0,3));
-    participant_LLM.push(...plan_cases_Lawyer.slice(0,3));
-    participant_LLM.push(...prop_cases_Lawyer.slice(0,3));
+    var participant_Lawyer = []
+    participant_Lawyer.push(...tax_cases_Lawyer.slice(0,3));
+    participant_Lawyer.push(...plan_cases_Lawyer.slice(0,3));
+    participant_Lawyer.push(...prop_cases_Lawyer.slice(0,3));
 
-    jsPsych.randomization.shuffle(participant_LLM)
+    //jsPsych.randomization.shuffle(participant_LLM)
+    var all_cases = jsPsych.randomization.shuffle(participant_LLM.concat(participant_Lawyer));
 
 
     //var cases_Lawyer = jsPsych.randomization.shuffle(tax_cases_Lawyer.concat(plan_cases_Lawyer, prop_cases_Lawyer))
