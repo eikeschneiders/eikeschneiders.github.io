@@ -49,7 +49,7 @@
     var blinded = ""
 
     if (rnd_id % 2 == 0) {
-      blinded = "This advice has been written by a lawyer";
+      blinded = ": This advice has been written by a lawyer";
     }
 
     for (let i = 0; i < num_cases; i++) {
@@ -59,7 +59,7 @@
         timeline: [{
           type: jsPsychSurveyLikert,
           questions: [{
-            prompt: `<h3>Case ${i+1}, ${blinded}</h3> ${all_cases[i]}`,
+            prompt: `<h3>Case ${i+1} ${blinded}</h3> ${all_cases[i]}`,
             labels: [
               "1: Strongly Disagree",
               "2",
