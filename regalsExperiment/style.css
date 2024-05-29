@@ -22,3 +22,9 @@ p{
   .jspsych-survey-likert-statement{
     text-align: center;
   }
+
+  .Case{
+    background: lightgreen;
+    padding: 10px;
+    border-radius: 15px;
+  }
