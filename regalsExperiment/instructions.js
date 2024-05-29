@@ -11,3 +11,4 @@ var instructions = {
     show_clickable_nav: true,
     allow_backward: false
   };
+

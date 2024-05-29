@@ -8,7 +8,7 @@ if (document.location.host) { // returns your host or null
 };
 
 var prolific = {
-    type: 'survey-text-req',
+    type: jsPsychSurveyText,//'survey-text-req',
     questions: [
         { prompt: "Please enter your Prolific ID below: ", required: true, placeholder: '' }],
     on_finish: function (data) {
@@ -25,7 +25,7 @@ var prolific = {
 };
 
 var browser = {
-    type: 'survey-multi-choice',
+    type: jsPsychSurveyMultiChoice,//'survey-multi-choice',
     questions: [{
         prompt: "We would now like you to answer a few quick questions.<p> The study advert stated that you should run the study in either <b> Chrome or Microsoft Edge, using a desktop or laptop PC (not a phone or tablet)</b>. We cannot guarantee that the study will run properly in other browsers or on phones/tablets. Please do not attempt to use a different browser or a phone or tablet.<br>Please tell us which browser you are using to view this study.",
         options: ["Chrome", "Microsoft Edge", "Other"],
@@ -49,7 +49,7 @@ var browser = {
 */
 
 var browserMessage = {
-    type: 'survey-text-req',
+    type: jsPsychSurveyText,//'survey-text-req',
     questions: [
         { prompt: "Which browser are you using to view this study?", required: true, placeholder: '' }],
     on_finish: function (data) {
@@ -73,7 +73,7 @@ var browser_if_chunk = {
 
 // get participant's age and add it to the datafile
 var age = {
-    type: 'survey-text-req',
+    type: jsPsychSurveyText,//'survey-text-req',
     questions: [{
         prompt: "Please enter your age: ",
         required: true,
@@ -92,7 +92,7 @@ var age = {
 
 // get participant's gender and add it to the datafile
 var gender = {
-    type: 'survey-multi-choice',
+    type: jsPsychSurveyMultiChoice,//'survey-multi-choice',
     questions: [{
         prompt: "Please enter your gender.",
         options: ["Male", "Female", "I don't want to say"],
@@ -112,7 +112,7 @@ var gender = {
 
 // get participant's English language capacity and add it to the datafile
 var english = {
-    type: 'survey-multi-choice',
+    type: jsPsychSurveyMultiChoice,//'survey-multi-choice',
     questions: [{
         prompt: "Do you speak English fluently?",
         options: ["Yes", "No"],
@@ -132,7 +132,7 @@ var english = {
 
 var botCheck = {
 
-    type: 'html-keyboard-response',
+    type: jsPsychHtmlKeyboardResponse, //'html-keyboard-response',
     stimulus: 'We need to make sure that real people complete this study. To check that you are a real person, please tell us which letter in the grid below is presented in <span style="color:red"><b>red</b></span>. Please press the corresponding letter on your keyboard.<p><img src="images/botcheck.png" width="200px" height="200px">',
     choices: "ALL_KEYS",
     data: {
@@ -155,7 +155,7 @@ var botCheck = {
 };
 
 var startExp = {
-    type: 'instructions',
+    type: jsPsychInstructions,//'instructions',
     pages: [
         'Thanks for answering those questions. You are now ready to start the study. When you click \'Next\', you will receive a warning message that the experiment will switch to full screen. Before you begin, please:<br>' +
         '<ul> <li> Turn off music, cell phones and other devices that might be distracting.</li>' +
