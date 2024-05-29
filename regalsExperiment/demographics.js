@@ -12,9 +12,8 @@ var prolific = {
     questions: [
         { prompt: "Please enter your Prolific ID below: ", required: true, placeholder: '' }],
     on_finish: function (data) {
-        //var responses = JSON.parse(data.responses);
-        //var prolific_ID = responses.Q0;
-        var prolific_ID = data.responses.Q0
+        var responses = JSON.parse(data.responses);
+        var prolific_ID = responses.Q0;
         jsPsych.data.addProperties({
             prolific_ID: prolific_ID
         });
