@@ -10,7 +10,7 @@ if (document.location.host) { // returns your host or null
 var prolific = {
     type: 'survey-text-req',
     questions: [
-        { prompt: "Please enter your Student/Prolific ID below: ", required: true, placeholder: '' }],
+        { prompt: "Please enter your Prolific ID below: ", required: true, placeholder: '' }],
     on_finish: function (data) {
         var responses = JSON.parse(data.responses);
         var prolific_ID = responses.Q0;
@@ -43,9 +43,10 @@ var browser = {
     }
 };
 
-jsPsych.data.addProperties({
+/*jsPsych.data.addProperties({
     OtherBrowser: ''
 });
+*/
 
 var browserMessage = {
     type: 'survey-text-req',
