@@ -134,7 +134,7 @@ var botCheck = {
 
     type: 'html-keyboard-response',
     stimulus: 'We need to make sure that real people complete this study. To check that you are a real person, please tell us which letter in the grid below is presented in <span style="color:red"><b>red</b></span>. Please press the corresponding letter on your keyboard.<p><img src="images/botcheck.png" width="200px" height="200px">',
-    choices: jsPsych.ALL_KEYS,
+    choices: "ALL_KEYS",
     data: {
         Condition: 'REMOVE', // For easier data processing
         Running: 'BotCheck question'
