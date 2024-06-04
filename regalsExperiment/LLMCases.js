@@ -6,7 +6,7 @@ var traffic_cases_LLM = [
     relevant UK laws and sections of legislation?
     </p><br>
 
-    <h3>Advice (Note: Tax LLM 1)</h3>
+    <h3>Advice (Note: Traffic LLM 1)</h3>
     <p>Your son is in significant legal trouble for driving without a 
     license, which he had earned but apparently did not possess at the 
     time, and for evading police, which can be charged under the Road 
@@ -30,7 +30,7 @@ var traffic_cases_LLM = [
     of legislation? 
     </p><br>
 
-    <h3>Advice (Note: Tax LLM 2)</h3>
+    <h3>Advice (Note: Traffic LLM 2)</h3>
     <p>Given your situation, under UK law, running a red light, speeding, 
     and reckless driving are serious offences that could result in fines, 
     penalty points, or even disqualification from driving. However, since 
@@ -55,7 +55,7 @@ var traffic_cases_LLM = [
     give me some advice about my legal situation, considering relevant UK laws?
     </p><br>
     
-    <h3>Advice (Note: Tax LLM 3)</h3>
+    <h3>Advice (Note: Traffic LLM 3)</h3>
     <p>As a lawyer, I would advise that while private citizens in the UK do 
     not have the legal authority to issue official parking infringement 
     notices, they may express concerns about parking issues to the relevant 
@@ -82,7 +82,7 @@ var traffic_cases_LLM = [
     situation, considering relevant UK laws?
     </p><br>
 
-    <h3>Advice (Note: Tax LLM 4)</h3>
+    <h3>Advice (Note: Traffic LLM 4)</h3>
     <p>Under Section 5(1)(a) of the Road Traffic Offenses law in the UK, 
     it is an offense to use a vehicle in a manner that causes unnecessary 
     obstruction of the road. In your father's case, being stuck on a speed 
@@ -109,7 +109,7 @@ var traffic_cases_LLM = [
     considering relevant UK laws?
     </p><br>
 
-    <h3>Advice (Note: Tax LLM 5)</h3>
+    <h3>Advice (Note: Traffic LLM 5)</h3>
     <p>Under UK law, particularly the Road Traffic Act 1988, all drivers 
     involved in an accident are required to stop, exchange details, and 
     report the incident to the police if there is injury or significant 
@@ -135,7 +135,7 @@ var traffic_cases_LLM = [
     UK laws? 
     </p><br>
 
-    <h3>Advice (Note: Tax LLM 6)</h3>
+    <h3>Advice (Note: Traffic LLM 6)</h3>
     <p>Avoiding payment of a traffic fine for two years can have significant 
     legal and financial consequences in the UK. Under the Road Traffic 
     Offenders Act 1988, failure to pay fines can result in additional 
