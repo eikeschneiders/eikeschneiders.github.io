@@ -1,161 +1,151 @@
-var tax_cases_LLM = [
-    `<p>My grandfather recently passed away and in their will named their 
-      long-term partner as the person to inherit everything. His house, 
-      money, clothes, etc. No issue. BUT he named his children as the 
-      people to pay all debts and the inheritance tax. Is that legal? 
-      Even though they aren't actually inheriting anything at all they 
-      have been given a bill from the solicitors for the inheritance tax.
-       Please give me legal advice about this, referring to relevant UK law?
+var traffic_cases_LLM = [
+    `<p>My son was caught driving without a license, despite having earned 
+    his license last year. When he was pulled over by the patrol, he sped 
+    off rather than answering their questions. How much trouble is he in? 
+    Can you give me some advice about his legal situation, considering 
+    relevant UK laws and sections of legislation?
     </p><br>
 
-    <h3>Advice (Note: Tax LLM 1)</h3>
-    <p>Under UK law, the responsibility for settling inheritance tax and 
-      outstanding debts of a deceased individual typically falls on their 
-      estate, managed by the appointed personal representatives. While 
-      beneficiaries are generally not personally liable for these expenses, 
-      a will can specify otherwise. If your grandfather's will designates 
-      his long-term partner's children to pay his partner's debts and 
-      inheritance tax, it may create a legal obligation depending on the 
-      wording and circumstances. However, this obligation typically 
-      extends only to the extent of assets within the estate. If the estate 
-      lacks sufficient assets to cover these expenses, the beneficiaries 
-      would not typically be personally liable unless they have agreed to 
-      be so in writing. Consulting with a probate lawyer to review the 
-      will, assess its enforceability, and navigate the legal implications 
-      is advisable in this situation.
+    <h3>Advice (Note: Traffic LLM 1)</h3>
+    <p>Your son is in significant legal trouble for driving without a 
+    license, which he had earned but apparently did not possess at the 
+    time, and for evading police, which can be charged under the Road 
+    Traffic Act 1988. Driving without a license can lead to a fine up 
+    to £1,000 and penalty points, while failing to stop for police and 
+    dangerous driving (Section 2 of the Road Traffic Act 1988) can 
+    result in severe penalties, including an unlimited fine, driving 
+    ban, and up to 2 years in prison. It's crucial to engage a solicitor 
+    specializing in motoring offences to mitigate the consequences, 
+    gather evidence, and ensure compliance with all legal requirements.
     </p>
 
     <h3 style="text-align: center">In the described situation, I would feel 
         confident acting on the advice provided:</h3><br>`,
 
-    `<p>Nick is selling his apartment in Greenwich and is concerned about 
-      the potential for a significant capital gains tax. When he purchased 
-      the property, it was worth half of what it is now worth. Please give 
-      Nick legal advice about this, referring to relevant UK law and 
-      sections of said law?
+    `<p>I recently ran a red light while rushing to get my mother-in-law 
+    to the hospital, due to a medical emergency. At the time, I was 
+    driving very fast and likely broke various traffic rules including 
+    speeding and dodging in and out of lanes. Can you give me some advice 
+    about my legal situation, considering relevant UK laws and sections 
+    of legislation? 
     </p><br>
 
-    <h3>Advice (Note: Tax LLM 2)</h3>
-    <p>Nick should be aware of the potential capital gains tax (CGT) 
-      implications when selling his apartment in Greenwich, considering the 
-      significant increase in its value since purchase. In the UK, CGT 
-      applies to the disposal of assets that have appreciated in value, 
-      including residential property. While the current CGT rates range 
-      from 18% to 28%, individuals benefit from an annual exempt amount 
-      (£12,300 for the tax year 2021/2022), with various reliefs and 
-      exemptions available to help reduce the tax liability. These include 
-      Principal Private Residence Relief (PPR) if the property was Nick's 
-      main residence, Lettings Relief if he let out the property, and other 
-      potential reliefs depending on his circumstances. Seeking advice from 
-      a qualified tax advisor or solicitor specializing in property 
-      transactions is essential to accurately assess Nick's CGT liability 
-      and explore available options to minimize it. Keeping thorough records 
-      of the property's purchase price and any improvements made is crucial 
-      for precise calculation.
+    <h3>Advice (Note: Traffic LLM 2)</h3>
+    <p>Given your situation, under UK law, running a red light, speeding, 
+    and reckless driving are serious offences that could result in fines, 
+    penalty points, or even disqualification from driving. However, since 
+    you were responding to a medical emergency, this could be considered 
+    a mitigating circumstance. Under Section 87 of the Road Traffic 
+    Regulation Act 1984, emergency situations can be taken into account, 
+    potentially reducing the severity of the penalties. It's advisable 
+    to collect evidence of the medical emergency, such as hospital records, 
+    and consult with a solicitor who can present this context to the 
+    authorities or court, emphasizing the necessity and urgency of your 
+    actions to seek leniency.
     </p>
 
     <h3 style="text-align: center">In the described situation, I would feel 
         confident acting on the advice provided:</h3><br>`,
 
-    `<p>I've been working for a popular fast-food chain in the city on a 
-      zero-hour contract for two years. Yesterday, I was told that I owe 
-      the government a lot of money in taxes, even though my employer said 
-      they were deducting tax from my pay during my employment term. I'm 
-      struggling to pay rent as it is and cannot afford the bill. Please 
-      give me legal advice about this, referring to relevant UK law and 
-      sections of said law?
+    `<p>The neighbours on our street are going around sticking ‘parking 
+    infringement notices’ to cars, even though they are not police or traffic 
+    wardens. At times, they have stuck these on cars that were breaking 
+    the law, at other times, it seems like the car was just in their way 
+    but parked legally. What can be done about their behaviour? Can you 
+    give me some advice about my legal situation, considering relevant UK laws?
     </p><br>
     
-    <h3>Advice (Note: Tax LLM 3)</h3>
-    <p>In the UK, employees are typically subject to PAYE taxation, with 
-      employers deducting income tax and National Insurance contributions 
-      from wages. If you've been informed of owing taxes despite your 
-      employer deducting tax, review your payslips and P60 for errors and 
-      contact HM Revenue & Customs (HMRC) for clarification. If your 
-      employer has made mistakes, they may be liable for any shortfall, and 
-      you could be entitled to reimbursement of overpaid taxes. 
-      Alternatively, if additional income or factors contribute to the owed 
-      taxes, you may need to arrange a payment plan with HMRC. Seeking 
-      advice from a tax advisor or lawyer is recommended to navigate the 
-      process and ensure your rights are upheld under UK tax laws.
+    <h3>Advice (Note: Traffic LLM 3)</h3>
+    <p>As a lawyer, I would advise that while private citizens in the UK do 
+    not have the legal authority to issue official parking infringement 
+    notices, they may express concerns about parking issues to the relevant 
+    authorities. Under the Protection from Harassment Act 1997, their 
+    actions could be considered harassment if they cause alarm or distress, 
+    particularly if notices are placed on legally parked vehicles. 
+    Additionally, misrepresenting the notices as official could constitute 
+    an offense under the Fraud Act 2006, specifically under sections relating 
+    to false representation. You may consider discussing the issue directly 
+    with your neighbors to resolve the matter amicably, or alternatively, 
+    report the behavior to the local council or police if it persists, 
+    providing evidence of the notices and their impact.
     </p>
     
     <h3 style="text-align: center">In the described situation, I would feel 
     confident acting on the advice provided:</h3><br>`,
 
-    `<p>I've been working for a popular fast-food chain in the city on a 
-    zero-hour contract for two years. Yesterday, I was told that I owe 
-    the government a lot of money in taxes, even though my employer said 
-    they were deducting tax from my pay during my employment term. I'm 
-    struggling to pay rent as it is and cannot afford the bill. Please 
-    give me legal advice about this, referring to relevant UK law and 
-    sections of said law?
+    `<p>My father got a ticket saying he broke Section 5(1)(a) of the Road 
+    Traffic Offenses law. What happened was he rode over a speed bump and 
+    got stuck in a carriageway, preventing cars from going past him. An 
+    angry driver came over to him and started banging on his windscreen, 
+    threatening to call the police. My father ran away from this angry man 
+    before the police arrived. Can you give me some advice about my legal 
+    situation, considering relevant UK laws?
     </p><br>
 
-    <h3>Advice (Note: Tax LLM 4)</h3>
-    <p>In the UK, employees are typically subject to PAYE taxation, with 
-    employers deducting income tax and National Insurance contributions 
-    from wages. If you've been informed of owing taxes despite your 
-    employer deducting tax, review your payslips and P60 for errors and 
-    contact HM Revenue & Customs (HMRC) for clarification. If your 
-    employer has made mistakes, they may be liable for any shortfall, and 
-    you could be entitled to reimbursement of overpaid taxes. 
-    Alternatively, if additional income or factors contribute to the owed 
-    taxes, you may need to arrange a payment plan with HMRC. Seeking 
-    advice from a tax advisor or lawyer is recommended to navigate the 
-    process and ensure your rights are upheld under UK tax laws.
+    <h3>Advice (Note: Traffic LLM 4)</h3>
+    <p>Under Section 5(1)(a) of the Road Traffic Offenses law in the UK, 
+    it is an offense to use a vehicle in a manner that causes unnecessary 
+    obstruction of the road. In your father's case, being stuck on a speed 
+    bump and blocking the carriageway could be seen as such an obstruction. 
+    However, it is also important to note that he fled the scene due to 
+    fear for his safety from the aggressive driver. This context could be 
+    relevant in his defense, as it demonstrates a potential threat that 
+    prompted his departure. It is advisable to gather any available 
+    evidence, such as witness statements or CCTV footage, that supports 
+    his account of the events, and to consult with a solicitor who can 
+    help argue that his actions were a response to imminent danger rather 
+    than a willful obstruction.
     </p>
 
     <h3 style="text-align: center">In the described situation, I would feel 
     confident acting on the advice provided:</h3><br>`,
 
-    `<p>I've been working for a popular fast-food chain in the city on a 
-    zero-hour contract for two years. Yesterday, I was told that I owe 
-    the government a lot of money in taxes, even though my employer said 
-    they were deducting tax from my pay during my employment term. I'm 
-    struggling to pay rent as it is and cannot afford the bill. Please 
-    give me legal advice about this, referring to relevant UK law and 
-    sections of said law?
+    `<p>Last week I had a minor accident with a car near a major roundabout 
+    in town. When we were out of the car, the other driver admitted they 
+    were at fault. We agreed that there had been so little damage that we 
+    would not even go through insurance, so we did not exchange details. 
+    Now, I’ve got a letter from the police saying I’m at fault for the 
+    accident. Can you give me some advice about my legal situation, 
+    considering relevant UK laws?
     </p><br>
 
-    <h3>Advice (Note: Tax LLM 5)</h3>
-    <p>In the UK, employees are typically subject to PAYE taxation, with 
-    employers deducting income tax and National Insurance contributions 
-    from wages. If you've been informed of owing taxes despite your 
-    employer deducting tax, review your payslips and P60 for errors and 
-    contact HM Revenue & Customs (HMRC) for clarification. If your 
-    employer has made mistakes, they may be liable for any shortfall, and 
-    you could be entitled to reimbursement of overpaid taxes. 
-    Alternatively, if additional income or factors contribute to the owed 
-    taxes, you may need to arrange a payment plan with HMRC. Seeking 
-    advice from a tax advisor or lawyer is recommended to navigate the 
-    process and ensure your rights are upheld under UK tax laws.
+    <h3>Advice (Note: Traffic LLM 5)</h3>
+    <p>Under UK law, particularly the Road Traffic Act 1988, all drivers 
+    involved in an accident are required to stop, exchange details, and 
+    report the incident to the police if there is injury or significant 
+    damage. Failing to do so may result in penalties. Although the other 
+    driver initially admitted fault and you both decided against involving 
+    insurance, this informal agreement does not negate the legal obligation 
+    to report the incident. Receiving a police letter indicating fault 
+    suggests that the other driver might have reported the accident or 
+    there is other evidence implicating you. It is crucial to seek legal 
+    advice immediately, provide any evidence or witnesses to support your 
+    version of events, and cooperate fully with the police investigation 
+    to mitigate any potential penalties.
     </p>
 
     <h3 style="text-align: center">In the described situation, I would feel 
     confident acting on the advice provided:</h3><br>`,
 
-    `<p>I've been working for a popular fast-food chain in the city on a 
-    zero-hour contract for two years. Yesterday, I was told that I owe 
-    the government a lot of money in taxes, even though my employer said 
-    they were deducting tax from my pay during my employment term. I'm 
-    struggling to pay rent as it is and cannot afford the bill. Please 
-    give me legal advice about this, referring to relevant UK law and 
-    sections of said law?
+    `<p>I have avoided paying a traffic fine for two years, and suddenly 
+    this occurred to me when I was renewing my car insurance. This letter 
+    has been sitting at the bottom of my drawer, and I am basically scared 
+    to check how much it is now. Will this affect my car insurance? Can 
+    you give me some advice about my legal situation, considering relevant 
+    UK laws? 
     </p><br>
 
-    <h3>Advice (Note: Tax LLM 6)</h3>
-    <p>In the UK, employees are typically subject to PAYE taxation, with 
-    employers deducting income tax and National Insurance contributions 
-    from wages. If you've been informed of owing taxes despite your 
-    employer deducting tax, review your payslips and P60 for errors and 
-    contact HM Revenue & Customs (HMRC) for clarification. If your 
-    employer has made mistakes, they may be liable for any shortfall, and 
-    you could be entitled to reimbursement of overpaid taxes. 
-    Alternatively, if additional income or factors contribute to the owed 
-    taxes, you may need to arrange a payment plan with HMRC. Seeking 
-    advice from a tax advisor or lawyer is recommended to navigate the 
-    process and ensure your rights are upheld under UK tax laws.
+    <h3>Advice (Note: Traffic LLM 6)</h3>
+    <p>Avoiding payment of a traffic fine for two years can have significant 
+    legal and financial consequences in the UK. Under the Road Traffic 
+    Offenders Act 1988, failure to pay fines can result in additional 
+    penalties, including increased fines and possible court action. This 
+    outstanding fine is likely to appear on your record and could affect 
+    your car insurance premiums, as insurers may view unpaid fines as 
+    indicative of higher risk behavior. I recommend immediately contacting 
+    the issuing authority to settle the fine and discuss any potential 
+    additional charges. Addressing this promptly can mitigate further 
+    legal complications and help in maintaining favorable insurance terms. 
     </p>
 
     <h3 style="text-align: center">In the described situation, I would feel 

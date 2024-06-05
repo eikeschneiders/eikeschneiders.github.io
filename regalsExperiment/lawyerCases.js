@@ -1,27 +1,27 @@
-var tax_cases_Lawyer = [
-    `<p>Tax Lawyer 1</p>
+var traffic_cases_Lawyer = [
+    `<p>Traffic Lawyer 1</p>
     <br>
   
     <h3>Advice</h3>
-    <p>Advice Tax Lawyer 1</p>
+    <p>Advice traffic Lawyer 1</p>
 
     <h3 style="text-align: center">In the described situation, I would feel 
       confident acting on the advice provided:</h3><br>`,
 
-    `<p>Tax Lawyer 2</p>
+    `<p>traffic Lawyer 2</p>
     <br>
   
     <h3>Advice</h3>
-    <p>Advice Tax Lawyer 2</p>
+    <p>Advice traffic Lawyer 2</p>
 
     <h3 style="text-align: center">In the described situation, I would feel 
       confident acting on the advice provided:</h3><br>`,
 
-    `<p>Tax Lawyer 3</p>
+    `<p>traffic Lawyer 3</p>
       <br>
     
       <h3>Advice</h3>
-      <p>Advice Tax Lawyer 3</p>
+      <p>Advice traffic Lawyer 3</p>
   
     <h3 style="text-align: center">In the described situation, I would feel 
         confident acting on the advice provided:</h3><br>`,

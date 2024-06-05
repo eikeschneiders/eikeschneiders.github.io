@@ -1,4 +1,4 @@
-// RECORD DEMOGRAPHICS, BROWSER, AND PROLIFIC ID
+t// RECORD DEMOGRAPHICS, BROWSER, AND PROLIFIC ID
 
 // Check if experiment is being run locally or on a server
 if (document.location.host) { // returns your host or null

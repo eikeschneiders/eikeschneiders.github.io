@@ -2,7 +2,7 @@
 <html>
   
   <head>
-    <title>REGALS</title>
+    <title>REGALS experiment</title>
     
     <!-- JsPsych and Plugins -->
     <script src="jspsych/jspsych.js"></script>
@@ -39,14 +39,14 @@
     timeline.push(instructions)
 
     //Create one array which contains all LLM cases in randomised order
-    //var cases_LLM = jsPsych.randomization.shuffle(tax_cases_LLM.concat(plan_cases_LLM, prop_cases_LLM))
+    //var cases_LLM = jsPsych.randomization.shuffle(traffic_cases_LLM.concat(plan_cases_LLM, prop_cases_LLM))
     
     //Create one for each domain with cases in randomised order, same for lawyer
-    tax_cases_LLM = jsPsych.randomization.shuffle(tax_cases_LLM)
+    traffic_cases_LLM = jsPsych.randomization.shuffle(traffic_cases_LLM)
     plan_cases_LLM = jsPsych.randomization.shuffle(plan_cases_LLM)
     prop_cases_LLM = jsPsych.randomization.shuffle(prop_cases_LLM)
     
-    tax_cases_Lawyer = jsPsych.randomization.shuffle(tax_cases_Lawyer)
+    traffic_cases_Lawyer = jsPsych.randomization.shuffle(traffic_cases_Lawyer)
     plan_cases_Lawyer = jsPsych.randomization.shuffle(plan_cases_Lawyer)
     prop_cases_Lawyer = jsPsych.randomization.shuffle(prop_cases_Lawyer)
     
@@ -55,12 +55,12 @@
     //take the first three elements of the randomised array and add them
     //to the participants array
     var participant_LLM = []
-    participant_LLM.push(...tax_cases_LLM.slice(0,3));
+    participant_LLM.push(...traffic_cases_LLM.slice(0,3));
     participant_LLM.push(...plan_cases_LLM.slice(0,3));
     participant_LLM.push(...prop_cases_LLM.slice(0,3));
     
     var participant_Lawyer = []
-    participant_Lawyer.push(...tax_cases_Lawyer.slice(0,3));
+    participant_Lawyer.push(...traffic_cases_Lawyer.slice(0,3));
     participant_Lawyer.push(...plan_cases_Lawyer.slice(0,3));
     participant_Lawyer.push(...prop_cases_Lawyer.slice(0,3));
 
@@ -68,7 +68,7 @@
     var all_cases = jsPsych.randomization.shuffle(participant_LLM.concat(participant_Lawyer));
 
 
-    //var cases_Lawyer = jsPsych.randomization.shuffle(tax_cases_Lawyer.concat(plan_cases_Lawyer, prop_cases_Lawyer))
+    //var cases_Lawyer = jsPsych.randomization.shuffle(traffic_cases_Lawyer.concat(plan_cases_Lawyer, prop_cases_Lawyer))
     //cases_Lawyer = jsPsych.randomization.shuffle(cases_Lawyer)
 
     //var all_cases = jsPsych.randomization.shuffle(cases_LLM.concat(cases_Lawyer));
