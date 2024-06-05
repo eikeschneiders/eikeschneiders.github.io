@@ -93,7 +93,11 @@
         timeline: [{
           type: jsPsychSurveyLikert,
           questions: [{
-            prompt: `<h3 class="Case">Case ${i+1} ${blinded}</h3> ${all_cases[i]}<br>
+            prompt: `<h3 class="Case">Case ${i+1} ${
+                if (rnd_id % 2 == 0) {
+                 blinded = ": This advice has been written by a lawyer..";
+                }
+             blinded}</h3> ${all_cases[i]}<br>
             <span style="background: lightblue">Required field deactivated for the sake of testing.</span>`,
             labels: [
               "1: Strongly Disagree",
