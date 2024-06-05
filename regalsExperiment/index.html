@@ -95,13 +95,17 @@
       if (blindFlag) {
         let source = all_cases[i].includes("L1") ? "lawyer" : "Large Language Model (LLM)";
       }
-      
+
+    // Concatenate strings to form the prompt
+    let prompt = '<h3 class="Case">Case ' + (i + 1) + ' ' + blindedText + source + '</h3> ' + all_cases[i] + '<br>' +
+               '<span style="background: lightblue">Required field deactivated for the sake of testing.</span>';
+
+
       timeline.push({
         timeline: [{
           type: jsPsychSurveyLikert,
           questions: [{
-            prompt: `<h3 class="Case">Case ${i+1} ${blindedText + source}</h3> ${all_cases[i]}<br>
-            <span style="background: lightblue">Required field deactivated for the sake of testing.</span>`,
+            prompt: prompt,
             labels: [
               "1: Strongly Disagree",
               "2",
