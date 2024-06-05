@@ -17,7 +17,7 @@
 
     <script src="consent.js"></script>
     <script src="instructions.js"></script>
-    <script src="demographics.js"></script>
+    <!--<script src="demographics.js"></script>-->
     <script src="LLMCases.js"></script>
     <script src="lawyerCases.js"></script>
 
@@ -80,20 +80,22 @@
     var rnd_id = Math.floor(Math.random() * 100);
     console.log(rnd_id);
 
-    var blindFlag = false
-    var blindedText = ""
+    var blindFlag = false;
+    var blindedText = "";
 
     if (rnd_id % 2 == 0) {
-      blindFlag = true
+      blindFlag = true;
       blindedText = ": This advice has been written by a ";
     }
+    console.log(blindFlag)
 
     var source = ""
     
     for (let i = 0; i < num_cases; i++) {
       console.log(all_cases[i]);
       if (blindFlag) {
-        let source = all_cases[i].includes("L1") ? "lawyer" : "Large Language Model (LLM)";
+        source = all_cases[i].includes("L1") ? "lawyer" : "Large Language Model (LLM)";
+        console.log(source);
       }
 
     // Concatenate strings to form the prompt
