@@ -88,12 +88,12 @@
 
     for (let i = 0; i < num_cases; i++) {
       console.log(all_cases[i]);
-      //let blinded = all_cases[i].includes("XXX") ? "ABC" : "DEF";
+      let keyword = all_cases[i].includes("lllll") ? "Lawyer" : "LLM";
       timeline.push({
         timeline: [{
           type: jsPsychSurveyLikert,
           questions: [{
-            prompt: `<h3 class="Case">Case ${i+1} ${blinded}</h3> ${all_cases[i]}<br>
+            prompt: `<h3 class="Case">Case ${i+1} ${keyword}</h3> ${all_cases[i]}<br>
             <span style="background: lightblue">Required field deactivated for the sake of testing.</span>`,
             labels: [
               "1: Strongly Disagree",

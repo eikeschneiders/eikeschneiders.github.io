@@ -1,5 +1,6 @@
 var traffic_cases_Lawyer = [
-    `<p>Traffic Lawyer 1</p>
+    `<span style="display: none" class="lllll">lllll</span>
+    <p>Traffic Lawyer 1</p>
     <br>
   
     <h3>Advice</h3>
@@ -8,7 +9,8 @@ var traffic_cases_Lawyer = [
     <h3 style="text-align: center">In the described situation, I would feel 
       confident acting on the advice provided:</h3><br>`,
 
-    `<p>traffic Lawyer 2</p>
+    `<span style="display: none" class="lllll">lllll</span>
+    <p>traffic Lawyer 2</p>
     <br>
   
     <h3>Advice</h3>
@@ -17,7 +19,8 @@ var traffic_cases_Lawyer = [
     <h3 style="text-align: center">In the described situation, I would feel 
       confident acting on the advice provided:</h3><br>`,
 
-    `<p>traffic Lawyer 3</p>
+    `<span style="display: none" class="lllll">lllll</span>
+    <p>traffic Lawyer 3</p>
       <br>
     
       <h3>Advice</h3>
