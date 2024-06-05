@@ -88,16 +88,19 @@
       blindedText = ": This advice has been written by a ";
     }
 
+    var source = ""
+    
     for (let i = 0; i < num_cases; i++) {
       console.log(all_cases[i]);
       if (blindFlag) {
-        let keyword = all_cases[i].includes("L1") ? "lawyer" : "Large Language Model (LLM)";
+        let source = all_cases[i].includes("L1") ? "lawyer" : "Large Language Model (LLM)";
       }
+      
       timeline.push({
         timeline: [{
           type: jsPsychSurveyLikert,
           questions: [{
-            prompt: `<h3 class="Case">Case ${i+1} ${blindedText + keyword}</h3> ${all_cases[i]}<br>
+            prompt: `<h3 class="Case">Case ${i+1} ${blindedText + source}</h3> ${all_cases[i]}<br>
             <span style="background: lightblue">Required field deactivated for the sake of testing.</span>`,
             labels: [
               "1: Strongly Disagree",
