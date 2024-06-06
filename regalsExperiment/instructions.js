@@ -9,6 +9,9 @@ var instructions = {
       <p>Press any key to begin.</p>`,
       ],
     show_clickable_nav: true,
-    allow_backward: false
+    allow_backward: false,
+    data: {
+      Condition: 'REMOVE'
+    }
   };
 
