@@ -17,7 +17,7 @@
 
     <script src="consent.js"></script>
     <script src="instructions.js"></script>
-    <script src="demographics.js"></script>
+    <!--<script src="demographics.js"></script>-->
     <script src="LLMCases.js"></script>
     <script src="lawyerCases.js"></script>
 
@@ -34,90 +34,116 @@
 
     var timeline = [];
 
-    timeline.push(consent)
-    timeline.push(demographics)
-    timeline.push(instructions)
+    timeline.push(consent,instructions)
+
+    // Function to shuffle and slice cases
+    const prepareCases = (cases) => jsPsych.randomization.shuffle(cases).slice(0, 3);
 
     //Create one for each domain with cases in randomised order, same for lawyer
-    traffic_cases_LLM = jsPsych.randomization.shuffle(traffic_cases_LLM)
-    plan_cases_LLM = jsPsych.randomization.shuffle(plan_cases_LLM)
-    prop_cases_LLM = jsPsych.randomization.shuffle(prop_cases_LLM)
-    
-    traffic_cases_Lawyer = jsPsych.randomization.shuffle(traffic_cases_Lawyer)
-    plan_cases_Lawyer = jsPsych.randomization.shuffle(plan_cases_Lawyer)
-    prop_cases_Lawyer = jsPsych.randomization.shuffle(prop_cases_Lawyer)
-    
+    const traffic_cases_LLM = prepareCases(traffic_cases_LLM);
+    const plan_cases_LLM = prepareCases(plan_cases_LLM);
+    const prop_cases_LLM = prepareCases(prop_cases_LLM);
+
+    const traffic_cases_Lawyer = prepareCases(traffic_cases_Lawyer);
+    const plan_cases_Lawyer = prepareCases(plan_cases_Lawyer);
+    const prop_cases_Lawyer = prepareCases(prop_cases_Lawyer);
 
     //As we only need three of the six cases pr. participant, we simply
     //take the first three elements of the randomised array and add them
     //to the participants array for the LLM and Lawyer respectively
-    var participant_LLM = []
-    participant_LLM.push(...traffic_cases_LLM.slice(0,3));
-    participant_LLM.push(...plan_cases_LLM.slice(0,3));
-    participant_LLM.push(...prop_cases_LLM.slice(0,3));
-    
-    var participant_Lawyer = []
-    participant_Lawyer.push(...traffic_cases_Lawyer.slice(0,3));
-    participant_Lawyer.push(...plan_cases_Lawyer.slice(0,3));
-    participant_Lawyer.push(...prop_cases_Lawyer.slice(0,3));
+    const participant_LLM = [...traffic_cases_LLM, ...plan_cases_LLM, ...prop_cases_LLM];
+    const participant_Lawyer = [...traffic_cases_Lawyer, ...plan_cases_Lawyer, ...prop_cases_Lawyer];
 
     // concat the two to create one balanced (by source and domain) array pr participant
-    var all_cases = jsPsych.randomization.shuffle(participant_LLM.concat(participant_Lawyer));
+    const all_cases = jsPsych.randomization.shuffle([...participant_LLM, ...participant_Lawyer]);
 
     // Give each participant a random number
-    var rnd_id = Math.floor(Math.random() * 100);
-    console.log(rnd_id);
+    const rnd_id = Math.floor(Math.random() * 100);
 
-    var nonBlind = false;
-    var blindedText = "";
+    // Set nonBlind to true IF the number is even, set blindedText if nonBlind is true
+    const nonBlind = rnd_id % 2 === 0;
+    const blindedText = nonBlind ? ": This advice has been written by a " : "";
 
-    // if the number is even assign them to the Non-blinded condition
-    if (rnd_id % 2 == 0) {
-      nonBlind = true;
-      blindedText = ": This advice has been written by a ";
-    }
+    // Function to get the source
+    const getSource = (caseText) => caseText.includes("L1") ? "lawyer." : "Large Language Model (LLM).";
 
-    var source = ""
-    
-    // iterate through the num_cases 
+    // Iterate through all all_cases
     for (let i = 0; i < all_cases.length; i++) {
-      // if the participant is in the non-blinded condition, display if the 
-      // case was lawyer or LLM generated
-      if (nonBlind) {
-        source = all_cases[i].includes("L1") ? "lawyer." : "Large Language Model (LLM).";
-      }
+    // Extract the current caseText and check using getSource if it contains L1
+    const caseText = all_cases[i];
+    const source = nonBlind ? getSource(caseText) : "";
 
-    // Concatenate strings to form the prompt
-    let prompt = '<h3 class="Case">Case ' + (i + 1) + ' ' + blindedText + 
-                  source + '</h3> ' + all_cases[i] + '<br>' + 
-                  '<span style="background: lightblue">Required field deactivated for the sake of testing.</span>';
+    // If nonBlind is false, both blindedText and source will be empty 
+    const prompt = `
+      <h3 class="Case">Case ${i + 1} ${blindedText} ${source}</h3> 
+      ${caseText}<br>
+      <span style="background: lightblue">Required field deactivated for the sake of testing.</span>
+    `;
 
-
-      timeline.push({
-        timeline: [{
-          type: jsPsychSurveyLikert,
-          questions: [{
-            prompt: prompt,
-            labels: [
-              "1: Strongly Disagree",
-              "2",
-              "3",
-              "4",
-              "5: Neutral",
-              "6",
-              "7",
-              "8",
-              "9: Strongly Agree"
-            ],
-            //required: true
-          }]
+    timeline.push({
+      timeline: [{
+        type: jsPsychSurveyLikert,
+        questions: [{
+          prompt: prompt,
+          labels: [
+            "1: Strongly Disagree",
+            "2",
+            "3",
+            "4",
+            "5: Neutral",
+            "6",
+            "7",
+            "8",
+            "9: Strongly Agree"
+          ],
+          //required: true
         }]
-      });
-    }
+      }]
+    });
+  }
 
-    timeline.push(debrief)
+  timeline.push(debrief);
+  jsPsych.run(timeline);
+    
+    // // iterate through the num_cases 
+    // for (let i = 0; i < all_cases.length; i++) {
+    //   // if the participant is in the non-blinded condition, display if the 
+    //   // case was lawyer or LLM generated
+    //   if (nonBlind) {
+    //     source = all_cases[i].includes("L1") ? "lawyer." : "Large Language Model (LLM).";
+    //   }
 
-    jsPsych.run(timeline);
+    // // Concatenate strings to form the prompt
+    // let prompt = '<h3 class="Case">Case ' + (i + 1) + ' ' + blindedText + 
+    //               source + '</h3> ' + all_cases[i] + '<br>' + 
+    //               '<span style="background: lightblue">Required field deactivated for the sake of testing.</span>';
+
+
+    //   timeline.push({
+    //     timeline: [{
+    //       type: jsPsychSurveyLikert,
+    //       questions: [{
+    //         prompt: prompt,
+    //         labels: [
+    //           "1: Strongly Disagree",
+    //           "2",
+    //           "3",
+    //           "4",
+    //           "5: Neutral",
+    //           "6",
+    //           "7",
+    //           "8",
+    //           "9: Strongly Agree"
+    //         ],
+    //         //required: true
+    //       }]
+    //     }]
+    //   });
+    // }
+
+    // timeline.push(debrief)
+
+    // jsPsych.run(timeline);
 
   </script>
 
