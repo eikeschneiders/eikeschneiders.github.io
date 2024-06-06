@@ -55,9 +55,8 @@
     // Give each participant a random number
     var rnd_id = Math.floor(Math.random() * 100);
 
-    // Set nonBlind to true IF the number is even, set blindedText if nonBlind is true
-    var nonBlind = rnd_id % 2 === 0;
-    var blindedText = nonBlind ? ": This advice has been written by a " : "";
+    // Set isNonBlind to true IF the number is even
+    const isNonBlind = rnd_id % 2 === 0;
 
     // Function to get the source
     const getSource = (caseText) => caseText.includes("L1") ? "lawyer." : "Large Language Model (LLM).";
@@ -68,11 +67,12 @@
     for (let i = 0; i < num_cases; i++) {
       // Extract the current caseText and check using getSource if it contains L1
       var caseText = all_cases[i];
-      var source = nonBlind ? getSource(caseText) : "";
+      // Define the Source text based on isNonBlind
+      var source = isNonBlind ? getSource(caseText) : "";
 
-      // If nonBlind is false, both blindedText and source will be empty 
+      // Ternary operator to insert source text IF isNonBlind is true, else empty 
       var prompt = `
-        <h3 class="Case">Case ${i + 1} ${blindedText} ${source}</h3> 
+        <h3 class="Case">Case ${i + 1}${isNonBlind ? ": This advice has been written by a " + source : ""}</h3> 
         ${caseText}<br><span style="background: lightblue">Required field 
         deactivated for the sake of testing.</span>`;
 
