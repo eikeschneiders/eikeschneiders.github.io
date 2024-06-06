@@ -118,7 +118,7 @@
     timeline.push(debrief);
     runjsPsych.run(timeline);
 
-    initJsPsych({
+    var initJsPsych({
       timeline: timeline,
       on_finish: function () {
         var interaction_data = jsPsych.data.getInteractionData().json();
