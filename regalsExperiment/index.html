@@ -31,11 +31,11 @@
   
   <script>
     //var jsPsych = initJsPsych();
-     var jsPsych = initJsPsych({
-    on_finish: function() {
-      jsPsych.data.get().localSave('csv', 'test.csv');
-    }
-  });
+    var jsPsych = initJsPsych({
+      on_finish: function() {
+        jsPsych.data.get().localSave('csv', 'test.csv');
+      }
+    });
 
     var timeline = [];
 
@@ -104,6 +104,7 @@
             data: {  // Specify data object to save responses
               likert_response: key  // Key under which the response will be saved
             },
+            // Not sure what I'm doing here
             on_finish: function(data) {
               var resps = JSON.parse(data.responses);
               data.responses = resps; // Access the specific question's response
@@ -117,18 +118,7 @@
     timeline.push(debrief);
     jsPsych.run(timeline);
 
-
-    // initJsPsych({
-    //     timeline: timeline,
-    //     on_finish: function () {
-    //       var interaction_data = jsPsych.data.getInteractionData().json();
-    //       jsPsych.data.addProperties({
-    //         interactData: interaction_data
-    //       });
-
-    //       jsPsych.data.get().localSave('csv', 'test.csv');
-    //     }
-    //   });
+    console.log(jsPsych.data.get())
   </script>
 
 </html>
