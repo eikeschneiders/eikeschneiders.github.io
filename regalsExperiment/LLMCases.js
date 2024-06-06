@@ -408,7 +408,22 @@ var prop_cases_LLM = [
     </p><br>
 
     <h3>Advice (Note: Prop LLM 5)</h3>
-    <p></p><br>
+    <p>As a tenant in the UK, discovering mold in multiple rooms and a rat in 
+    the basement of your new house may constitute breaches of your landlord's 
+    obligations to provide safe and habitable living conditions under the Landlord 
+    and Tenant Act 1985. To address these issues, start by documenting the 
+    problems with photographs and records and then promptly notifying your 
+    landlord in writing, requesting professional remediation services. If the 
+    landlord fails to take appropriate action within a reasonable timeframe or 
+    disputes their responsibility, consider seeking legal advice. Legal options 
+    may include filing a claim for breach of contract or seeking an order for 
+    repairs under the Housing Health and Safety Rating System (HHSRS). 
+    Additionally, you may be entitled to seek compensation for any damages 
+    incurred due to the mold or rat infestation. It's crucial to maintain 
+    professional and documented communication with the landlord throughout the 
+    process and seek advice from a solicitor specialized in landlord-tenant 
+    disputes for personalized guidance.</p><br>
+    
     <h3 style="text-align: center">In the described situation, I would feel 
         confident acting on the advice provided:</h3><br>`,
 
