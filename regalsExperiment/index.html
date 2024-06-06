@@ -30,13 +30,6 @@
   <body></body>
   
   <script>
-    // var jsPsych = initJsPsych();
-    // var jsPsych = initJsPsych({
-    //   on_finish: function() {
-    //     jsPsych.data.get().localSave('csv', 'test.csv');
-    //   }
-    // });
-
     var jsPsych = initJsPsych({
       timeline: timeline,
       on_finish: function () {
@@ -78,7 +71,7 @@
     // Function to get the source
     const getSource = (caseText) => caseText.includes("L1") ? "lawyer." : "Large Language Model (LLM).";
 
-    const num_cases = 2
+    const num_cases = 18
 
     // Iterate through all all_cases
     for (let i = 0; i < num_cases; i++) {
