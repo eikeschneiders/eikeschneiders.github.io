@@ -50,8 +50,7 @@
     }
 
     // Concatenate the six arrays to create one balanced (by source and domain) array pr participant
-    all_cases = jsPsych.randomization.shuffle([...traffic_cases_LLM, ...plan_cases_LLM, 
-      ...prop_cases_LLM, ...traffic_cases_Lawyer, ...plan_cases_Lawyer, ...prop_cases_Lawyer]);
+    all_cases = jsPsych.randomization.shuffle([].concat(...all_cases));
 
     // Give each participant a random number
     var rnd_id = Math.floor(Math.random() * 100);

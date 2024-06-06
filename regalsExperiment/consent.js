@@ -117,9 +117,6 @@ var debrief = {
 
           '<br><br>Your data will help us understand the risks asociated with the use of LLMs in the legal context for non-legal experts. Furthermore, it will help us identify the importance the source has on people\'s truwst in legal advice presented.' +
 
-          '<br><br>Kornell, N., Hays, M., & Bjork, R. A. (2009). Unsuccessful retrieval attempts enhance subsequent learning. <i>Journal of Experimental Psychology: Learning, Memory, and Cognition, 35</i>(4), 989-998. https://doi.org/10.1037/a0015729' +
-          '<br><br>Potts, R., & Shanks, D. R. (2014). The benefit of generating errors during learning. <i>Journal of Experimental Psychology: General, 143</i>(2), 644-667. https://doi.org/10.1017/CBO9781107415324.004' +
-
           '<br><br><b>Important:</b> Please do not use the here presented advice, lawyer or LLM generated, outside of this study. Thank you for your participation in this research.' +
 
           '<br><br>Signature: E.Schneiders, Date 06/06/24 <br> Name: Dr Eike Schneiders' +
