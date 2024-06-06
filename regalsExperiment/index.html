@@ -36,26 +36,22 @@
 
     timeline.push(consent,instructions)
 
-    // Function to shuffle and slice cases
+    // Function to shuffle randomise cases and take the first three (slice)
     const prepareCases = (cases) => jsPsych.randomization.shuffle(cases).slice(0, 3);
 
-    //Create one for each domain with cases in randomised order, same for lawyer
-    var traffic_cases_LLM = prepareCases(traffic_cases_LLM);
-    var plan_cases_LLM = prepareCases(plan_cases_LLM);
-    var prop_cases_LLM = prepareCases(prop_cases_LLM);
+    // Concatenate the six arrays to create one array
+    var all_cases = [traffic_cases_LLM, plan_cases_LLM, prop_cases_LLM, 
+      traffic_cases_Lawyer, plan_cases_Lawyer, prop_cases_Lawyer]
 
-    var traffic_cases_Lawyer = prepareCases(traffic_cases_Lawyer);
-    var plan_cases_Lawyer = prepareCases(plan_cases_Lawyer);
-    var prop_cases_Lawyer = prepareCases(prop_cases_Lawyer);
+    // Iterate over each element and shuffle and slice (3) each using prepareCases
+    // assign to a new variable 
+    for (let i = 0; i < all_cases.length; i++) {
+      var all_cases[i] = prepareCases(all_cases[i]);
+    }
 
-    //As we only need three of the six cases pr. participant, we simply
-    //take the first three elements of the randomised array and add them
-    //to the participants array for the LLM and Lawyer respectively
-    var  participant_LLM = [...traffic_cases_LLM, ...plan_cases_LLM, ...prop_cases_LLM];
-    var participant_Lawyer = [...traffic_cases_Lawyer, ...plan_cases_Lawyer, ...prop_cases_Lawyer];
-
-    // concat the two to create one balanced (by source and domain) array pr participant
-    var all_cases = jsPsych.randomization.shuffle([...participant_LLM, ...participant_Lawyer]);
+    // Concatenate the six arrays to create one balanced (by source and domain) array pr participant
+    all_cases = jsPsych.randomization.shuffle([...traffic_cases_LLM, ...plan_cases_LLM, 
+      ...prop_cases_LLM, ...traffic_cases_Lawyer, ...plan_cases_Lawyer, ...prop_cases_Lawyer]);
 
     // Give each participant a random number
     var rnd_id = Math.floor(Math.random() * 100);
@@ -77,8 +73,7 @@
       var prompt = `
         <h3 class="Case">Case ${i + 1} ${blindedText} ${source}</h3> 
         ${caseText}<br><span style="background: lightblue">Required field 
-        deactivated for the sake of testing.</span>
-      `;
+        deactivated for the sake of testing.</span>`;
 
       timeline.push({
         timeline: [{
@@ -104,47 +99,6 @@
 
   timeline.push(debrief);
   jsPsych.run(timeline);
-    
-    // // iterate through the num_cases 
-    // for (let i = 0; i < all_cases.length; i++) {
-    //   // if the participant is in the non-blinded condition, display if the 
-    //   // case was lawyer or LLM generated
-    //   if (nonBlind) {
-    //     source = all_cases[i].includes("L1") ? "lawyer." : "Large Language Model (LLM).";
-    //   }
-
-    // // Concatenate strings to form the prompt
-    // let prompt = '<h3 class="Case">Case ' + (i + 1) + ' ' + blindedText + 
-    //               source + '</h3> ' + all_cases[i] + '<br>' + 
-    //               '<span style="background: lightblue">Required field deactivated for the sake of testing.</span>';
-
-
-    //   timeline.push({
-    //     timeline: [{
-    //       type: jsPsychSurveyLikert,
-    //       questions: [{
-    //         prompt: prompt,
-    //         labels: [
-    //           "1: Strongly Disagree",
-    //           "2",
-    //           "3",
-    //           "4",
-    //           "5: Neutral",
-    //           "6",
-    //           "7",
-    //           "8",
-    //           "9: Strongly Agree"
-    //         ],
-    //         //required: true
-    //       }]
-    //     }]
-    //   });
-    // }
-
-    // timeline.push(debrief)
-
-    // jsPsych.run(timeline);
-
   </script>
 
 </html>
