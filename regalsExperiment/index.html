@@ -63,8 +63,10 @@
     // Function to get the source
     const getSource = (caseText) => caseText.includes("L1") ? "lawyer." : "Large Language Model (LLM).";
 
+    const num_cases = 18
+
     // Iterate through all all_cases
-    for (let i = 0; i < all_cases.length; i++) {
+    for (let i = 0; i < num_cases; i++) {
       // Extract the current caseText and check using getSource if it contains L1
       var caseText = all_cases[i];
       var source = nonBlind ? getSource(caseText) : "";

@@ -407,7 +407,7 @@ var prop_cases_LLM = [
     me legal advice on this. I live in the UK. 
     </p><br>
 
-    <h3>Advice< (Note: Prop LLM 5)/h3>
+    <h3>Advice (Note: Prop LLM 5)</h3>
     <p></p><br>
     <h3 style="text-align: center">In the described situation, I would feel 
         confident acting on the advice provided:</h3><br>`,
