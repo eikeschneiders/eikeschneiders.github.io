@@ -36,14 +36,10 @@
     var timeline = [];
 
     // Turn fullscreen on
-    timeline.push({
+    var enter_fullscreen = {
       type: jsPsychFullscreen,
-      fullscreen_mode: true,
-      data: {
-        Condition: 'REMOVE', // For easier data processing
-        Running: 'Fullscreen on'
-      }
-    });
+      fullscreen_mode: true
+    }
 
     timeline.push(consent,instructions)
 
