@@ -30,7 +30,12 @@
   <body></body>
   
   <script>
-    const jsPsych = initJsPsych();
+    //var jsPsych = initJsPsych();
+     var jsPsych = initJsPsych({
+    on_finish: function() {
+      jsPsych.data.get().localSave('csv', 'test.csv');
+    }
+  });
 
     var timeline = [];
 
@@ -61,7 +66,7 @@
     // Function to get the source
     const getSource = (caseText) => caseText.includes("L1") ? "lawyer." : "Large Language Model (LLM).";
 
-    const num_cases = 18
+    const num_cases = 2
 
     // Iterate through all all_cases
     for (let i = 0; i < num_cases; i++) {
@@ -69,6 +74,10 @@
       var caseText = all_cases[i];
       // Define the Source text based on isNonBlind
       var source = isNonBlind ? getSource(caseText) : "";
+
+
+      // A unique key for data saving purposes. Not implemented yet
+      var key = 'Q_' + (i + 1) + '_response'; 
 
       // Ternary operator to insert source text IF isNonBlind is true, else empty 
       var prompt = `
@@ -92,14 +101,34 @@
               "8",
               "9: Strongly Agree"
             ],
+            data: {  // Specify data object to save responses
+              likert_response: key  // Key under which the response will be saved
+            },
+            on_finish: function(data) {
+              var resps = JSON.parse(data.responses);
+              data.responses = resps; // Access the specific question's response
+            }
             //required: true
           }]
         }]
       });
     }
 
-  timeline.push(debrief);
-  jsPsych.run(timeline);
+    timeline.push(debrief);
+    jsPsych.run(timeline);
+
+
+    // initJsPsych({
+    //     timeline: timeline,
+    //     on_finish: function () {
+    //       var interaction_data = jsPsych.data.getInteractionData().json();
+    //       jsPsych.data.addProperties({
+    //         interactData: interaction_data
+    //       });
+
+    //       jsPsych.data.get().localSave('csv', 'test.csv');
+    //     }
+    //   });
   </script>
 
 </html>
