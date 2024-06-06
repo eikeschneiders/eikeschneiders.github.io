@@ -30,12 +30,12 @@
   <body></body>
   
   <script>
-    //var jsPsych = initJsPsych();
-    var jsPsych = initJsPsych({
-      on_finish: function() {
-        jsPsych.data.get().localSave('csv', 'test.csv');
-      }
-    });
+    // var jsPsych = initJsPsych();
+    // var jsPsych = initJsPsych({
+    //   on_finish: function() {
+    //     jsPsych.data.get().localSave('csv', 'test.csv');
+    //   }
+    // });
 
     var timeline = [];
 
@@ -66,7 +66,7 @@
     // Function to get the source
     const getSource = (caseText) => caseText.includes("L1") ? "lawyer." : "Large Language Model (LLM).";
 
-    const num_cases = 18
+    const num_cases = 2
 
     // Iterate through all all_cases
     for (let i = 0; i < num_cases; i++) {
@@ -116,7 +116,19 @@
     }
 
     timeline.push(debrief);
-    jsPsych.run(timeline);
+    runjsPsych.run(timeline);
+
+    initJsPsych({
+      timeline: timeline,
+      on_finish: function () {
+        var interaction_data = jsPsych.data.getInteractionData().json();
+        jsPsych.data.addProperties({
+          interactData: interaction_data
+        });
+
+        jsPsych.data.get().localSave('csv', 'test.csv');
+      }
+    });
 
     console.log(jsPsych.data.get())
   </script>
