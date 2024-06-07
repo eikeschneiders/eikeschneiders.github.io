@@ -24,23 +24,17 @@
     <link href="jspsych/jspsych.css" rel="stylesheet" type="text/css" />
 
     <link rel="stylesheet" href="style.css">
-
+    
+    <script src="jatos.js"></script>
   </head>
   
   <body></body>
   
   <script>
-    const jsPsych = initJsPsych({
-      timeline: timeline,
-      on_finish: function () {
-        var interaction_data = jsPsych.data.getInteractionData().json();
-        jsPsych.data.addProperties({
-          interactData: interaction_data
-        });
-
-        jsPsych.data.get().localSave('csv', 'test.csv');
-      }
-    });
+    // Set this to true if testing on server/localhost
+    var online = true
+    
+    var jsPsych = initJsPsych();
 
     var timeline = [];
 
@@ -79,7 +73,6 @@
       var caseText = all_cases[i];
       // Define the Source text based on isNonBlind
       var source = isNonBlind ? getSource(caseText) : "";
-
 
       // A unique key for data saving purposes. Not implemented yet
       var key = 'Q_' + (i + 1) + '_response'; 
@@ -121,9 +114,47 @@
     }
 
     timeline.push(debrief);
-    jsPsych.run(timeline);
 
-    console.log(jsPsych.data.get())
+    if (online == true) { // It's a Prolific experiment
+      jatos.onLoad(function () {
+        jsPsych = initJsPsych({
+          timeline: timeline,
+          on_finish: function () {
+            var interaction_data = jsPsych.data.getInteractionData().json();
+            jsPsych.data.addProperties({
+              interactData: interaction_data
+            });
+
+            var result = jsPsych.data.get().json();
+            jatos.submitResultData(result)
+              .done(jatos.endStudyAjax)
+              .done(() => {
+                // Change this URL to yours from Prolific
+                window.location.href = 'http://eikeschneiders.github.io';
+              });
+          }
+        });
+
+        // Start the experiment
+        jsPsych.run(timeline);
+      });
+    } else { // It's a locally run experiment
+      jsPsych = initJsPsych({
+        timeline: timeline,
+        on_finish: function () {
+          var interaction_data = jsPsych.data.getInteractionData().json();
+          jsPsych.data.addProperties({
+            interactData: interaction_data
+          });
+
+          jsPsych.data.get().localSave('csv', 'test.csv');
+        }
+      });
+
+      // Start the experiment
+      jsPsych.run(timeline);
+    }
+    //console.log(jsPsych.data.get())
   </script>
 
 </html>
