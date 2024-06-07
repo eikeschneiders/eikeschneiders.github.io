@@ -17,7 +17,7 @@
 
     <script src="consent.js"></script>
     <script src="instructions.js"></script>
-    <!--<script src="demographics.js"></script>-->
+    <script src="demographics.js"></script>
     <script src="LLMCases.js"></script>
     <script src="lawyerCases.js"></script>
 
@@ -32,13 +32,13 @@
   
   <script>
     // Set this to true if testing on server/localhost
-    var online = true
+    var online = false
     
     var jsPsych = initJsPsych();
 
     var timeline = [];
 
-    timeline.push(consent,instructions)
+    timeline.push(consent,demographics,instructions)
 
     // Function to shuffle randomise cases and take the first three (slice)
     const prepareCases = (cases) => jsPsych.randomization.shuffle(cases).slice(0, 3);
@@ -65,7 +65,7 @@
     // Function to get the source
     const getSource = (caseText) => caseText.includes("L1") ? "lawyer." : "Large Language Model (LLM).";
 
-    const num_cases = 3
+    const num_cases = 18
 
     // Iterate through all all_cases
     for (let i = 0; i < num_cases; i++) {

@@ -1,4 +1,4 @@
-t// RECORD DEMOGRAPHICS, BROWSER, AND PROLIFIC ID
+// RECORD DEMOGRAPHICS, BROWSER, AND PROLIFIC ID
 
 // Check if experiment is being run locally or on a server
 if (document.location.host) { // returns your host or null
@@ -12,11 +12,10 @@ var prolific = {
     questions: [
         { prompt: "Please enter your Prolific ID below: ", required: true, placeholder: '' }],
     on_finish: function (data) {
-        var responses = JSON.parse(data.responses);
+        var responses = jsPsych.data.getInteractionData().json();        
+        // var responses = JSON.parse(data.responses);
         var prolific_ID = responses.Q0;
-        jsPsych.data.addProperties({
-            prolific_ID: prolific_ID
-        });
+        jsPsych.data.addProperties({ prolific_ID: prolific_ID });
     },
     data: {
         Condition: 'REMOVE', // For easier data processing
@@ -33,7 +32,8 @@ var browser = {
         horizontal: true
     }],
     on_finish: function (data) {
-        var responses = JSON.parse(data.responses);
+        var responses = jsPsych.data.getInteractionData().json();        
+        // var responses = JSON.parse(data.responses);
         var code = responses.Q0;
         jsPsych.data.addProperties({ browser: code });
     },
@@ -53,7 +53,8 @@ var browserMessage = {
     questions: [
         { prompt: "Which browser are you using to view this study?", required: true, placeholder: '' }],
     on_finish: function (data) {
-        var responses = JSON.parse(data.responses);
+        var responses = jsPsych.data.getInteractionData().json();
+        // var responses = JSON.parse(data.responses);
         var otherBrowser = responses.Q0;
 
         jsPsych.data.addProperties({
@@ -80,7 +81,8 @@ var age = {
         placeholder: ''
     }],
     on_finish: function (data) {
-        var responses = JSON.parse(data.responses);
+        var responses = jsPsych.data.getInteractionData().json();
+        // var responses = JSON.parse(data.responses);
         var code = responses.Q0;
         jsPsych.data.addProperties({ age: code });
     },
@@ -100,7 +102,8 @@ var gender = {
         horizontal: true
     },],
     on_finish: function (data) {
-        var responses = JSON.parse(data.responses);
+        var responses = jsPsych.data.getInteractionData().json();
+        // var responses = JSON.parse(data.responses);
         var code = responses.Q0;
         jsPsych.data.addProperties({ gender: code });
     },
@@ -120,7 +123,8 @@ var english = {
         horizontal: true
     },],
     on_finish: function (data) {
-        var responses = JSON.parse(data.responses);
+        var responses = jsPsych.data.getInteractionData().json();        
+        // var responses = JSON.parse(data.responses);
         var code = responses.Q0;
         jsPsych.data.addProperties({ english: code });
     },
@@ -133,7 +137,7 @@ var english = {
 var botCheck = {
 
     type: jsPsychHtmlKeyboardResponse, //'html-keyboard-response',
-    stimulus: 'We need to make sure that real people complete this study. To check that you are a real person, please tell us which letter in the grid below is presented in <span style="color:red"><b>red</b></span>. Please press the corresponding letter on your keyboard.<p><img src="images/botcheck.png" width="200px" height="200px">',
+    stimulus: 'We need to make sure that real people complete this study. To check that you are a real person, please tell us which letter in the grid below is presented in <span style="color:red"><b>red</b></span>. Please press the corresponding letter on your keyboard.<p><img src="img/botcheck.png" width="200px" height="200px">',
     choices: "ALL_KEYS",
     data: {
         Condition: 'REMOVE', // For easier data processing
