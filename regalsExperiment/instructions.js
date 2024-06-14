@@ -4,7 +4,7 @@ var instructions = {
       `<p>In this experiment you will be presented with short descriptions 
         of legal cases.</p>
       <p>Following each case, you will be presented with legal advice. </p>
-      <p>Please rank on the subsequently presented scale how confident you 
+      <p>Please rank on the <strong>presented scale</strong> how confident you 
         would be to act on the advice provided.</p>
       <p>Press any key to begin.</p>`,
       ],

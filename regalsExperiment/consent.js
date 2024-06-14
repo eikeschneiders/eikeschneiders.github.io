@@ -19,7 +19,7 @@ var PIS = {
     <h4>Ethics</h4>
     <p>This research has received a favourable ethical opinion from the 
       School of Computer Science Research Ethics Committee (CS REC), ethics 
-      application ID CS-2023-R22 </p>
+      application ID CS-2023-R22.</p>
 
     <h5>Legal basis for processing of the collected data</h5>
     <p>We collect personal data under the terms of the University of 
@@ -37,22 +37,12 @@ var PIS = {
       to follow the advice.</p>
 
     <h5>Risks of participation</h5>
-    <p>No identifiable information will be collected during There is always 
-      a risk of unauthorised access to data. The only identifiable 
+    <p>No identifiable information will be collected during this study. 
+    There is always a risk of unauthorised access to data. The only identifiable 
       information that we will collect will be your name at the end of 
       this consent form. This information will be stripped from your main 
-      data before data analysis occurs. As data collection will include 
-      semi-structured interviews, this comes with the risk of interviewees 
-      disclosing sensitive topics. To avoid this, we will inform 
-      interviewees - prior to beginning the interview - that they should i) 
-      try to avoid disclosing any sensitive information, and ii) that all 
-      questions are optional, and they are free not to answer if they wish. 
-      We will remind interviewees throughout the interview process, and 
-      further re-iterate this at the end of the interview. Nonetheless, 
-      the risk that attach to the research in terms of using your data 
-      is that it may be possible identify you in research reports and 
-      publications.
-      
+      data before data analysis occurs.
+
       <br><br>
     
       We keep your data securely and put measures in place to safeguard it. 
@@ -60,8 +50,8 @@ var PIS = {
     identifiable in the final analysis or report.</p>
 
     <h4>Data collection and purpose</h4>
-    <p>We collect the following categories of data during your participation 
-      in the research: Questionnaire responses</p>
+    <p>We collect the following categories of data during this study: 
+    Questionnaire responses</p>
     <p>We will use the collected survey data for</p>
       <ul>
         <li>The data collected by the questionnaire will be analysed to meet 
