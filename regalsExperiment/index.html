@@ -114,7 +114,7 @@
     }
 
     timeline.push(debrief);
-
+/*
     if (online == true) { // It's a Prolific experiment
       jatos.onLoad(function () {
         jsPsych = initJsPsych({
@@ -139,6 +139,7 @@
         jsPsych.run(timeline);
       });
     } else { // It's a locally run experiment
+      */
       jsPsych = initJsPsych({
         timeline: timeline,
         on_finish: function () {
@@ -153,7 +154,7 @@
 
       // Start the experiment
       jsPsych.run(timeline);
-    }
+    //}
     //console.log(jsPsych.data.get())
   </script>
 
