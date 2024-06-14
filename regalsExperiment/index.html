@@ -32,7 +32,7 @@
   
   <script>
     // Set this to true if testing on server/localhost
-    var online = true
+    var online = false
     
     var jsPsych = initJsPsych();
 
@@ -65,7 +65,7 @@
     // Function to get the source
     const getSource = (caseText) => caseText.includes("L1") ? "lawyer." : "Large Language Model (LLM).";
 
-    const num_cases = 3
+    const num_cases = 18
 
     // Iterate through all all_cases
     for (let i = 0; i < num_cases; i++) {
