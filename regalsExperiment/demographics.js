@@ -27,7 +27,7 @@ var browser = {
     type: jsPsychSurveyMultiChoice,//'survey-multi-choice',
     questions: [{
         prompt: "We would now like you to answer a few quick questions.<p> The study advert stated that you should run the study in either <b> Chrome or Microsoft Edge, using a desktop or laptop PC (not a phone or tablet)</b>. We cannot guarantee that the study will run properly in other browsers or on phones/tablets. Please do not attempt to use a different browser or a phone or tablet.<br>Please tell us which browser you are using to view this study.",
-        options: ["Chrome", "Microsoft Edge", "Other"],
+        options: ["Chrome", "Microsoft Edge", "Safari", "Firefox", "Other"],
         required: true,
         horizontal: true
     }],
@@ -137,7 +137,7 @@ var english = {
 var botCheck = {
 
     type: jsPsychHtmlKeyboardResponse, //'html-keyboard-response',
-    stimulus: 'We need to make sure that real people complete this study. To check that you are a real person, please tell us which letter in the grid below is presented in <span style="color:red"><b>red</b></span>. Please press the corresponding letter on your keyboard.<p><img src="img/botcheck.png" width="200px" height="200px">',
+    stimulus: 'We need to make sure that real people complete this study. To check that you are a real person, please tell us which letter in the grid below is presented in <span style="color:red"><b>red</b></span>. Please press the corresponding letter on your keyboard.<p><img src="img/botcheck.png" width="200px" height="200px" style="display: block; margin: 0 auto;">',
     choices: "ALL_KEYS",
     data: {
         Condition: 'REMOVE', // For easier data processing
