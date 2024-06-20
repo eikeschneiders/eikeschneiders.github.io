@@ -1,161 +1,156 @@
 <!DOCTYPE html>
 <html>
-  
-  <head>
-    <title>REGALS experiment</title>
-    
-    <!-- JsPsych and Plugins -->
-    <script src="jspsych/jspsych.js"></script>
-    <script src="jspsych/plugin-html-keyboard-response.js"></script>
-    <script src="https://unpkg.com/@jspsych/plugin-preload@1.0.0"></script>
-    <script src="https://unpkg.com/@jspsych/plugin-survey-likert@1.1.3"></script>
-    <script src="https://unpkg.com/@jspsych/plugin-instructions@1.1.4"></script>
-    <script src="https://unpkg.com/@jspsych/plugin-survey-text@1.1.1"></script>
-    <script src="https://unpkg.com/@jspsych/plugin-survey-multi-choice@1.1.3"></script>
 
-    
+<head>
+  <title>REGALS experiment</title>
 
-    <script src="consent.js"></script>
-    <script src="instructions.js"></script>
-    <script src="demographics.js"></script>
-    <script src="LLMCases.js"></script>
-    <script src="lawyerCases.js"></script>
+  <!-- JsPsych and Plugins -->
+  <script src="jspsych/jspsych.js"></script>
+  <script src="jspsych/plugin-html-keyboard-response.js"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-preload@1.0.0"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-survey-likert@1.1.3"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-instructions@1.1.4"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-survey-text@1.1.1"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-survey-multi-choice@1.1.3"></script>
 
-    <link href="jspsych/jspsych.css" rel="stylesheet" type="text/css" />
+  <script src="consent.js"></script>
+  <script src="instructions.js"></script>
+  <script src="demographics.js"></script>
+  <script src="LLMCases.js"></script>
+  <script src="lawyerCases.js"></script>
 
-    <link rel="stylesheet" href="style.css">
-    
-    <script src="jatos.js"></script>
-  </head>
-  
-  <body></body>
-  
-  <script>
-    // Set this to true if testing on server/localhost
-    var online = false
-    
-    var jsPsych = initJsPsych();
+  <link href="jspsych/jspsych.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="style.css">
 
-    var timeline = [];
+  <script src="jatos.js"></script>
+</head>
 
-    timeline.push(consent,demographics,instructions)
+<body></body>
 
-    // Function to shuffle randomise cases and take the first three (slice)
-    const prepareCases = (cases) => jsPsych.randomization.shuffle(cases).slice(0, 3);
+<script>
+  // Set this to true if testing on server/localhost
+  var online = true;
 
-    // Concatenate the six arrays to create one array
-    var all_cases = [traffic_cases_LLM, plan_cases_LLM, prop_cases_LLM, 
-      traffic_cases_Lawyer, plan_cases_Lawyer, prop_cases_Lawyer];
-
-    // Iterate over each element and shuffle and slice (3) each using prepareCases
-    // assign to a new variable 
-    for (let i = 0; i < all_cases.length; i++) {
-      all_cases[i] = prepareCases(all_cases[i]);
-    }
-
-    // Concatenate the six arrays to create one balanced (by source and domain) array pr participant
-    all_cases = jsPsych.randomization.shuffle([].concat(...all_cases));
-
-    // Give each participant a random number
-    var rnd_id = Math.floor(Math.random() * 100);
-
-    // Set isNonBlind to true IF the number is even
-    const isNonBlind = rnd_id % 2 === 0;
-
-    // Function to get the source
-    const getSource = (caseText) => caseText.includes("L1") ? "lawyer." : "Large Language Model (LLM).";
-
-    const num_cases = 18
-
-    // Iterate through all all_cases
-    for (let i = 0; i < num_cases; i++) {
-      // Extract the current caseText and check using getSource if it contains L1
-      var caseText = all_cases[i];
-      // Define the Source text based on isNonBlind
-      var source = isNonBlind ? getSource(caseText) : "";
-
-      // A unique key for data saving purposes. Not implemented yet
-      var key = 'Q_' + (i + 1) + '_response'; 
-
-      // Ternary operator to insert source text IF isNonBlind is true, else empty 
-      var prompt = `
-        <h3 class="Case">Case ${i + 1}${isNonBlind ? ": This advice has been written by a " + source : ""}</h3> 
-        ${caseText}<br><span style="background: lightblue">Required field 
-        deactivated for the sake of testing.</span>`;
-
-      timeline.push({
-        timeline: [{
-          type: jsPsychSurveyLikert,
-          questions: [{
-            prompt: prompt,
-            labels: [
-              "1: Strongly Disagree",
-              "2",
-              "3",
-              "4",
-              "5: Neutral",
-              "6",
-              "7",
-              "8",
-              "9: Strongly Agree"
-            ],
-            data: {  // Specify data object to save responses
-              likert_response: key  // Key under which the response will be saved
-            },
-            // Not sure what I'm doing here
-            on_finish: function(data) {
-              var resps = JSON.parse(data.responses);
-              data.responses = resps; // Access the specific question's response
-            }
-            //required: true
-          }]
-        }]
+  var jsPsych = initJsPsych({
+    on_finish: function () {
+      var interaction_data = jsPsych.data.getInteractionData().json();
+      jsPsych.data.addProperties({
+        interactData: interaction_data
       });
-    }
 
-    timeline.push(debrief);
-/*
-    if (online == true) { // It's a Prolific experiment
-      jatos.onLoad(function () {
-        jsPsych = initJsPsych({
-          timeline: timeline,
-          on_finish: function () {
-            var interaction_data = jsPsych.data.getInteractionData().json();
-            jsPsych.data.addProperties({
-              interactData: interaction_data
-            });
-
-            var result = jsPsych.data.get().json();
-            jatos.submitResultData(result)
-              .done(jatos.endStudyAjax)
-              .done(() => {
-                // Change this URL to yours from Prolific
-                window.location.href = 'http://eikeschneiders.github.io';
-              });
-          }
-        });
-
-        // Start the experiment
-        jsPsych.run(timeline);
-      });
-    } else { // It's a locally run experiment
-      */
-      jsPsych = initJsPsych({
-        timeline: timeline,
-        on_finish: function () {
-          var interaction_data = jsPsych.data.getInteractionData().json();
-          jsPsych.data.addProperties({
-            interactData: interaction_data
+      var result = jsPsych.data.get().json();
+      if (online) {
+        jatos.submitResultData(result)
+          .done(jatos.endStudyAjax)
+          .done(() => {
+            // Change this URL to yours from Prolific
+            window.location.href = 'http://eikeschneiders.github.io';
           });
+      } else {
+        jsPsych.data.get().localSave('csv', 'test.csv');
+      }
+    }
+  });
 
-          jsPsych.data.get().localSave('csv', 'test.csv');
-        }
-      });
+  var participant_id = jsPsych.randomization.randomID(32);
 
-      // Start the experiment
+  jsPsych.data.addProperties({
+    participant_id: participant_id
+  });
+
+  var timeline = [];
+
+  timeline.push(consent, demographics, instructions);
+
+  // Function to shuffle randomize cases and take the first three (slice)
+  const prepareCases = (cases) => jsPsych.randomization.shuffle(cases).slice(0, 3);
+
+  // Concatenate the six arrays to create one array
+  var all_cases = [traffic_cases_LLM, plan_cases_LLM, prop_cases_LLM,
+    traffic_cases_Lawyer, plan_cases_Lawyer, prop_cases_Lawyer
+  ];
+
+  // Iterate over each element and shuffle and slice (3) each using prepareCases
+  for (let i = 0; i < all_cases.length; i++) {
+    all_cases[i] = prepareCases(all_cases[i]);
+  }
+
+  // Concatenate the six arrays to create one balanced (by source and domain) array per participant
+  all_cases = jsPsych.randomization.shuffle([].concat(...all_cases));
+
+  // Give each participant a random number
+  var rnd_id = Math.floor(Math.random() * 100);
+
+  // Set isNonBlind to true IF the number is even
+  const isNonBlind = rnd_id % 2 === 0;
+
+  // Initialize an array to store sources
+  var sourceArray = [];
+
+  // Function to get the source
+  const getSource = (caseText) => caseText.includes("L1") ? "lawyer" : "LLM";
+
+  const num_cases = 3;
+
+  // Iterate through all_cases
+  for (let i = 0; i < num_cases; i++) {
+    var caseText = all_cases[i]; // Extract the current caseText
+
+    // Define the Source text based on isNonBlind and current caseText
+    var source = isNonBlind ? getSource(caseText) : "";
+
+    // Push source into sourceArray
+    sourceArray.push(source);
+
+    // A unique key for data saving purposes (not implemented yet)
+    var key = 'Q_' + (i + 1) + '_response';
+
+    // Construct the prompt HTML
+    var prompt = `
+      <h3 class="Case">Case ${i + 1}${isNonBlind ? ": This advice has been written by a " + source : ""}</h3> 
+      ${caseText}<br><span style="background: lightblue">Required field 
+      deactivated for the sake of testing.</span>`;
+
+    // Push each trial object to the timeline
+    timeline.push({
+      type: jsPsychSurveyLikert,
+      questions: [{
+        prompt: prompt,
+        labels: [
+          "1: Strongly Disagree",
+          "2",
+          "3",
+          "4",
+          "5: Neutral",
+          "6",
+          "7",
+          "8",
+          "9: Strongly Agree"
+        ],
+        data: {
+          likert_response: key, // Key under which the response will be saved
+          isNonBlind: isNonBlind, // Adding isNonBlind status
+          source: source // Determine source based on caseText dynamically
+        },
+        required: true,
+      }],
+      on_finish: function (data) {
+        data.participant_id = participant_id; // Include participant ID in the data
+        data.isNonBlind = isNonBlind; // Include isNonBlind status in the data
+        data.source = sourceArray[i]; // Include source from sourceArray based on iteration
+      }
+    });
+  }
+
+  timeline.push(debrief);
+
+  if (online) { // It's a Prolific experiment
+    jatos.onLoad(function () {
       jsPsych.run(timeline);
-    //}
-    //console.log(jsPsych.data.get())
-  </script>
+    });
+  } else { // It's a locally run experiment
+    jsPsych.run(timeline);
+  }
+</script>
 
 </html>
