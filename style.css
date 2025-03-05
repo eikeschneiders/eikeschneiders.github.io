@@ -218,6 +218,7 @@ hr.center-ball:before {
     margin-right:1%;
     max-width: 48%;
     float: left;
+    min-height: 450px;
 }
 
 /* Clear the margin of the last project in each row */
