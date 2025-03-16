@@ -12,12 +12,12 @@
     <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
     <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_21c504d7e61fdb74f0bef76b7c9d47b2 {
+                #map_382f9445801d6edc9893c1973595e35c {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -39,20 +39,23 @@
 <body>
     
     
-            <div class="folium-map" id="map_21c504d7e61fdb74f0bef76b7c9d47b2" ></div>
+            <div class="folium-map" id="map_382f9445801d6edc9893c1973595e35c" ></div>
         
 </body>
 <script>
     
     
-            var map_21c504d7e61fdb74f0bef76b7c9d47b2 = L.map(
-                "map_21c504d7e61fdb74f0bef76b7c9d47b2",
+            var map_382f9445801d6edc9893c1973595e35c = L.map(
+                "map_382f9445801d6edc9893c1973595e35c",
                 {
-                    center: [20.255636294117643, 27.992234911764708],
+                    center: [26.607453333333336, 32.56203777777778],
                     crs: L.CRS.EPSG3857,
-                    zoom: 3,
-                    zoomControl: true,
-                    preferCanvas: false,
+                    ...{
+  "zoom": 3,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
                 }
             );
 
@@ -60,928 +63,942 @@
 
         
     
-            var tile_layer_35e8870959fd9694895228b8b91c99a4 = L.tileLayer(
-                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var marker_b822f74b4b6e6247dc1f3d015a108f5c = L.marker(
-                [39.859164, 20.020972],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_01cbfa3da67f185ec29d15bcb80b0887 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            var tile_layer_06382c64bcee813fd507c9dd93750ca1 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
             );
-            marker_b822f74b4b6e6247dc1f3d015a108f5c.setIcon(icon_01cbfa3da67f185ec29d15bcb80b0887);
         
     
-        var popup_54b80587ca17eceb445d2f7b423b5201 = L.popup({"maxWidth": "100%"});
+            tile_layer_06382c64bcee813fd507c9dd93750ca1.addTo(map_382f9445801d6edc9893c1973595e35c);
+        
+    
+            var marker_7c177f48f92f2ef04eae78767c50f39d = L.marker(
+                [27.26394, 33.81948],
+                {
+}
+            ).addTo(map_382f9445801d6edc9893c1973595e35c);
+        
+    
+        var popup_ca9a7a5b3e9d84c6046f917561193227 = L.popup({
+  "maxWidth": 300,
+});
 
         
             
-                var html_500ba1fb13fe592022eaccf127b2d823 = $(`<div id="html_500ba1fb13fe592022eaccf127b2d823" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Sarande</strong><br>Sand ID: AL_1<br>Land: AL<br>Kontinent: Europa<br>Breitengrad: 39.859164<br>Längengrad: 20.020972</div></div>`)[0];
-                popup_54b80587ca17eceb445d2f7b423b5201.setContent(html_500ba1fb13fe592022eaccf127b2d823);
+                var html_38e6863f1efc6155571d6d0c1d96baa1 = $(`<div id="html_38e6863f1efc6155571d6d0c1d96baa1" style="width: 100.0%; height: 100.0%;">         <b>Rotes Meer, Hurgada </b><br>         nan<br>         nan         </div>`)[0];
+                popup_ca9a7a5b3e9d84c6046f917561193227.setContent(html_38e6863f1efc6155571d6d0c1d96baa1);
             
         
 
-        marker_b822f74b4b6e6247dc1f3d015a108f5c.bindPopup(popup_54b80587ca17eceb445d2f7b423b5201)
+        marker_7c177f48f92f2ef04eae78767c50f39d.bindPopup(popup_ca9a7a5b3e9d84c6046f917561193227)
         ;
 
         
     
     
-            var marker_3682de804be097c58bbba069b933f1b1 = L.marker(
-                [39.70943, 20.076742],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_08129adb03f833dc1859fceedf8acb60 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            marker_7c177f48f92f2ef04eae78767c50f39d.bindTooltip(
+                `<div>
+                     Rotes Meer, Hurgada 
+                 </div>`,
+                {
+  "sticky": true,
+}
             );
-            marker_3682de804be097c58bbba069b933f1b1.setIcon(icon_08129adb03f833dc1859fceedf8acb60);
         
     
-        var popup_075b376120432a0b72ca091d17751956 = L.popup({"maxWidth": "100%"});
+            var marker_0317c0d36fe69d1aca292b445a11fdd2 = L.marker(
+                [22.33724, 31.62576],
+                {
+}
+            ).addTo(map_382f9445801d6edc9893c1973595e35c);
+        
+    
+        var popup_fdcf3b0a3fe317df06cb610c29818211 = L.popup({
+  "maxWidth": 300,
+});
 
         
             
-                var html_0dfa632bdef20f6392b601b7ad1f8f2f = $(`<div id="html_0dfa632bdef20f6392b601b7ad1f8f2f" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Mursi</strong><br>Sand ID: AL_3<br>Land: AL<br>Kontinent: Europa<br>Breitengrad: 39.70943<br>Längengrad: 20.076742</div></div>`)[0];
-                popup_075b376120432a0b72ca091d17751956.setContent(html_0dfa632bdef20f6392b601b7ad1f8f2f);
+                var html_1ad9ca96db5a18180074bb40e7a317b4 = $(`<div id="html_1ad9ca96db5a18180074bb40e7a317b4" style="width: 100.0%; height: 100.0%;">         <b>Tuskha, Afl-Wadi, Al Dschadid bei Abu Simbel</b><br>         nan<br>         nan         </div>`)[0];
+                popup_fdcf3b0a3fe317df06cb610c29818211.setContent(html_1ad9ca96db5a18180074bb40e7a317b4);
             
         
 
-        marker_3682de804be097c58bbba069b933f1b1.bindPopup(popup_075b376120432a0b72ca091d17751956)
+        marker_0317c0d36fe69d1aca292b445a11fdd2.bindPopup(popup_fdcf3b0a3fe317df06cb610c29818211)
         ;
 
         
     
     
-            var marker_8b79ff73fc692ce8ae432b57a4a820c6 = L.marker(
-                [40.051889, 19.848883],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_ced91920b3ba094cb59da0e73fa6abcd = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            marker_0317c0d36fe69d1aca292b445a11fdd2.bindTooltip(
+                `<div>
+                     Tuskha, Afl-Wadi, Al Dschadid bei Abu Simbel
+                 </div>`,
+                {
+  "sticky": true,
+}
             );
-            marker_8b79ff73fc692ce8ae432b57a4a820c6.setIcon(icon_ced91920b3ba094cb59da0e73fa6abcd);
         
     
-        var popup_4267866cc5368856fe1b52a8e243b733 = L.popup({"maxWidth": "100%"});
+            var marker_64ba86ac6deafd7408d55872c8140e4f = L.marker(
+                [26.10694, 34.28815],
+                {
+}
+            ).addTo(map_382f9445801d6edc9893c1973595e35c);
+        
+    
+        var popup_c091e57e280ebe880fb85877a023f476 = L.popup({
+  "maxWidth": 300,
+});
 
         
             
-                var html_95596e02d7185870f7ea3bff3c95f886 = $(`<div id="html_95596e02d7185870f7ea3bff3c95f886" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Borsch</strong><br>Sand ID: AL_4<br>Land: AL<br>Kontinent: Europa<br>Breitengrad: 40.051889<br>Längengrad: 19.848883</div></div>`)[0];
-                popup_4267866cc5368856fe1b52a8e243b733.setContent(html_95596e02d7185870f7ea3bff3c95f886);
+                var html_7dd426e41e2c9cfba64139f7a3d34e7e = $(`<div id="html_7dd426e41e2c9cfba64139f7a3d34e7e" style="width: 100.0%; height: 100.0%;">         <b> al-Qussari/ El Quseir/ Rotes Meer </b><br>         nan<br>         nan         </div>`)[0];
+                popup_c091e57e280ebe880fb85877a023f476.setContent(html_7dd426e41e2c9cfba64139f7a3d34e7e);
             
         
 
-        marker_8b79ff73fc692ce8ae432b57a4a820c6.bindPopup(popup_4267866cc5368856fe1b52a8e243b733)
+        marker_64ba86ac6deafd7408d55872c8140e4f.bindPopup(popup_c091e57e280ebe880fb85877a023f476)
         ;
 
         
     
     
-            var marker_006adf9f05b509467db1899a5e1e4b1f = L.marker(
-                [39.7737, 20.005427],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_673d44463b75a50ff45a10ad48676706 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            marker_64ba86ac6deafd7408d55872c8140e4f.bindTooltip(
+                `<div>
+                      al-Qussari/ El Quseir/ Rotes Meer 
+                 </div>`,
+                {
+  "sticky": true,
+}
             );
-            marker_006adf9f05b509467db1899a5e1e4b1f.setIcon(icon_673d44463b75a50ff45a10ad48676706);
         
     
-        var popup_c16aac9c4f79cb6f6ea978658e362296 = L.popup({"maxWidth": "100%"});
+            var marker_706188ffafa58e24e70ecdc1413f82c9 = L.marker(
+                [27.00446, 33.91191],
+                {
+}
+            ).addTo(map_382f9445801d6edc9893c1973595e35c);
+        
+    
+        var popup_1f1e94a6a6b47596357e0bb3a3d9f9cd = L.popup({
+  "maxWidth": 300,
+});
 
         
             
-                var html_4e9c02469d708d9af4e3de6381df02ab = $(`<div id="html_4e9c02469d708d9af4e3de6381df02ab" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Ksamil</strong><br>Sand ID: AL_5<br>Land: AL<br>Kontinent: Europa<br>Breitengrad: 39.7737<br>Längengrad: 20.005427</div></div>`)[0];
-                popup_c16aac9c4f79cb6f6ea978658e362296.setContent(html_4e9c02469d708d9af4e3de6381df02ab);
+                var html_b866da8dc85b6a27ed30ed8fe1687df6 = $(`<div id="html_b866da8dc85b6a27ed30ed8fe1687df6" style="width: 100.0%; height: 100.0%;">         <b> Makadi Bay/ Rotes Meer</b><br>         nan<br>         nan         </div>`)[0];
+                popup_1f1e94a6a6b47596357e0bb3a3d9f9cd.setContent(html_b866da8dc85b6a27ed30ed8fe1687df6);
             
         
 
-        marker_006adf9f05b509467db1899a5e1e4b1f.bindPopup(popup_c16aac9c4f79cb6f6ea978658e362296)
+        marker_706188ffafa58e24e70ecdc1413f82c9.bindPopup(popup_1f1e94a6a6b47596357e0bb3a3d9f9cd)
         ;
 
         
     
     
-            var marker_b26fa345fbbe66c21723057259de7ca8 = L.marker(
-                [40.013613, 19.879782],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_1f20af9742c149f2e9c7738995ea4cad = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            marker_706188ffafa58e24e70ecdc1413f82c9.bindTooltip(
+                `<div>
+                      Makadi Bay/ Rotes Meer
+                 </div>`,
+                {
+  "sticky": true,
+}
             );
-            marker_b26fa345fbbe66c21723057259de7ca8.setIcon(icon_1f20af9742c149f2e9c7738995ea4cad);
         
     
-        var popup_521b56d76d0a057d3bc412627a1c5644 = L.popup({"maxWidth": "100%"});
+            var marker_fa64f9013ff2f42c2af01ee9c09b6da4 = L.marker(
+                [25.70523, 32.64136],
+                {
+}
+            ).addTo(map_382f9445801d6edc9893c1973595e35c);
+        
+    
+        var popup_289b21843f57b3ddae191bad8436242f = L.popup({
+  "maxWidth": 300,
+});
 
         
             
-                var html_a0ffc86dfc71cc0e1aa7586a7473f4e1 = $(`<div id="html_a0ffc86dfc71cc0e1aa7586a7473f4e1" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Piqueras</strong><br>Sand ID: AL_6<br>Land: AL<br>Kontinent: Europa<br>Breitengrad: 40.013613<br>Längengrad: 19.879782</div></div>`)[0];
-                popup_521b56d76d0a057d3bc412627a1c5644.setContent(html_a0ffc86dfc71cc0e1aa7586a7473f4e1);
+                var html_c804ebd2fe3a4e7c0c146505e74bd4cc = $(`<div id="html_c804ebd2fe3a4e7c0c146505e74bd4cc" style="width: 100.0%; height: 100.0%;">         <b>Luxor/ Arabische Wüste  </b><br>         nan<br>         nan         </div>`)[0];
+                popup_289b21843f57b3ddae191bad8436242f.setContent(html_c804ebd2fe3a4e7c0c146505e74bd4cc);
             
         
 
-        marker_b26fa345fbbe66c21723057259de7ca8.bindPopup(popup_521b56d76d0a057d3bc412627a1c5644)
+        marker_fa64f9013ff2f42c2af01ee9c09b6da4.bindPopup(popup_289b21843f57b3ddae191bad8436242f)
         ;
 
         
     
     
-            var marker_0824e116d6682ccacda90cf7337e3f07 = L.marker(
-                [40.355895, 20.243409],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_4395043fbecb0a6d1f099fc1c7bad449 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            marker_fa64f9013ff2f42c2af01ee9c09b6da4.bindTooltip(
+                `<div>
+                     Luxor/ Arabische Wüste  
+                 </div>`,
+                {
+  "sticky": true,
+}
             );
-            marker_0824e116d6682ccacda90cf7337e3f07.setIcon(icon_4395043fbecb0a6d1f099fc1c7bad449);
         
     
-        var popup_4a2c891e23c064fa04acaccf1921a3c4 = L.popup({"maxWidth": "100%"});
+            var marker_55fe156d9ac254da24813037f05d35df = L.marker(
+                [29.7914, 31.20882],
+                {
+}
+            ).addTo(map_382f9445801d6edc9893c1973595e35c);
+        
+    
+        var popup_a837251802cb6c72980d6ed562e55558 = L.popup({
+  "maxWidth": 300,
+});
 
         
             
-                var html_a9c4a99f0a092de19271f20c808c8e38 = $(`<div id="html_a9c4a99f0a092de19271f20c808c8e38" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Benja 307 m/ Permet</strong><br>Sand ID: AL_7<br>Land: AL<br>Kontinent: Europa<br>Breitengrad: 40.355895<br>Längengrad: 20.243409</div></div>`)[0];
-                popup_4a2c891e23c064fa04acaccf1921a3c4.setContent(html_a9c4a99f0a092de19271f20c808c8e38);
+                var html_6061b72691a44e706d9ea7cedf67c40d = $(`<div id="html_6061b72691a44e706d9ea7cedf67c40d" style="width: 100.0%; height: 100.0%;">         <b>Mekrinos Pyramide</b><br>         nan<br>         nan         </div>`)[0];
+                popup_a837251802cb6c72980d6ed562e55558.setContent(html_6061b72691a44e706d9ea7cedf67c40d);
             
         
 
-        marker_0824e116d6682ccacda90cf7337e3f07.bindPopup(popup_4a2c891e23c064fa04acaccf1921a3c4)
+        marker_55fe156d9ac254da24813037f05d35df.bindPopup(popup_a837251802cb6c72980d6ed562e55558)
         ;
 
         
     
     
-            var marker_be0946ce9c89f88b96c8a1d67055e586 = L.marker(
-                [40.355895, 20.243409],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_17eadc5624a5d42f8a57fbfbf059fd52 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            marker_55fe156d9ac254da24813037f05d35df.bindTooltip(
+                `<div>
+                     Mekrinos Pyramide
+                 </div>`,
+                {
+  "sticky": true,
+}
             );
-            marker_be0946ce9c89f88b96c8a1d67055e586.setIcon(icon_17eadc5624a5d42f8a57fbfbf059fd52);
         
     
-        var popup_62663183b34bff79e917864eeb354450 = L.popup({"maxWidth": "100%"});
+            var marker_84171472fe4048cc811ab3245cbe137f = L.marker(
+                [24.9779, 32.87334],
+                {
+}
+            ).addTo(map_382f9445801d6edc9893c1973595e35c);
+        
+    
+        var popup_5997ba2cc115bb976455636836b7c97f = L.popup({
+  "maxWidth": 300,
+});
 
         
             
-                var html_89b671117e58244cb98f683bc01a31ac = $(`<div id="html_89b671117e58244cb98f683bc01a31ac" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Benja 307 m/ Permet</strong><br>Sand ID: AL_8<br>Land: AL<br>Kontinent: Europa<br>Breitengrad: 40.355895<br>Längengrad: 20.243409</div></div>`)[0];
-                popup_62663183b34bff79e917864eeb354450.setContent(html_89b671117e58244cb98f683bc01a31ac);
+                var html_963f51cea703f0c4c80e0c083ff0e236 = $(`<div id="html_963f51cea703f0c4c80e0c083ff0e236" style="width: 100.0%; height: 100.0%;">         <b>Horus - Tempel </b><br>         nan<br>         nan         </div>`)[0];
+                popup_5997ba2cc115bb976455636836b7c97f.setContent(html_963f51cea703f0c4c80e0c083ff0e236);
             
         
 
-        marker_be0946ce9c89f88b96c8a1d67055e586.bindPopup(popup_62663183b34bff79e917864eeb354450)
+        marker_84171472fe4048cc811ab3245cbe137f.bindPopup(popup_5997ba2cc115bb976455636836b7c97f)
         ;
 
         
     
     
-            var marker_b04e3f9879d79337762aeab5b3fb88e4 = L.marker(
-                [40.127014, 19.670345],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_2fd594f4d6e3352210b507043320fe2d = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            marker_84171472fe4048cc811ab3245cbe137f.bindTooltip(
+                `<div>
+                     Horus - Tempel 
+                 </div>`,
+                {
+  "sticky": true,
+}
             );
-            marker_b04e3f9879d79337762aeab5b3fb88e4.setIcon(icon_2fd594f4d6e3352210b507043320fe2d);
         
     
-        var popup_a31ab987bcc300a5f7d044cc8c76c2c9 = L.popup({"maxWidth": "100%"});
+            var marker_d937001b923610bd7f29adc89e33aab1 = L.marker(
+                [25.2944, 32.5578],
+                {
+}
+            ).addTo(map_382f9445801d6edc9893c1973595e35c);
+        
+    
+        var popup_bba89ff6400740af1966b3ab50207829 = L.popup({
+  "maxWidth": 300,
+});
 
         
             
-                var html_b01410205f3da9d523789c4d030e14ff = $(`<div id="html_b01410205f3da9d523789c4d030e14ff" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Gjepe Beach Canyon</strong><br>Sand ID: AL_9<br>Land: AL<br>Kontinent: Europa<br>Breitengrad: 40.127014<br>Längengrad: 19.670345</div></div>`)[0];
-                popup_a31ab987bcc300a5f7d044cc8c76c2c9.setContent(html_b01410205f3da9d523789c4d030e14ff);
+                var html_9681c1d509d5ba935d9c13a62642bb8d = $(`<div id="html_9681c1d509d5ba935d9c13a62642bb8d" style="width: 100.0%; height: 100.0%;">         <b>ESNA </b><br>         nan<br>         nan         </div>`)[0];
+                popup_bba89ff6400740af1966b3ab50207829.setContent(html_9681c1d509d5ba935d9c13a62642bb8d);
             
         
 
-        marker_b04e3f9879d79337762aeab5b3fb88e4.bindPopup(popup_a31ab987bcc300a5f7d044cc8c76c2c9)
+        marker_d937001b923610bd7f29adc89e33aab1.bindPopup(popup_bba89ff6400740af1966b3ab50207829)
         ;
 
         
     
     
-            var marker_408695a12df1dcdd9e58080444005a42 = L.marker(
-                [39.770533, 20.012293],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_a259739d6e4ee9919ae163a4efe0db2a = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            marker_d937001b923610bd7f29adc89e33aab1.bindTooltip(
+                `<div>
+                     ESNA 
+                 </div>`,
+                {
+  "sticky": true,
+}
             );
-            marker_408695a12df1dcdd9e58080444005a42.setIcon(icon_a259739d6e4ee9919ae163a4efe0db2a);
         
     
-        var popup_e495b9011b1062657aa97d2cf9158453 = L.popup({"maxWidth": "100%"});
+            var marker_3095dfffeed636003ef6887ad5740ead = L.marker(
+                [24.02579, 32.88406],
+                {
+}
+            ).addTo(map_382f9445801d6edc9893c1973595e35c);
+        
+    
+        var popup_32463e3e79606d68448935bb77235b19 = L.popup({
+  "maxWidth": 300,
+});
 
         
             
-                var html_a1b2d6d75636481f9e4c6d480233198c = $(`<div id="html_a1b2d6d75636481f9e4c6d480233198c" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Ksamil</strong><br>Sand ID: AL_10<br>Land: AL<br>Kontinent: Europa<br>Breitengrad: 39.770533<br>Längengrad: 20.012293</div></div>`)[0];
-                popup_e495b9011b1062657aa97d2cf9158453.setContent(html_a1b2d6d75636481f9e4c6d480233198c);
+                var html_e5b516cdf60f553e50ccd8ccf6893b64 = $(`<div id="html_e5b516cdf60f553e50ccd8ccf6893b64" style="width: 100.0%; height: 100.0%;">         <b>Philae Tempel Agilkia Insel </b><br>         nan<br>         nan         </div>`)[0];
+                popup_32463e3e79606d68448935bb77235b19.setContent(html_e5b516cdf60f553e50ccd8ccf6893b64);
             
         
 
-        marker_408695a12df1dcdd9e58080444005a42.bindPopup(popup_e495b9011b1062657aa97d2cf9158453)
+        marker_3095dfffeed636003ef6887ad5740ead.bindPopup(popup_32463e3e79606d68448935bb77235b19)
         ;
 
         
     
     
-            var marker_ee68384f5e373ef58e4279c051472438 = L.marker(
-                [41.703735, 19.594588],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_3df50878d10a1b67c3610b17b4c8de6a = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            marker_3095dfffeed636003ef6887ad5740ead.bindTooltip(
+                `<div>
+                     Philae Tempel Agilkia Insel 
+                 </div>`,
+                {
+  "sticky": true,
+}
             );
-            marker_ee68384f5e373ef58e4279c051472438.setIcon(icon_3df50878d10a1b67c3610b17b4c8de6a);
         
     
-        var popup_2af05d68be5f23e1c207edc661db1bb9 = L.popup({"maxWidth": "100%"});
+            var marker_9d3ef400075db18494457816c8eaeb62 = L.marker(
+                [24.4522, 32.92842],
+                {
+}
+            ).addTo(map_382f9445801d6edc9893c1973595e35c);
+        
+    
+        var popup_fd6fa69ac667946bc84ff5d3403b8daa = L.popup({
+  "maxWidth": 300,
+});
 
         
             
-                var html_84db9502b4b3946f95c0201ff96064c2 = $(`<div id="html_84db9502b4b3946f95c0201ff96064c2" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Tale</strong><br>Sand ID: AL_11<br>Land: AL<br>Kontinent: Europa<br>Breitengrad: 41.703735<br>Längengrad: 19.594588</div></div>`)[0];
-                popup_2af05d68be5f23e1c207edc661db1bb9.setContent(html_84db9502b4b3946f95c0201ff96064c2);
+                var html_e705545a008524a01119021bac364255 = $(`<div id="html_e705545a008524a01119021bac364255" style="width: 100.0%; height: 100.0%;">         <b>Kom - Ombo - Tempel </b><br>         nan<br>         nan         </div>`)[0];
+                popup_fd6fa69ac667946bc84ff5d3403b8daa.setContent(html_e705545a008524a01119021bac364255);
             
         
 
-        marker_ee68384f5e373ef58e4279c051472438.bindPopup(popup_2af05d68be5f23e1c207edc661db1bb9)
+        marker_9d3ef400075db18494457816c8eaeb62.bindPopup(popup_fd6fa69ac667946bc84ff5d3403b8daa)
         ;
 
         
     
     
-            var marker_a2fc0fdd9c667c1e28205aedcc2e18a5 = L.marker(
-                [42.296139, 20.034494],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_fa04db8b4227036ca2468921a056c573 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            marker_9d3ef400075db18494457816c8eaeb62.bindTooltip(
+                `<div>
+                     Kom - Ombo - Tempel 
+                 </div>`,
+                {
+  "sticky": true,
+}
             );
-            marker_a2fc0fdd9c667c1e28205aedcc2e18a5.setIcon(icon_fa04db8b4227036ca2468921a056c573);
         
     
-        var popup_3652234c741ad9a1e05feb526944c46f = L.popup({"maxWidth": "100%"});
+            var marker_194584ff74d2bf1c97dc04d474980c48 = L.marker(
+                [25.7009, 32.63895],
+                {
+}
+            ).addTo(map_382f9445801d6edc9893c1973595e35c);
+        
+    
+        var popup_bdbd53c01a18919718642f56e57c8480 = L.popup({
+  "maxWidth": 300,
+});
 
         
             
-                var html_1e2dc853d9c9df0db190537e1c971acf = $(`<div id="html_1e2dc853d9c9df0db190537e1c971acf" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>SH 22/ bei Fierze Golem</strong><br>Sand ID: AL_12<br>Land: AL<br>Kontinent: Europa<br>Breitengrad: 42.296139<br>Längengrad: 20.034494</div></div>`)[0];
-                popup_3652234c741ad9a1e05feb526944c46f.setContent(html_1e2dc853d9c9df0db190537e1c971acf);
+                var html_71bdbb40c583e268f47610864949e9ad = $(`<div id="html_71bdbb40c583e268f47610864949e9ad" style="width: 100.0%; height: 100.0%;">         <b>Amenophes/ Ramses II (gr. Tempel in Luxor) </b><br>         nan<br>         nan         </div>`)[0];
+                popup_bdbd53c01a18919718642f56e57c8480.setContent(html_71bdbb40c583e268f47610864949e9ad);
             
         
 
-        marker_a2fc0fdd9c667c1e28205aedcc2e18a5.bindPopup(popup_3652234c741ad9a1e05feb526944c46f)
+        marker_194584ff74d2bf1c97dc04d474980c48.bindPopup(popup_bdbd53c01a18919718642f56e57c8480)
         ;
 
         
     
     
-            var marker_220623eb13abee404c70755c64b961ae = L.marker(
-                [41.22991, 19.546523],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_0450971e133450867cc5234425dd1bd9 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            marker_194584ff74d2bf1c97dc04d474980c48.bindTooltip(
+                `<div>
+                     Amenophes/ Ramses II (gr. Tempel in Luxor) 
+                 </div>`,
+                {
+  "sticky": true,
+}
             );
-            marker_220623eb13abee404c70755c64b961ae.setIcon(icon_0450971e133450867cc5234425dd1bd9);
         
     
-        var popup_6fd71c25f3828283a6c43a1a89576e48 = L.popup({"maxWidth": "100%"});
+            var marker_213868019969cda9b03d01e391a1548b = L.marker(
+                [25.71894, 32.65729],
+                {
+}
+            ).addTo(map_382f9445801d6edc9893c1973595e35c);
+        
+    
+        var popup_a6c95a7acd812e156b352b3b22e5328e = L.popup({
+  "maxWidth": 300,
+});
 
         
             
-                var html_778fd75fabcb3c55bc6265c286cb3f13 = $(`<div id="html_778fd75fabcb3c55bc6265c286cb3f13" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Golem</strong><br>Sand ID: AL_13<br>Land: AL<br>Kontinent: Europa<br>Breitengrad: 41.22991<br>Längengrad: 19.546523</div></div>`)[0];
-                popup_6fd71c25f3828283a6c43a1a89576e48.setContent(html_778fd75fabcb3c55bc6265c286cb3f13);
+                var html_0f12286c0bd70f5fc379bcfbc2a1058e = $(`<div id="html_0f12286c0bd70f5fc379bcfbc2a1058e" style="width: 100.0%; height: 100.0%;">         <b>Karnak Tempel Luxor </b><br>         nan<br>         nan         </div>`)[0];
+                popup_a6c95a7acd812e156b352b3b22e5328e.setContent(html_0f12286c0bd70f5fc379bcfbc2a1058e);
             
         
 
-        marker_220623eb13abee404c70755c64b961ae.bindPopup(popup_6fd71c25f3828283a6c43a1a89576e48)
+        marker_213868019969cda9b03d01e391a1548b.bindPopup(popup_a6c95a7acd812e156b352b3b22e5328e)
         ;
 
         
     
     
-            var marker_31c9234d3a9d8ad088781f6bcaa80ed1 = L.marker(
-                [40.220286, 19.578499],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_1d3735c1fce4e473b916957097df9ce9 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            marker_213868019969cda9b03d01e391a1548b.bindTooltip(
+                `<div>
+                     Karnak Tempel Luxor 
+                 </div>`,
+                {
+  "sticky": true,
+}
             );
-            marker_31c9234d3a9d8ad088781f6bcaa80ed1.setIcon(icon_1d3735c1fce4e473b916957097df9ce9);
         
     
-        var popup_1835e8ac5f9aead75d16a2d09a594347 = L.popup({"maxWidth": "100%"});
+            var marker_728be65c72730116dc66937dcf1fdd82 = L.marker(
+                [29.9792, 31.13427],
+                {
+}
+            ).addTo(map_382f9445801d6edc9893c1973595e35c);
+        
+    
+        var popup_50888a51a14ca7435770a4656c61724d = L.popup({
+  "maxWidth": 300,
+});
 
         
             
-                var html_8f7d898322aa28897f9b2067a702c524 = $(`<div id="html_8f7d898322aa28897f9b2067a702c524" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>unterm Lodgen Pass</strong><br>Sand ID: AL_14<br>Land: AL<br>Kontinent: Europa<br>Breitengrad: 40.220286<br>Längengrad: 19.578499</div></div>`)[0];
-                popup_1835e8ac5f9aead75d16a2d09a594347.setContent(html_8f7d898322aa28897f9b2067a702c524);
+                var html_807ddaaf1d5743845400fbdf452330b3 = $(`<div id="html_807ddaaf1d5743845400fbdf452330b3" style="width: 100.0%; height: 100.0%;">         <b>Cheopspyramide; </b><br>         nan<br>         nan         </div>`)[0];
+                popup_50888a51a14ca7435770a4656c61724d.setContent(html_807ddaaf1d5743845400fbdf452330b3);
             
         
 
-        marker_31c9234d3a9d8ad088781f6bcaa80ed1.bindPopup(popup_1835e8ac5f9aead75d16a2d09a594347)
+        marker_728be65c72730116dc66937dcf1fdd82.bindPopup(popup_50888a51a14ca7435770a4656c61724d)
         ;
 
         
     
     
-            var marker_9a4cac7595fad2a1dbf43b0ac49854e1 = L.marker(
-                [40.457846, 19.474638],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_b45b45d34badce6001dba72f41180c04 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            marker_728be65c72730116dc66937dcf1fdd82.bindTooltip(
+                `<div>
+                     Cheopspyramide; 
+                 </div>`,
+                {
+  "sticky": true,
+}
             );
-            marker_9a4cac7595fad2a1dbf43b0ac49854e1.setIcon(icon_b45b45d34badce6001dba72f41180c04);
         
     
-        var popup_c1d18169c37f0bde3e953b6648606302 = L.popup({"maxWidth": "100%"});
+            var marker_16c91002ee322ccb81b2199ca343a04a = L.marker(
+                [25.72747, 32.59252],
+                {
+}
+            ).addTo(map_382f9445801d6edc9893c1973595e35c);
+        
+    
+        var popup_7a5076252331d5d88d79aa13b9ac9807 = L.popup({
+  "maxWidth": 300,
+});
 
         
             
-                var html_3a80145ffa3dfd75ac5f31a3faff168b = $(`<div id="html_3a80145ffa3dfd75ac5f31a3faff168b" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Kreis Vlora</strong><br>Sand ID: AL_15<br>Land: AL<br>Kontinent: Europa<br>Breitengrad: 40.457846<br>Längengrad: 19.474638</div></div>`)[0];
-                popup_c1d18169c37f0bde3e953b6648606302.setContent(html_3a80145ffa3dfd75ac5f31a3faff168b);
+                var html_461f7d1c209cac38bb16902e0f789b0d = $(`<div id="html_461f7d1c209cac38bb16902e0f789b0d" style="width: 100.0%; height: 100.0%;">         <b>Theben Ost-Luxor Tal der Königinnen </b><br>         nan<br>         nan         </div>`)[0];
+                popup_7a5076252331d5d88d79aa13b9ac9807.setContent(html_461f7d1c209cac38bb16902e0f789b0d);
             
         
 
-        marker_9a4cac7595fad2a1dbf43b0ac49854e1.bindPopup(popup_c1d18169c37f0bde3e953b6648606302)
+        marker_16c91002ee322ccb81b2199ca343a04a.bindPopup(popup_7a5076252331d5d88d79aa13b9ac9807)
         ;
 
         
     
     
-            var marker_87f5fed4576b34f31f835a782f919b4f = L.marker(
-                [41.710404, 19.587207],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_a1d3ccd804f90b5e593dcca710b0993c = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            marker_16c91002ee322ccb81b2199ca343a04a.bindTooltip(
+                `<div>
+                     Theben Ost-Luxor Tal der Königinnen 
+                 </div>`,
+                {
+  "sticky": true,
+}
             );
-            marker_87f5fed4576b34f31f835a782f919b4f.setIcon(icon_a1d3ccd804f90b5e593dcca710b0993c);
         
     
-        var popup_b2e2c7ce975f03d65d2f2d3289894d52 = L.popup({"maxWidth": "100%"});
+            var marker_7498b6c9b81d9dc04644db318cde00b7 = L.marker(
+                [25.73829, 32.60648],
+                {
+}
+            ).addTo(map_382f9445801d6edc9893c1973595e35c);
+        
+    
+        var popup_13620ef1eb6623ca959e1ad951c692c8 = L.popup({
+  "maxWidth": 300,
+});
 
         
             
-                var html_da6365402f171eb3c8faf3906ebeef98 = $(`<div id="html_da6365402f171eb3c8faf3906ebeef98" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Tale </strong><br>Sand ID: AL_16<br>Land: AL<br>Kontinent: Europa<br>Breitengrad: 41.710404<br>Längengrad: 19.587207</div></div>`)[0];
-                popup_b2e2c7ce975f03d65d2f2d3289894d52.setContent(html_da6365402f171eb3c8faf3906ebeef98);
+                var html_748d41953ec48ab3b49ec9708e316fd9 = $(`<div id="html_748d41953ec48ab3b49ec9708e316fd9" style="width: 100.0%; height: 100.0%;">         <b>Königin Hatschepsut Theben Ost 25.73829; 32.60648</b><br>         nan<br>         nan         </div>`)[0];
+                popup_13620ef1eb6623ca959e1ad951c692c8.setContent(html_748d41953ec48ab3b49ec9708e316fd9);
             
         
 
-        marker_87f5fed4576b34f31f835a782f919b4f.bindPopup(popup_b2e2c7ce975f03d65d2f2d3289894d52)
+        marker_7498b6c9b81d9dc04644db318cde00b7.bindPopup(popup_13620ef1eb6623ca959e1ad951c692c8)
         ;
 
         
     
     
-            var marker_daf305d3a3271b784b6e24557e8b8417 = L.marker(
-                [18.02498, -63.05224],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_f5ab09c0437e38330dbb135030a4b1ba = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            marker_7498b6c9b81d9dc04644db318cde00b7.bindTooltip(
+                `<div>
+                     Königin Hatschepsut Theben Ost 25.73829; 32.60648
+                 </div>`,
+                {
+  "sticky": true,
+}
             );
-            marker_daf305d3a3271b784b6e24557e8b8417.setIcon(icon_f5ab09c0437e38330dbb135030a4b1ba);
         
     
-        var popup_c4b3e2a06b6a5efd393de907641c472a = L.popup({"maxWidth": "100%"});
+            var marker_bed3dd3126acdfe3cb6877cf2d2e242e = L.marker(
+                [31.2168, 29.86836],
+                {
+}
+            ).addTo(map_382f9445801d6edc9893c1973595e35c);
+        
+    
+        var popup_3b4f4d99c3690878ba10a1c99bfd5983 = L.popup({
+  "maxWidth": 300,
+});
 
         
             
-                var html_9035e86bfe9de4a75736303b4b655bcb = $(`<div id="html_9035e86bfe9de4a75736303b4b655bcb" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Sankt Marteen, Philipsburg</strong><br>Sand ID: ANT_1<br>Land: ANT<br>Kontinent: Amerika<br>Breitengrad: 18.02498<br>Längengrad: -63.05224</div></div>`)[0];
-                popup_c4b3e2a06b6a5efd393de907641c472a.setContent(html_9035e86bfe9de4a75736303b4b655bcb);
+                var html_9b5df3dede0c01ea6fa6a44597afc90c = $(`<div id="html_9b5df3dede0c01ea6fa6a44597afc90c" style="width: 100.0%; height: 100.0%;">         <b>Memphis Sakkarapyramide    31.21680; 29.86836;</b><br>         nan<br>         nan         </div>`)[0];
+                popup_3b4f4d99c3690878ba10a1c99bfd5983.setContent(html_9b5df3dede0c01ea6fa6a44597afc90c);
             
         
 
-        marker_daf305d3a3271b784b6e24557e8b8417.bindPopup(popup_c4b3e2a06b6a5efd393de907641c472a)
+        marker_bed3dd3126acdfe3cb6877cf2d2e242e.bindPopup(popup_3b4f4d99c3690878ba10a1c99bfd5983)
         ;
 
         
     
     
-            var marker_8001485931c786c02a2c9df76af9201d = L.marker(
-                [18.0531, -63.13968],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_81ec809684bf5da2d04e5987ca62b741 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            marker_bed3dd3126acdfe3cb6877cf2d2e242e.bindTooltip(
+                `<div>
+                     Memphis Sakkarapyramide    31.21680; 29.86836;
+                 </div>`,
+                {
+  "sticky": true,
+}
             );
-            marker_8001485931c786c02a2c9df76af9201d.setIcon(icon_81ec809684bf5da2d04e5987ca62b741);
         
     
-        var popup_472ab737bbad4dc68f4d4b302ab8e764 = L.popup({"maxWidth": "100%"});
+            var marker_b5ec939fe469030ba62a24eca47c48e9 = L.marker(
+                [25.7453, 32.60469],
+                {
+}
+            ).addTo(map_382f9445801d6edc9893c1973595e35c);
+        
+    
+        var popup_209827bcd7a08d92e09ed3484af34d28 = L.popup({
+  "maxWidth": 300,
+});
 
         
             
-                var html_e5b971e1db36c483ec510551c0b00fe8 = $(`<div id="html_e5b971e1db36c483ec510551c0b00fe8" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Sankt Marteen, Cupocoy Beach</strong><br>Sand ID: ANT_2<br>Land: ANT<br>Kontinent: Amerika<br>Breitengrad: 18.0531<br>Längengrad: -63.13968</div></div>`)[0];
-                popup_472ab737bbad4dc68f4d4b302ab8e764.setContent(html_e5b971e1db36c483ec510551c0b00fe8);
+                var html_f416e7ff58b4794309f1796455e61f27 = $(`<div id="html_f416e7ff58b4794309f1796455e61f27" style="width: 100.0%; height: 100.0%;">         <b>Tal der Könige</b><br>         nan<br>         nan         </div>`)[0];
+                popup_209827bcd7a08d92e09ed3484af34d28.setContent(html_f416e7ff58b4794309f1796455e61f27);
             
         
 
-        marker_8001485931c786c02a2c9df76af9201d.bindPopup(popup_472ab737bbad4dc68f4d4b302ab8e764)
+        marker_b5ec939fe469030ba62a24eca47c48e9.bindPopup(popup_209827bcd7a08d92e09ed3484af34d28)
         ;
 
         
     
     
-            var marker_6f2894c50e6d176cd07689b06d58f201 = L.marker(
-                [18.01813, -63.04451],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_e1f11265a49e11e0b98774995e535ca9 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            marker_b5ec939fe469030ba62a24eca47c48e9.bindTooltip(
+                `<div>
+                     Tal der Könige
+                 </div>`,
+                {
+  "sticky": true,
+}
             );
-            marker_6f2894c50e6d176cd07689b06d58f201.setIcon(icon_e1f11265a49e11e0b98774995e535ca9);
         
     
-        var popup_252057279844ee624262aee2e25098e0 = L.popup({"maxWidth": "100%"});
+            var marker_316c764ee28e6f7cdbae437b2f1e1cd4 = L.marker(
+                [23.97089, 32.87725],
+                {
+}
+            ).addTo(map_382f9445801d6edc9893c1973595e35c);
+        
+    
+        var popup_b834c124576f878b89a6f914a7e2f89f = L.popup({
+  "maxWidth": 300,
+});
 
         
             
-                var html_92af090cea2e2692de265ac781ef289a = $(`<div id="html_92af090cea2e2692de265ac781ef289a" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Sankt Marteen, Philipsburg</strong><br>Sand ID: ANT_3<br>Land: ANT<br>Kontinent: Amerika<br>Breitengrad: 18.01813<br>Längengrad: -63.04451</div></div>`)[0];
-                popup_252057279844ee624262aee2e25098e0.setContent(html_92af090cea2e2692de265ac781ef289a);
+                var html_7fd94edb07f2f02e36246e07c7204f5a = $(`<div id="html_7fd94edb07f2f02e36246e07c7204f5a" style="width: 100.0%; height: 100.0%;">         <b>Staudamm Assuan</b><br>         nan<br>         nan         </div>`)[0];
+                popup_b834c124576f878b89a6f914a7e2f89f.setContent(html_7fd94edb07f2f02e36246e07c7204f5a);
             
         
 
-        marker_6f2894c50e6d176cd07689b06d58f201.bindPopup(popup_252057279844ee624262aee2e25098e0)
+        marker_316c764ee28e6f7cdbae437b2f1e1cd4.bindPopup(popup_b834c124576f878b89a6f914a7e2f89f)
         ;
 
         
     
     
-            var marker_802f86959918ee2a06457cccf4b416ad = L.marker(
-                [17.54654, -61.76637],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_f9c766906252fb2759b95246af8117a5 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            marker_316c764ee28e6f7cdbae437b2f1e1cd4.bindTooltip(
+                `<div>
+                     Staudamm Assuan
+                 </div>`,
+                {
+  "sticky": true,
+}
             );
-            marker_802f86959918ee2a06457cccf4b416ad.setIcon(icon_f9c766906252fb2759b95246af8117a5);
         
     
-        var popup_90b61e5b1a439ced7f933d2f9ae19f58 = L.popup({"maxWidth": "100%"});
+            var marker_d339635a28efbedb7ae4e9338fd97b8e = L.marker(
+                [29.97269, 31.12724],
+                {
+}
+            ).addTo(map_382f9445801d6edc9893c1973595e35c);
+        
+    
+        var popup_94560176515a0b074dd16fa488578bf0 = L.popup({
+  "maxWidth": 300,
+});
 
         
             
-                var html_3c39e3a7516623e3daa316f0fafd55f4 = $(`<div id="html_3c39e3a7516623e3daa316f0fafd55f4" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Barbuda, K-Club, Südküste</strong><br>Sand ID: ANT_4<br>Land: ANT<br>Kontinent: Amerika<br>Breitengrad: 17.54654<br>Längengrad: -61.76637</div></div>`)[0];
-                popup_90b61e5b1a439ced7f933d2f9ae19f58.setContent(html_3c39e3a7516623e3daa316f0fafd55f4);
+                var html_dcb611520020107f83436cde9a269d71 = $(`<div id="html_dcb611520020107f83436cde9a269d71" style="width: 100.0%; height: 100.0%;">         <b>Mekrinos Pyramide</b><br>         nan<br>         nan         </div>`)[0];
+                popup_94560176515a0b074dd16fa488578bf0.setContent(html_dcb611520020107f83436cde9a269d71);
             
         
 
-        marker_802f86959918ee2a06457cccf4b416ad.bindPopup(popup_90b61e5b1a439ced7f933d2f9ae19f58)
+        marker_d339635a28efbedb7ae4e9338fd97b8e.bindPopup(popup_94560176515a0b074dd16fa488578bf0)
         ;
 
         
     
     
-            var marker_e6ac09685813025d04dbfa9ba900fbb4 = L.marker(
-                [-25.34379, 131.03463],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_3da303c7d8c72174912ba7e773c8db6b = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            marker_d339635a28efbedb7ae4e9338fd97b8e.bindTooltip(
+                `<div>
+                     Mekrinos Pyramide
+                 </div>`,
+                {
+  "sticky": true,
+}
             );
-            marker_e6ac09685813025d04dbfa9ba900fbb4.setIcon(icon_3da303c7d8c72174912ba7e773c8db6b);
         
     
-        var popup_0a3a681e42901c48b30c3bafe2f60e5c = L.popup({"maxWidth": "100%"});
+            var marker_b15afffe156b42ce7f94e0586af0b45e = L.marker(
+                [22.34963, 31.61486],
+                {
+}
+            ).addTo(map_382f9445801d6edc9893c1973595e35c);
+        
+    
+        var popup_c6d4bcce0dabf165d9f320e5b93d440d = L.popup({
+  "maxWidth": 300,
+});
 
         
             
-                var html_31a14ced674012ea04785854f0dc03a7 = $(`<div id="html_31a14ced674012ea04785854f0dc03a7" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Uluru Nat. Park</strong><br>Sand ID: AUS_1<br>Land: AUS<br>Kontinent: Ozeanien<br>Breitengrad: -25.34379<br>Längengrad: 131.03463</div></div>`)[0];
-                popup_0a3a681e42901c48b30c3bafe2f60e5c.setContent(html_31a14ced674012ea04785854f0dc03a7);
+                var html_a56947e32b1fafa0d4f68635998c7e43 = $(`<div id="html_a56947e32b1fafa0d4f68635998c7e43" style="width: 100.0%; height: 100.0%;">         <b>Abu Simbel Assuan</b><br>         nan<br>         nan         </div>`)[0];
+                popup_c6d4bcce0dabf165d9f320e5b93d440d.setContent(html_a56947e32b1fafa0d4f68635998c7e43);
             
         
 
-        marker_e6ac09685813025d04dbfa9ba900fbb4.bindPopup(popup_0a3a681e42901c48b30c3bafe2f60e5c)
+        marker_b15afffe156b42ce7f94e0586af0b45e.bindPopup(popup_c6d4bcce0dabf165d9f320e5b93d440d)
         ;
 
         
     
     
-            var marker_b130244cec349d469858bdd3b5547975 = L.marker(
-                [-22.39582, 114.4356],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_a6c9a6e916038cd97a2e6f71d5023801 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            marker_b15afffe156b42ce7f94e0586af0b45e.bindTooltip(
+                `<div>
+                     Abu Simbel Assuan
+                 </div>`,
+                {
+  "sticky": true,
+}
             );
-            marker_b130244cec349d469858bdd3b5547975.setIcon(icon_a6c9a6e916038cd97a2e6f71d5023801);
         
     
-        var popup_945d552f95d2be124e05b96c99b7e8ba = L.popup({"maxWidth": "100%"});
+            var marker_8230c73e5f6c95fa6a4a0dfab6d36995 = L.marker(
+                [27.96081, 34.39903],
+                {
+}
+            ).addTo(map_382f9445801d6edc9893c1973595e35c);
+        
+    
+        var popup_4e99c5b3ef00fca52d7c0e5cd4d099d6 = L.popup({
+  "maxWidth": 300,
+});
 
         
             
-                var html_3696281c7a97a24bd2b78804f280553d = $(`<div id="html_3696281c7a97a24bd2b78804f280553d" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>West Australien</strong><br>Sand ID: AUS_2<br>Land: AUS<br>Kontinent: Ozeanien<br>Breitengrad: -22.39582<br>Längengrad: 114.4356</div></div>`)[0];
-                popup_945d552f95d2be124e05b96c99b7e8ba.setContent(html_3696281c7a97a24bd2b78804f280553d);
+                var html_d53fa09aeee9594b536c3492e0f81028 = $(`<div id="html_d53fa09aeee9594b536c3492e0f81028" style="width: 100.0%; height: 100.0%;">         <b>Sharm el Sheik Beach</b><br>         nan<br>         nan         </div>`)[0];
+                popup_4e99c5b3ef00fca52d7c0e5cd4d099d6.setContent(html_d53fa09aeee9594b536c3492e0f81028);
             
         
 
-        marker_b130244cec349d469858bdd3b5547975.bindPopup(popup_945d552f95d2be124e05b96c99b7e8ba)
+        marker_8230c73e5f6c95fa6a4a0dfab6d36995.bindPopup(popup_4e99c5b3ef00fca52d7c0e5cd4d099d6)
         ;
 
         
     
     
-            var marker_03554018cfd5aef024192ee053f9aa25 = L.marker(
-                [-25.34379, 131.03045],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_ab3d02df951bb8074f4a816bdbe6fd59 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            marker_8230c73e5f6c95fa6a4a0dfab6d36995.bindTooltip(
+                `<div>
+                     Sharm el Sheik Beach
+                 </div>`,
+                {
+  "sticky": true,
+}
             );
-            marker_03554018cfd5aef024192ee053f9aa25.setIcon(icon_ab3d02df951bb8074f4a816bdbe6fd59);
         
     
-        var popup_6c7fd84f4b40be391734dfae741ca515 = L.popup({"maxWidth": "100%"});
+            var marker_d3a31b07923413b32c6e1e9dd16bfcca = L.marker(
+                [29.97728, 31.13251],
+                {
+}
+            ).addTo(map_382f9445801d6edc9893c1973595e35c);
+        
+    
+        var popup_306fde1f40b7af4134eae8936db45b44 = L.popup({
+  "maxWidth": 300,
+});
 
         
             
-                var html_95d4d2653587af903be1d1c4dca194cd = $(`<div id="html_95d4d2653587af903be1d1c4dca194cd" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Ayers Rock</strong><br>Sand ID: AUS_3<br>Land: AUS<br>Kontinent: Ozeanien<br>Breitengrad: -25.34379<br>Längengrad: 131.03045</div></div>`)[0];
-                popup_6c7fd84f4b40be391734dfae741ca515.setContent(html_95d4d2653587af903be1d1c4dca194cd);
+                var html_7862942c9800e213c87510f3e0a15556 = $(`<div id="html_7862942c9800e213c87510f3e0a15556" style="width: 100.0%; height: 100.0%;">         <b>Gizeh-Pyramiden</b><br>         nan<br>         nan         </div>`)[0];
+                popup_306fde1f40b7af4134eae8936db45b44.setContent(html_7862942c9800e213c87510f3e0a15556);
             
         
 
-        marker_03554018cfd5aef024192ee053f9aa25.bindPopup(popup_6c7fd84f4b40be391734dfae741ca515)
+        marker_d3a31b07923413b32c6e1e9dd16bfcca.bindPopup(popup_306fde1f40b7af4134eae8936db45b44)
         ;
 
         
     
     
-            var marker_67714604d555ca9df09e7c23c533e78c = L.marker(
-                [-33.89194, 151.27675],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_b03bd6b52840a50d983e4db83a338450 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            marker_d3a31b07923413b32c6e1e9dd16bfcca.bindTooltip(
+                `<div>
+                     Gizeh-Pyramiden
+                 </div>`,
+                {
+  "sticky": true,
+}
             );
-            marker_67714604d555ca9df09e7c23c533e78c.setIcon(icon_b03bd6b52840a50d983e4db83a338450);
         
     
-        var popup_5c20543de4ef94ea5e1d9a30c5856aa0 = L.popup({"maxWidth": "100%"});
+            var marker_c6b178cc7906dd38aa6e57ee4bc34963 = L.marker(
+                [29.97696, 31.13284],
+                {
+}
+            ).addTo(map_382f9445801d6edc9893c1973595e35c);
+        
+    
+        var popup_9a829760c85893319ec784636c3a39c2 = L.popup({
+  "maxWidth": 300,
+});
 
         
             
-                var html_0007bb831751190ca4838cb041a475cc = $(`<div id="html_0007bb831751190ca4838cb041a475cc" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Sydney Bondi Beach</strong><br>Sand ID: AUS_4<br>Land: AUS<br>Kontinent: Ozeanien<br>Breitengrad: -33.89194<br>Längengrad: 151.27675</div></div>`)[0];
-                popup_5c20543de4ef94ea5e1d9a30c5856aa0.setContent(html_0007bb831751190ca4838cb041a475cc);
+                var html_649a1a4b00e9ba59f38ae5c207352ae3 = $(`<div id="html_649a1a4b00e9ba59f38ae5c207352ae3" style="width: 100.0%; height: 100.0%;">         <b>Abu Simbel</b><br>         nan<br>         nan         </div>`)[0];
+                popup_9a829760c85893319ec784636c3a39c2.setContent(html_649a1a4b00e9ba59f38ae5c207352ae3);
             
         
 
-        marker_67714604d555ca9df09e7c23c533e78c.bindPopup(popup_5c20543de4ef94ea5e1d9a30c5856aa0)
+        marker_c6b178cc7906dd38aa6e57ee4bc34963.bindPopup(popup_9a829760c85893319ec784636c3a39c2)
         ;
 
         
     
     
-            var marker_32d7d4a82418787e1fc48c7504676d45 = L.marker(
-                [-27.70991, 114.16282],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_cc8f8671766585bc96d07e61fe313a5e = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            marker_c6b178cc7906dd38aa6e57ee4bc34963.bindTooltip(
+                `<div>
+                     Abu Simbel
+                 </div>`,
+                {
+  "sticky": true,
+}
             );
-            marker_32d7d4a82418787e1fc48c7504676d45.setIcon(icon_cc8f8671766585bc96d07e61fe313a5e);
         
     
-        var popup_98857fff476e48e965d9dc0d3b02fc97 = L.popup({"maxWidth": "100%"});
+            var marker_86577c4e6492024e24440337578a72c3 = L.marker(
+                [26.99101, 33.90075],
+                {
+}
+            ).addTo(map_382f9445801d6edc9893c1973595e35c);
+        
+    
+        var popup_4957842e47cdb0650febd596bdbec10a = L.popup({
+  "maxWidth": 300,
+});
 
         
             
-                var html_dbd7d9cfd0b0304e14be45d861c9856a = $(`<div id="html_dbd7d9cfd0b0304e14be45d861c9856a" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Kalbarri Beach</strong><br>Sand ID: AUS_5<br>Land: AUS<br>Kontinent: Ozeanien<br>Breitengrad: -27.70991<br>Längengrad: 114.16282</div></div>`)[0];
-                popup_98857fff476e48e965d9dc0d3b02fc97.setContent(html_dbd7d9cfd0b0304e14be45d861c9856a);
+                var html_baf69248f4be4e4c525c6baa5f02fb95 = $(`<div id="html_baf69248f4be4e4c525c6baa5f02fb95" style="width: 100.0%; height: 100.0%;">         <b>Mokadi Bay</b><br>         nan<br>         nan         </div>`)[0];
+                popup_4957842e47cdb0650febd596bdbec10a.setContent(html_baf69248f4be4e4c525c6baa5f02fb95);
             
         
 
-        marker_32d7d4a82418787e1fc48c7504676d45.bindPopup(popup_98857fff476e48e965d9dc0d3b02fc97)
+        marker_86577c4e6492024e24440337578a72c3.bindPopup(popup_4957842e47cdb0650febd596bdbec10a)
         ;
 
         
     
     
-            var marker_6ae0b49f3a4562e2b51ea4c76c51c8ef = L.marker(
-                [-33.89401, 151.2743],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_d1e8cd44ed886c4bc74834b6ec1f75e9 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            marker_86577c4e6492024e24440337578a72c3.bindTooltip(
+                `<div>
+                     Mokadi Bay
+                 </div>`,
+                {
+  "sticky": true,
+}
             );
-            marker_6ae0b49f3a4562e2b51ea4c76c51c8ef.setIcon(icon_d1e8cd44ed886c4bc74834b6ec1f75e9);
         
     
-        var popup_263f6831570e194dbe96d526e55678e4 = L.popup({"maxWidth": "100%"});
+            var marker_f0ca904d6122da3012ba239ea3b2b0a2 = L.marker(
+                [25.71884, 32.65724],
+                {
+}
+            ).addTo(map_382f9445801d6edc9893c1973595e35c);
+        
+    
+        var popup_ae7bfb9d7337e10b3f54d6a158e8e3b5 = L.popup({
+  "maxWidth": 300,
+});
 
         
             
-                var html_61d8706fa35d5f9947be2b6aed152a5e = $(`<div id="html_61d8706fa35d5f9947be2b6aed152a5e" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Sydney Bondi Beach</strong><br>Sand ID: AUS_6<br>Land: AUS<br>Kontinent: Ozeanien<br>Breitengrad: -33.89401<br>Längengrad: 151.2743</div></div>`)[0];
-                popup_263f6831570e194dbe96d526e55678e4.setContent(html_61d8706fa35d5f9947be2b6aed152a5e);
+                var html_4991acc651e6033e9cc718caeb36f4b3 = $(`<div id="html_4991acc651e6033e9cc718caeb36f4b3" style="width: 100.0%; height: 100.0%;">         <b>Karnak Tempel</b><br>         nan<br>         nan         </div>`)[0];
+                popup_ae7bfb9d7337e10b3f54d6a158e8e3b5.setContent(html_4991acc651e6033e9cc718caeb36f4b3);
             
         
 
-        marker_6ae0b49f3a4562e2b51ea4c76c51c8ef.bindPopup(popup_263f6831570e194dbe96d526e55678e4)
+        marker_f0ca904d6122da3012ba239ea3b2b0a2.bindPopup(popup_ae7bfb9d7337e10b3f54d6a158e8e3b5)
         ;
 
         
     
     
-            var marker_68733938213fe89c55373c28e4c18147 = L.marker(
-                [-37.49143, 140.01108],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_e35a482145154482c28472c295377beb = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            marker_f0ca904d6122da3012ba239ea3b2b0a2.bindTooltip(
+                `<div>
+                     Karnak Tempel
+                 </div>`,
+                {
+  "sticky": true,
+}
             );
-            marker_68733938213fe89c55373c28e4c18147.setIcon(icon_e35a482145154482c28472c295377beb);
         
     
-        var popup_0517c852cdbc6715c9730c2e399223a5 = L.popup({"maxWidth": "100%"});
+            var marker_4296ae06decfe98fea68c2e825b7e983 = L.marker(
+                [27.26028, 33.82497],
+                {
+}
+            ).addTo(map_382f9445801d6edc9893c1973595e35c);
+        
+    
+        var popup_6a2c4f6846992f792f105f0f876b758d = L.popup({
+  "maxWidth": 300,
+});
 
         
             
-                var html_c1c9c5a5ee4f9da38060c9a37251e647 = $(`<div id="html_c1c9c5a5ee4f9da38060c9a37251e647" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Beachport-S-Australien</strong><br>Sand ID: AUS_7<br>Land: AUS<br>Kontinent: Ozeanien<br>Breitengrad: -37.49143<br>Längengrad: 140.01108</div></div>`)[0];
-                popup_0517c852cdbc6715c9730c2e399223a5.setContent(html_c1c9c5a5ee4f9da38060c9a37251e647);
+                var html_af579071f45324ad8d319d8dcd05fba9 = $(`<div id="html_af579071f45324ad8d319d8dcd05fba9" style="width: 100.0%; height: 100.0%;">         <b>Hurghada</b><br>         nan<br>         nan         </div>`)[0];
+                popup_6a2c4f6846992f792f105f0f876b758d.setContent(html_af579071f45324ad8d319d8dcd05fba9);
             
         
 
-        marker_68733938213fe89c55373c28e4c18147.bindPopup(popup_0517c852cdbc6715c9730c2e399223a5)
+        marker_4296ae06decfe98fea68c2e825b7e983.bindPopup(popup_6a2c4f6846992f792f105f0f876b758d)
         ;
 
         
     
     
-            var marker_654b862a40eb2fba1ba7636fb06f8d19 = L.marker(
-                [-33.84415, 151.28145],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_bc00da2d98803e5a888f7b4e9b8588f1 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            marker_4296ae06decfe98fea68c2e825b7e983.bindTooltip(
+                `<div>
+                     Hurghada
+                 </div>`,
+                {
+  "sticky": true,
+}
             );
-            marker_654b862a40eb2fba1ba7636fb06f8d19.setIcon(icon_bc00da2d98803e5a888f7b4e9b8588f1);
         
     
-        var popup_cc7db43a4c0e6d6773c94cf98f88d1ab = L.popup({"maxWidth": "100%"});
+            var marker_81db56c30c3956d1475535b2c2beddcc = L.marker(
+                [27.43645, 33.66667],
+                {
+}
+            ).addTo(map_382f9445801d6edc9893c1973595e35c);
+        
+    
+        var popup_1dbbe56b89556a957d6af7de2d3cedfe = L.popup({
+  "maxWidth": 300,
+});
 
         
             
-                var html_a8f275a34ae422932225cf1aac867934 = $(`<div id="html_a8f275a34ae422932225cf1aac867934" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Watson Bay</strong><br>Sand ID: AUS_8<br>Land: AUS<br>Kontinent: Ozeanien<br>Breitengrad: -33.84415<br>Längengrad: 151.28145</div></div>`)[0];
-                popup_cc7db43a4c0e6d6773c94cf98f88d1ab.setContent(html_a8f275a34ae422932225cf1aac867934);
+                var html_5d6d2b23089ba56f3ebef8e4daf6a113 = $(`<div id="html_5d6d2b23089ba56f3ebef8e4daf6a113" style="width: 100.0%; height: 100.0%;">         <b>Hurghada-desert </b><br>         nan<br>         nan         </div>`)[0];
+                popup_1dbbe56b89556a957d6af7de2d3cedfe.setContent(html_5d6d2b23089ba56f3ebef8e4daf6a113);
             
         
 
-        marker_654b862a40eb2fba1ba7636fb06f8d19.bindPopup(popup_cc7db43a4c0e6d6773c94cf98f88d1ab)
+        marker_81db56c30c3956d1475535b2c2beddcc.bindPopup(popup_1dbbe56b89556a957d6af7de2d3cedfe)
         ;
 
         
     
     
-            var marker_736decc828c5ceb12a2b02ed45e2b090 = L.marker(
-                [-33.61215, -69.1802],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_94308af6688d0c10b95d19f728e57d83 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            marker_81db56c30c3956d1475535b2c2beddcc.bindTooltip(
+                `<div>
+                     Hurghada-desert 
+                 </div>`,
+                {
+  "sticky": true,
+}
             );
-            marker_736decc828c5ceb12a2b02ed45e2b090.setIcon(icon_94308af6688d0c10b95d19f728e57d83);
         
-    
-        var popup_4a4fac80e55a987d2bc46d3a9a617755 = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_4c70ea97454ce12fffe07ac3e2e35643 = $(`<div id="html_4c70ea97454ce12fffe07ac3e2e35643" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Mendoza – Tanuyan, Finca El Peregrino</strong><br>Sand ID: AR_1<br>Land: AR<br>Kontinent: Amerika<br>Breitengrad: -33.61215<br>Längengrad: -69.1802</div></div>`)[0];
-                popup_4a4fac80e55a987d2bc46d3a9a617755.setContent(html_4c70ea97454ce12fffe07ac3e2e35643);
-            
-        
-
-        marker_736decc828c5ceb12a2b02ed45e2b090.bindPopup(popup_4a4fac80e55a987d2bc46d3a9a617755)
-        ;
-
-        
-    
-    
-            var marker_e783e751cc0a08b3c6f53847c9cf803f = L.marker(
-                [25.07951, -77.34389],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_59f7af80924feb40bd09e518d9eaecda = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
-            );
-            marker_e783e751cc0a08b3c6f53847c9cf803f.setIcon(icon_59f7af80924feb40bd09e518d9eaecda);
-        
-    
-        var popup_3d8f1348d547844e7140e8008364987c = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_8b9177a5b46507855fda01f2cfc28af3 = $(`<div id="html_8b9177a5b46507855fda01f2cfc28af3" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Bahamas Nassau</strong><br>Sand ID: BS_1<br>Land: BS<br>Kontinent: Amerika<br>Breitengrad: 25.07951<br>Längengrad: -77.34389</div></div>`)[0];
-                popup_3d8f1348d547844e7140e8008364987c.setContent(html_8b9177a5b46507855fda01f2cfc28af3);
-            
-        
-
-        marker_e783e751cc0a08b3c6f53847c9cf803f.bindPopup(popup_3d8f1348d547844e7140e8008364987c)
-        ;
-
-        
-    
-    
-            var marker_a2e4dd6efb5906aaba75cbaf9925c42d = L.marker(
-                [25.03415, -77.39637],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_1a99dc19b63878fffaafaea8bba6f2f1 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
-            );
-            marker_a2e4dd6efb5906aaba75cbaf9925c42d.setIcon(icon_1a99dc19b63878fffaafaea8bba6f2f1);
-        
-    
-        var popup_abb578f4ef5e4b738215e26c030325c8 = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_c0202466381fcfea7674bb11fa936647 = $(`<div id="html_c0202466381fcfea7674bb11fa936647" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>San Salvador</strong><br>Sand ID: BS_2<br>Land: BS<br>Kontinent: Amerika<br>Breitengrad: 25.03415<br>Längengrad: -77.39637</div></div>`)[0];
-                popup_abb578f4ef5e4b738215e26c030325c8.setContent(html_c0202466381fcfea7674bb11fa936647);
-            
-        
-
-        marker_a2e4dd6efb5906aaba75cbaf9925c42d.bindPopup(popup_abb578f4ef5e4b738215e26c030325c8)
-        ;
-
-        
-    
-    
-            var marker_7e5692d9ec5b52fea8334571db50b2ee = L.marker(
-                [65.028922, 25.412564],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_acd60ac22491c8b0f0013e49d72ffce6 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
-            );
-            marker_7e5692d9ec5b52fea8334571db50b2ee.setIcon(icon_acd60ac22491c8b0f0013e49d72ffce6);
-        
-    
-        var popup_aceaa1a7fa5bb0d7362706a496f868f1 = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_d78a3629862f9dc332408375d5bedaa8 = $(`<div id="html_d78a3629862f9dc332408375d5bedaa8" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Nallikarin jäätelökioski</strong><br>Sand ID: FI_1<br>Land: FI<br>Kontinent: Europa<br>Breitengrad: 65.028922<br>Längengrad: 25.412564</div></div>`)[0];
-                popup_aceaa1a7fa5bb0d7362706a496f868f1.setContent(html_d78a3629862f9dc332408375d5bedaa8);
-            
-        
-
-        marker_7e5692d9ec5b52fea8334571db50b2ee.bindPopup(popup_aceaa1a7fa5bb0d7362706a496f868f1)
-        ;
-
-        
-    
-    
-            var marker_d1dd73c2f57eb703970f2a88432ea76e = L.marker(
-                [65.012936, 25.460131],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_bab721e6258b66a23fa805c68a884a91 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
-            );
-            marker_d1dd73c2f57eb703970f2a88432ea76e.setIcon(icon_bab721e6258b66a23fa805c68a884a91);
-        
-    
-        var popup_f7e9f34834bca993e50775b4a499d1b5 = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_36b181a498433c576c72ff892f967b1d = $(`<div id="html_36b181a498433c576c72ff892f967b1d" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Kiikelin uimaranta (Oulu)</strong><br>Sand ID: FI_2<br>Land: FI<br>Kontinent: Europa<br>Breitengrad: 65.012936<br>Längengrad: 25.460131</div></div>`)[0];
-                popup_f7e9f34834bca993e50775b4a499d1b5.setContent(html_36b181a498433c576c72ff892f967b1d);
-            
-        
-
-        marker_d1dd73c2f57eb703970f2a88432ea76e.bindPopup(popup_f7e9f34834bca993e50775b4a499d1b5)
-        ;
-
-        
-    
-    
-            var marker_1fd882ed9637e5270a16b0ff5564d109 = L.marker(
-                [51.392506, -3.264206],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_5d27487cd93e0bdaf5ea3b7b0204a33e = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
-            );
-            marker_1fd882ed9637e5270a16b0ff5564d109.setIcon(icon_5d27487cd93e0bdaf5ea3b7b0204a33e);
-        
-    
-        var popup_bb00be0b6a4a74884348ff2e1072a52a = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_b0ada443bf22b736e401b2d1c7d8da36 = $(`<div id="html_b0ada443bf22b736e401b2d1c7d8da36" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Jackson's Bay (Barry Island, Cardiff)</strong><br>Sand ID: WA_1<br>Land: WA<br>Kontinent: Europa<br>Breitengrad: 51.392506<br>Längengrad: -3.264206</div></div>`)[0];
-                popup_bb00be0b6a4a74884348ff2e1072a52a.setContent(html_b0ada443bf22b736e401b2d1c7d8da36);
-            
-        
-
-        marker_1fd882ed9637e5270a16b0ff5564d109.bindPopup(popup_bb00be0b6a4a74884348ff2e1072a52a)
-        ;
-
-        
-    
-    
-            var marker_01006ae92c297a52103813e8565329e1 = L.marker(
-                [51.392397, -3.273533],
-                {}
-            ).addTo(map_21c504d7e61fdb74f0bef76b7c9d47b2);
-        
-    
-            var icon_07dea261eaed49b7ccf5a5e96a68dba4 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
-            );
-            marker_01006ae92c297a52103813e8565329e1.setIcon(icon_07dea261eaed49b7ccf5a5e96a68dba4);
-        
-    
-        var popup_6ef4649ee59821fb842ca6af0d9861cb = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_bd8640ee917ea5cf1a63036f7c10619d = $(`<div id="html_bd8640ee917ea5cf1a63036f7c10619d" style="width: 100.0%; height: 100.0%;"><div style='width: 200px;'><strong>Barry Island Beach (Whitmore Bay, Cardiff)</strong><br>Sand ID: WA_2<br>Land: WA<br>Kontinent: Europa<br>Breitengrad: 51.392397<br>Längengrad: -3.273533</div></div>`)[0];
-                popup_6ef4649ee59821fb842ca6af0d9861cb.setContent(html_bd8640ee917ea5cf1a63036f7c10619d);
-            
-        
-
-        marker_01006ae92c297a52103813e8565329e1.bindPopup(popup_6ef4649ee59821fb842ca6af0d9861cb)
-        ;
-
-        
-    
 </script>
 </html>
