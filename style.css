@@ -164,6 +164,12 @@ a:hover {
     padding: 0px 10px;
 }
 
+.dataset {
+    background-color: #FFDBBB;
+    border-radius: 10px;
+    padding: 0px 10px;
+}
+
 .row {
     display: flex;
     justify-content: space-between;
