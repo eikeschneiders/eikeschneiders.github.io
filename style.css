@@ -145,7 +145,7 @@ a:hover {
 }
 
 /* CSS for Gallery */
-#gallery {
+.gallery {
     margin-top: 20px; /* Added for spacing */
 }
 
