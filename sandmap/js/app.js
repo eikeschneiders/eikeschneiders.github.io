@@ -15,6 +15,7 @@ const state = {
   activeView: "browse",
   filterMode: null, // { type: 'letter' | 'continent', value: string }
   selectedCountry: null,
+  countrySort: { column: 'country', direction: 'asc' },
   mapInstance: null,
   markerCluster: null,
   markersById: new Map(),
@@ -425,6 +426,35 @@ function renderCountryTable() {
     c.name.toLowerCase().includes(searchQuery)
   );
 
+  const { column, direction } = state.countrySort;
+  countries.sort((a, b) => {
+    let valA, valB;
+    if (column === "country") {
+      valA = a.name.toLowerCase();
+      valB = b.name.toLowerCase();
+    } else if (column === "continent") {
+      valA = a.continent.toLowerCase();
+      valB = b.continent.toLowerCase();
+    } else if (column === "samples") {
+      valA = a.sands.length;
+      valB = b.sands.length;
+    }
+    if (valA < valB) return direction === "asc" ? -1 : 1;
+    if (valA > valB) return direction === "asc" ? 1 : -1;
+    return a.name.localeCompare(b.name);
+  });
+
+  document.querySelectorAll("#country-table th.sortable-th").forEach((th) => {
+    const icon = th.querySelector(".sort-icon");
+    if (th.dataset.sort === column) {
+      th.classList.add("sort-active");
+      if (icon) icon.textContent = direction === "asc" ? "▲" : "▼";
+    } else {
+      th.classList.remove("sort-active");
+      if (icon) icon.textContent = "↕";
+    }
+  });
+
   tbody.innerHTML = "";
 
   if (countries.length === 0) {
@@ -553,6 +583,20 @@ function bindBrowseControls() {
 
   document.getElementById("sand-filter-input").addEventListener("input", () => {
     if (state.selectedCountry) renderSandTable();
+  });
+
+
+  document.querySelectorAll("#country-table th.sortable-th").forEach((th) => {
+    th.addEventListener("click", () => {
+      const col = th.dataset.sort;
+      if (state.countrySort.column === col) {
+        state.countrySort.direction = state.countrySort.direction === "asc" ? "desc" : "asc";
+      } else {
+        state.countrySort.column = col;
+        state.countrySort.direction = col === "samples" ? "desc" : "asc";
+      }
+      if (state.filterMode) renderCountryTable();
+    });
   });
 
   document.getElementById("back-to-countries-btn").addEventListener("click", () => {

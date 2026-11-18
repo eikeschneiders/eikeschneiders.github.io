@@ -631,3 +631,27 @@ body {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
   flex-shrink: 0;
 }
+
+
+/* Sortable Country Table Headers */
+.sortable-th {
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.sortable-th:hover {
+  background-color: var(--sand-warm) !important;
+}
+
+.sortable-th .sort-icon {
+  display: inline-block;
+  margin-left: 5px;
+  font-size: 0.78rem;
+  opacity: 0.45;
+}
+
+.sortable-th.sort-active .sort-icon {
+  opacity: 1;
+  color: var(--sand-accent-dark);
+}
