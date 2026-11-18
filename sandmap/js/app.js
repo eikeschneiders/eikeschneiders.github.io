@@ -1,8 +1,8 @@
 /**
  * Global Sand Archive
  * Loads data/sands.xlsx directly via SheetJS and drives:
- * 1. A-Z & Continent -> Country Table -> Sand List (sorted by ID)
- * 2. Global Sand Map (Leaflet + MarkerCluster for 2,000+ pins)
+ * 1. A-Z & Continent -> Country Table (with Country Flags) -> Sand List (sorted by ID)
+ * 2. Global Sand Map (Leaflet + MarkerCluster with Olympic-colored continent pins)
  * 3. Sand Statistics (Chart.js visualizations)
  */
 
@@ -11,7 +11,7 @@ const XLSX_PATH = "data/sands.xlsx";
 const state = {
   sands: [],
   countriesMap: new Map(), // countryName -> { name, continent, sands: [] }
-  continentsMap: new Map(), // continentName -> { name, countrySet: Set, sandCount: number }
+  continentsMap: new Map(), // continentName -> { name, countries: Set, sandCount: number }
   activeView: "browse",
   filterMode: null, // { type: 'letter' | 'continent', value: string }
   selectedCountry: null,
@@ -21,7 +21,156 @@ const state = {
   charts: {}
 };
 
-// Initialize on page load
+// Comprehensive Country Name -> ISO 3166-1 alpha-2 code map for crisp flag icons
+const COUNTRY_ISO_MAP = {
+  "afghanistan": "af", "albania": "al", "algeria": "dz", "andorra": "ad", "angola": "ao",
+  "antigua and barbuda": "ag", "argentina": "ar", "armenia": "am", "australia": "au",
+  "austria": "at", "azerbaijan": "az", "bahamas": "bs", "the bahamas": "bs", "bahrain": "bh",
+  "bangladesh": "bd", "barbados": "bb", "belarus": "by", "belgium": "be", "belize": "bz",
+  "benin": "bj", "bhutan": "bt", "bolivia": "bo", "bosnia and herzegovina": "ba",
+  "botswana": "bw", "brazil": "br", "brunei": "bn", "bulgaria": "bg", "burkina faso": "bf",
+  "burundi": "bi", "cabo verde": "cv", "cape verde": "cv", "cambodia": "kh", "cameroon": "cm",
+  "canada": "ca", "central african republic": "cf", "chad": "td", "chile": "cl", "china": "cn",
+  "colombia": "co", "comoros": "km", "congo": "cg", "democratic republic of the congo": "cd",
+  "costa rica": "cr", "croatia": "hr", "cuba": "cu", "cyprus": "cy", "czech republic": "cz",
+  "czechia": "cz", "denmark": "dk", "djibouti": "dj", "dominica": "dm",
+  "dominican republic": "do", "ecuador": "ec", "egypt": "eg", "el salvador": "sv",
+  "equatorial guinea": "gq", "eritrea": "er", "estonia": "ee", "eswatini": "sz",
+  "swaziland": "sz", "ethiopia": "et", "fiji": "fj", "finland": "fi", "france": "fr",
+  "gabon": "ga", "gambia": "gm", "georgia": "ge", "germany": "de", "ghana": "gh",
+  "greece": "gr", "grenada": "gd", "guatemala": "gt", "guinea": "gn", "guinea-bissau": "gw",
+  "guyana": "gy", "haiti": "ht", "honduras": "hn", "hungary": "hu", "iceland": "is",
+  "india": "in", "indonesia": "id", "iran": "ir", "iraq": "iq", "ireland": "ie",
+  "israel": "il", "italy": "it", "ivory coast": "ci", "côte d'ivoire": "ci", "jamaica": "jm",
+  "japan": "jp", "jordan": "jo", "kazakhstan": "kz", "kenya": "ke", "kiribati": "ki",
+  "kuwait": "kw", "kyrgyzstan": "kg", "laos": "la", "latvia": "lv", "lebanon": "lb",
+  "lesotho": "ls", "liberia": "lr", "libya": "ly", "liechtenstein": "li", "lithuania": "lt",
+  "luxembourg": "lu", "madagascar": "mg", "malawi": "mw", "malaysia": "my", "maldives": "mv",
+  "mali": "ml", "malta": "mt", "marshall islands": "mh", "mauritania": "mr", "mauritius": "mu",
+  "mexico": "mx", "micronesia": "fm", "moldova": "md", "monaco": "mc", "mongolia": "mn",
+  "montenegro": "me", "morocco": "ma", "mozambique": "mz", "myanmar": "mm", "burma": "mm",
+  "namibia": "na", "nauru": "nr", "nepal": "np", "netherlands": "nl", "the netherlands": "nl",
+  "new zealand": "nz", "nicaragua": "ni", "niger": "ne", "nigeria": "ng", "north korea": "kp",
+  "north macedonia": "mk", "norway": "no", "oman": "om", "pakistan": "pk", "palau": "pw",
+  "palestine": "ps", "panama": "pa", "papua new guinea": "pg", "paraguay": "py", "peru": "pe",
+  "philippines": "ph", "poland": "pl", "portugal": "pt", "qatar": "qa", "romania": "ro",
+  "russia": "ru", "russian federation": "ru", "rwanda": "rw", "saint kitts and nevis": "kn",
+  "saint lucia": "lc", "saint vincent and the grenadines": "vc", "samoa": "ws",
+  "san marino": "sm", "sao tome and principe": "st", "saudi arabia": "sa", "senegal": "sn",
+  "serbia": "rs", "seychelles": "sc", "sierra leone": "sl", "singapore": "sg", "slovakia": "sk",
+  "slovenia": "si", "solomon islands": "sb", "somalia": "so", "south africa": "za",
+  "south korea": "kr", "republic of korea": "kr", "south sudan": "ss", "spain": "es",
+  "sri lanka": "lk", "sudan": "sd", "suriname": "sr", "sweden": "se", "switzerland": "ch",
+  "syria": "sy", "taiwan": "tw", "tajikistan": "tj", "tanzania": "tz", "thailand": "th",
+  "timor-leste": "tl", "east timor": "tl", "togo": "tg", "tonga": "to",
+  "trinidad and tobago": "tt", "tunisia": "tn", "turkey": "tr", "türkiye": "tr",
+  "turkmenistan": "tm", "tuvalu": "tv", "uganda": "ug", "ukraine": "ua",
+  "united arab emirates": "ae", "uae": "ae", "united kingdom": "gb", "uk": "gb",
+  "great britain": "gb", "england": "gb-eng", "scotland": "gb-sct", "wales": "gb-wls",
+  "united states": "us", "united states of america": "us", "usa": "us", "uruguay": "uy",
+  "uzbekistan": "uz", "vanuatu": "vu", "vatican city": "va", "venezuela": "ve",
+  "vietnam": "vn", "viet nam": "vn", "yemen": "ye", "zambia": "zm", "zimbabwe": "zw",
+  "antarctica": "aq", "aruba": "aw", "bermuda": "bm", "cayman islands": "ky",
+  "cook islands": "ck", "curaçao": "cw", "curacao": "cw", "faroe islands": "fo",
+  "french polynesia": "pf", "gibraltar": "gi", "greenland": "gl", "guadeloupe": "gp",
+  "guam": "gu", "hong kong": "hk", "isle of man": "im", "jersey": "je", "guernsey": "gg",
+  "macau": "mo", "martinique": "mq", "new caledonia": "nc", "puerto rico": "pr",
+  "réunion": "re", "reunion": "re", "sint maarten": "sx", "turks and caicos islands": "tc",
+  "british virgin islands": "vg", "u.s. virgin islands": "vi"
+};
+
+function getCountryIsoCode(countryName) {
+  if (!countryName) return null;
+  const key = String(countryName).trim().toLowerCase();
+  return COUNTRY_ISO_MAP[key] || null;
+}
+
+function renderCountryFlagHtml(countryName) {
+  const iso = getCountryIsoCode(countryName);
+  if (!iso) {
+    return `<span class="flag-fallback" title="${escapeHtml(countryName)}">🏳️</span>`;
+  }
+  const pngUrl = `https://flagcdn.com/w40/${iso}.png`;
+  const svgUrl = `https://flagcdn.com/${iso}.svg`;
+  return `<img src="${svgUrl}" onerror="this.onerror=null;this.src='${pngUrl}';" alt="${escapeHtml(countryName)} flag" class="country-flag-img" loading="lazy" />`;
+}
+
+// Olympic colors mapped by Continent
+function getOlympicContinentStyle(continentName) {
+  const c = String(continentName || "").trim().toLowerCase();
+
+  if (c.includes("europe") || c.includes("europa")) {
+    return {
+      key: "europe",
+      label: "Europe",
+      fill: "#0081C8",      // Olympic Blue
+      stroke: "#005587",
+      textColor: "#ffffff"
+    };
+  }
+  if (c.includes("asia")) {
+    return {
+      key: "asia",
+      label: "Asia",
+      fill: "#FCB131",      // Olympic Yellow
+      stroke: "#B37400",
+      textColor: "#1A1A1A"
+    };
+  }
+  if (c.includes("africa")) {
+    return {
+      key: "africa",
+      label: "Africa",
+      fill: "#1A1A1A",      // Olympic Black
+      stroke: "#000000",
+      textColor: "#ffffff"
+    };
+  }
+  if (c.includes("oceania") || c.includes("australia") || c.includes("australasia")) {
+    return {
+      key: "oceania",
+      label: "Oceania / Australia",
+      fill: "#00A651",      // Olympic Green
+      stroke: "#006B34",
+      textColor: "#ffffff"
+    };
+  }
+  if (c.includes("america")) {
+    return {
+      key: "americas",
+      label: "Americas",
+      fill: "#EE334E",      // Olympic Red
+      stroke: "#A8182D",
+      textColor: "#ffffff"
+    };
+  }
+  return {
+    key: "other",
+    label: continentName || "Other",
+    fill: "#6C7A89",
+    stroke: "#3E4A56",
+    textColor: "#ffffff"
+  };
+}
+
+function createOlympicPinIcon(continentName) {
+  const style = getOlympicContinentStyle(continentName);
+  const svgPin = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="38" viewBox="0 0 28 38" class="olympic-pin-svg">
+      <path d="M14 1C6.82 1 1 6.82 1 14c0 9.75 13 23 13 23s13-13.25 13-23C27 6.82 21.18 1 14 1z"
+            fill="${style.fill}" stroke="#ffffff" stroke-width="2"/>
+      <circle cx="14" cy="14" r="5" fill="#ffffff" fill-opacity="0.9"/>
+    </svg>
+  `;
+  return L.divIcon({
+    html: svgPin,
+    className: "olympic-pin-wrapper",
+    iconSize: [28, 38],
+    iconAnchor: [14, 38],
+    popupAnchor: [0, -34]
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   bindNavigation();
   bindBrowseControls();
@@ -53,8 +202,6 @@ function parseWorkbookBuffer(arrayBuffer) {
   const worksheet = workbook.Sheets[firstSheetName];
   const rawRows = XLSX.utils.sheet_to_json(worksheet, { defval: "" });
 
-  // Exact column names: ID, Name, Lat, Long, Desc1, Desc2, Country
-  // Desc1 = Continent, Desc2 = Notes / miscalculated information
   const normalized = rawRows.map((row, idx) => {
     const rawId = row.ID !== undefined && row.ID !== "" ? row.ID : idx + 1;
     const numericId = Number(rawId);
@@ -83,14 +230,12 @@ function parseWorkbookBuffer(arrayBuffer) {
   renderAlphabetBar();
   renderContinentBar();
 
-  // Reset drilldown state cleanly
   state.filterMode = null;
   state.selectedCountry = null;
   document.getElementById("country-panel").classList.add("hidden");
   document.getElementById("sand-panel").classList.add("hidden");
   document.getElementById("breadcrumb-bar").classList.add("hidden");
 
-  // Re-render map or stats if currently active
   if (state.activeView === "map") {
     initOrRefreshMap();
   } else if (state.activeView === "stats") {
@@ -103,7 +248,6 @@ function buildIndexes() {
   state.continentsMap.clear();
 
   for (const sand of state.sands) {
-    // Country grouping
     if (!state.countriesMap.has(sand.country)) {
       state.countriesMap.set(sand.country, {
         name: sand.country,
@@ -117,7 +261,6 @@ function buildIndexes() {
       cEntry.continent = sand.continent;
     }
 
-    // Continent grouping
     if (!state.continentsMap.has(sand.continent)) {
       state.continentsMap.set(sand.continent, {
         name: sand.continent,
@@ -130,7 +273,6 @@ function buildIndexes() {
     contEntry.sandCount += 1;
   }
 
-  // Pre-sort sands inside every country by ID
   for (const cEntry of state.countriesMap.values()) {
     cEntry.sands.sort(compareById);
   }
@@ -236,7 +378,6 @@ function selectFilter(type, value) {
   state.filterMode = { type, value };
   state.selectedCountry = null;
 
-  // Highlight active button
   document.querySelectorAll(".letter-btn").forEach((b) => {
     b.classList.toggle("active", type === "letter" && b.textContent === value);
   });
@@ -296,8 +437,11 @@ function renderCountryTable() {
     tr.className = "country-row";
     tr.innerHTML = `
       <td>
-        <span class="country-label">${escapeHtml(country.name)}</span>
-        <span class="count-bracket">(${country.sands.length})</span>
+        <div class="country-cell-flex">
+          ${renderCountryFlagHtml(country.name)}
+          <span class="country-label">${escapeHtml(country.name)}</span>
+          <span class="count-bracket">(${country.sands.length})</span>
+        </div>
       </td>
       <td>${escapeHtml(country.continent)}</td>
       <td class="num-col"><strong>${country.sands.length}</strong></td>
@@ -327,7 +471,7 @@ function renderSandTable() {
   countryPanel.classList.add("hidden");
   sandPanel.classList.remove("hidden");
 
-  titleEl.textContent = `${countryObj.name} (${countryObj.sands.length} samples — sorted by ID)`;
+  titleEl.innerHTML = `<span class="country-title-flex">${renderCountryFlagHtml(countryObj.name)} <span>${escapeHtml(countryObj.name)} (${countryObj.sands.length} samples — sorted by ID)</span></span>`;
   updateBreadcrumbs();
 
   const matchingSands = countryObj.sands.filter((s) => {
@@ -432,12 +576,34 @@ function initOrRefreshMap() {
 
     state.markerCluster = L.markerClusterGroup({
       chunkedLoading: true,
-      maxClusterRadius: 45
+      maxClusterRadius: 40
     });
     state.mapInstance.addLayer(state.markerCluster);
+
+    const legend = L.control({ position: "bottomright" });
+    legend.onAdd = function () {
+      const div = L.DomUtil.create("div", "map-olympic-legend");
+      const entries = [
+        { label: "Europe", color: "#0081C8" },
+        { label: "Asia", color: "#FCB131" },
+        { label: "Africa", color: "#1A1A1A" },
+        { label: "Oceania / Australia", color: "#00A651" },
+        { label: "Americas", color: "#EE334E" },
+        { label: "Antarctica / Other", color: "#6C7A89" }
+      ];
+      div.innerHTML =
+        `<div class="legend-title">Olympic Continent Pins</div>` +
+        entries
+          .map(
+            (e) =>
+              `<div class="legend-item"><span class="legend-dot" style="background:${e.color};"></span><span>${e.label}</span></div>`
+          )
+          .join("");
+      return div;
+    };
+    legend.addTo(state.mapInstance);
   }
 
-  // Ensure Leaflet recalculates container size after becoming visible
   setTimeout(() => {
     state.mapInstance.invalidateSize();
   }, 60);
@@ -457,12 +623,18 @@ function populateMapMarkers() {
     if (sand.lat === null || sand.lng === null) continue;
     validCount++;
 
-    const marker = L.marker([sand.lat, sand.lng]);
+    const olympicStyle = getOlympicContinentStyle(sand.continent);
+    const marker = L.marker([sand.lat, sand.lng], {
+      icon: createOlympicPinIcon(sand.continent)
+    });
+
     const popupHtml = `
       <div class="popup-content">
-        <span class="popup-badge">ID #${escapeHtml(String(sand.id))}</span>
+        <span class="popup-badge" style="background:${olympicStyle.fill};color:${olympicStyle.textColor};">
+          ID #${escapeHtml(String(sand.id))} · ${escapeHtml(sand.continent)}
+        </span>
         <h4>${escapeHtml(sand.name)}</h4>
-        <p><strong>Country:</strong> ${escapeHtml(sand.country)} (${escapeHtml(sand.continent)})</p>
+        <p class="popup-country-row">${renderCountryFlagHtml(sand.country)} <strong>${escapeHtml(sand.country)}</strong></p>
         <p><strong>Coordinates:</strong> ${sand.lat.toFixed(4)}, ${sand.lng.toFixed(4)}</p>
         ${sand.notes ? `<p><strong>Notes:</strong> ${escapeHtml(sand.notes)}</p>` : ""}
       </div>
@@ -474,7 +646,7 @@ function populateMapMarkers() {
 
   state.markerCluster.addLayers(markers);
   document.getElementById("map-count-hint").textContent =
-    `Displaying ${validCount.toLocaleString()} mapped sand samples. Click any pin or cluster to inspect details.`;
+    `Displaying ${validCount.toLocaleString()} mapped sand samples color-coded by Olympic continent colors.`;
 }
 
 function jumpToSandOnMap(sandId) {
@@ -605,15 +777,7 @@ function renderContinentChart() {
       datasets: [
         {
           data: sorted.map((c) => c.sandCount),
-          backgroundColor: [
-            "#1f4e5f",
-            "#c58f36",
-            "#3c7a89",
-            "#e0a96d",
-            "#5c9ead",
-            "#8c5e35",
-            "#a3b18a"
-          ]
+          backgroundColor: sorted.map((c) => getOlympicContinentStyle(c.name).fill)
         }
       ]
     },
