@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Sand Archive — Psammophile Collection</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <!-- Leaflet CSS for Global Sand Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+  <!-- Leaflet MarkerCluster CSS for smooth rendering of 2,000+ pins -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand" id="brand-home" role="button" tabindex="0">
+        <span class="brand-icon" aria-hidden="true">⏳</span>
+        <div>
+          <h1>Global Sand Archive</h1>
+          <p class="subtitle" id="header-subtitle">Loading collection...</p>
+        </div>
+      </div>
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <button class="nav-btn active" data-view="browse" id="nav-browse">Browse Index</button>
+        <button class="nav-btn" data-view="map" id="nav-map">Global Sand Map</button>
+        <button class="nav-btn" data-view="stats" id="nav-stats">Sand Statistics</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <!-- Status / Error Banner (also allows uploading a local xlsx to preview changes instantly) -->
+    <div id="status-bar" class="status-bar hidden"></div>
+
+    <!-- VIEW 1: BROWSE INDEX (Landing Page -> Country Table -> Sand List) -->
+    <section id="view-browse" class="view-section active">
+      <!-- Landing Selector Card -->
+      <div class="card selector-card">
+        <div class="selector-group">
+          <div class="selector-header">
+            <h2>Browse Countries by Letter</h2>
+            <span class="hint">Select an initial letter to view countries &amp; sample counts</span>
+          </div>
+          <div id="alphabet-bar" class="alphabet-bar" role="group" aria-label="Filter countries by first letter"></div>
+        </div>
+
+        <hr class="divider" />
+
+        <div class="selector-group">
+          <div class="selector-header">
+            <h2>Browse by Continent</h2>
+            <span class="hint">Select a continent to view its countries</span>
+          </div>
+          <div id="continent-bar" class="continent-bar" role="group" aria-label="Filter countries by continent"></div>
+        </div>
+      </div>
+
+      <!-- Breadcrumb & Dynamic Drilldown Area -->
+      <div id="breadcrumb-bar" class="breadcrumb-bar hidden"></div>
+
+      <!-- Country Table Panel -->
+      <div id="country-panel" class="card panel-card hidden">
+        <div class="panel-header">
+          <h3 id="country-panel-title">Countries</h3>
+          <input type="search" id="country-filter-input" class="search-input" placeholder="Filter listed countries..." />
+        </div>
+        <div class="table-responsive">
+          <table class="data-table" id="country-table">
+            <thead>
+              <tr>
+                <th>Country</th>
+                <th>Continent</th>
+                <th class="num-col">Samples</th>
+                <th class="action-col">Action</th>
+              </tr>
+            </thead>
+            <tbody id="country-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Sands in Country Panel -->
+      <div id="sand-panel" class="card panel-card hidden">
+        <div class="panel-header">
+          <div>
+            <button id="back-to-countries-btn" class="back-btn">&larr; Back to Countries</button>
+            <h3 id="sand-panel-title">Sands</h3>
+          </div>
+          <input type="search" id="sand-filter-input" class="search-input" placeholder="Search by ID, name, or notes..." />
+        </div>
+        <div class="table-responsive">
+          <table class="data-table" id="sand-table">
+            <thead>
+              <tr>
+                <th class="id-col">ID</th>
+                <th>Location Name</th>
+                <th>Continent</th>
+                <th>Coordinates (Lat, Long)</th>
+                <th>Notes</th>
+                <th class="action-col">Map</th>
+              </tr>
+            </thead>
+            <tbody id="sand-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 2: GLOBAL SAND MAP -->
+    <section id="view-map" class="view-section hidden">
+      <div class="card map-card">
+        <div class="panel-header">
+          <div>
+            <h2>Global Sand Map</h2>
+            <p class="hint" id="map-count-hint">Click any pin or cluster to inspect sample details</p>
+          </div>
+          <div class="map-controls">
+            <input type="search" id="map-search-input" class="search-input" placeholder="Jump to ID, location, or country..." />
+            <button id="map-reset-btn" class="secondary-btn">Reset View</button>
+          </div>
+        </div>
+        <div id="global-map" class="map-container"></div>
+      </div>
+    </section>
+
+    <!-- VIEW 3: SAND STATISTICS -->
+    <section id="view-stats" class="view-section hidden">
+      <div class="kpi-grid" id="kpi-grid"></div>
+
+      <div class="charts-grid">
+        <div class="card chart-card">
+          <h3>Samples by Continent</h3>
+          <div class="canvas-wrapper">
+            <canvas id="chart-continents"></canvas>
+          </div>
+        </div>
+
+        <div class="card chart-card">
+          <h3>Top 15 Countries by Sand Count</h3>
+          <div class="canvas-wrapper">
+            <canvas id="chart-top-countries"></canvas>
+          </div>
+        </div>
+
+        <div class="card chart-card">
+          <h3>Latitude Distribution (North vs. South Hemisphere)</h3>
+          <div class="canvas-wrapper">
+            <canvas id="chart-latitudes"></canvas>
+          </div>
+        </div>
+
+        <div class="card chart-card">
+          <h3>Countries per Starting Letter (A–Z)</h3>
+          <div class="canvas-wrapper">
+            <canvas id="chart-letters"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>Data sourced directly from <code>data/sands.xlsx</code></span>
+      <label class="upload-label" title="Test a different Excel file locally in your browser">
+        Preview custom .xlsx
+        <input type="file" id="xlsx-upload-input" accept=".xlsx,.xls" hidden />
+      </label>
+    </div>
+  </footer>
+
+  <!-- Libraries via CDN (Static GitHub Pages compatible) -->
+  <!-- SheetJS (xlsx) to parse data/sands.xlsx directly in the browser -->
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js"></script>
+  <!-- Leaflet & MarkerCluster -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <!-- Chart.js for Sand Statistics -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <!-- App Logic -->
+  <script src="js/app.js"></script>
+</body>
+</html>
