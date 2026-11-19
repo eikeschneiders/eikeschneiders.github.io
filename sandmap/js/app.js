@@ -86,84 +86,8 @@ function getCountryIsoCode(countryName) {
   return COUNTRY_ISO_MAP[key] || null;
 }
 
-
-// Offline bounding-box coordinate fallback for ISO 3166-1 alpha-2 flag lookup
-const LAT_LONG_ISO_BOXES = [
-  { iso: "aq", minLat: -90, maxLat: -60, minLng: -180, maxLng: 180 },
-  { iso: "is", minLat: 63.2, maxLat: 66.7, minLng: -24.7, maxLng: -13.3 },
-  { iso: "gb", minLat: 49.8, maxLat: 60.9, minLng: -8.7, maxLng: 1.8 },
-  { iso: "ie", minLat: 51.3, maxLat: 55.5, minLng: -10.7, maxLng: -5.3 },
-  { iso: "pt", minLat: 36.8, maxLat: 42.2, minLng: -9.6, maxLng: -6.1 },
-  { iso: "es", minLat: 27.5, maxLat: 43.9, minLng: -18.2, maxLng: 4.4 },
-  { iso: "fr", minLat: 41.3, maxLat: 51.2, minLng: -5.2, maxLng: 9.6 },
-  { iso: "be", minLat: 49.5, maxLat: 51.6, minLng: 2.5, maxLng: 6.4 },
-  { iso: "nl", minLat: 50.7, maxLat: 53.7, minLng: 3.3, maxLng: 7.3 },
-  { iso: "de", minLat: 47.2, maxLat: 55.1, minLng: 5.8, maxLng: 15.1 },
-  { iso: "dk", minLat: 54.5, maxLat: 57.8, minLng: 8.0, maxLng: 15.2 },
-  { iso: "no", minLat: 57.9, maxLat: 71.2, minLng: 4.5, maxLng: 31.2 },
-  { iso: "se", minLat: 55.3, maxLat: 69.1, minLng: 11.0, maxLng: 24.2 },
-  { iso: "fi", minLat: 59.7, maxLat: 70.1, minLng: 19.5, maxLng: 31.6 },
-  { iso: "ee", minLat: 57.5, maxLat: 59.7, minLng: 21.7, maxLng: 28.2 },
-  { iso: "lv", minLat: 55.6, maxLat: 58.1, minLng: 20.9, maxLng: 28.3 },
-  { iso: "lt", minLat: 53.8, maxLat: 56.5, minLng: 20.9, maxLng: 26.9 },
-  { iso: "pl", minLat: 49.0, maxLat: 54.9, minLng: 14.1, maxLng: 24.2 },
-  { iso: "it", minLat: 36.6, maxLat: 47.1, minLng: 6.6, maxLng: 18.6 },
-  { iso: "hr", minLat: 42.3, maxLat: 46.6, minLng: 13.4, maxLng: 19.5 },
-  { iso: "gr", minLat: 34.8, maxLat: 41.8, minLng: 19.3, maxLng: 29.7 },
-  { iso: "tr", minLat: 35.8, maxLat: 42.2, minLng: 25.6, maxLng: 44.8 },
-  { iso: "ma", minLat: 27.6, maxLat: 36.0, minLng: -13.2, maxLng: -1.0 },
-  { iso: "eg", minLat: 22.0, maxLat: 31.7, minLng: 24.7, maxLng: 36.9 },
-  { iso: "na", minLat: -29.0, maxLat: -16.9, minLng: 11.7, maxLng: 25.3 },
-  { iso: "za", minLat: -35.0, maxLat: -22.1, minLng: 16.4, maxLng: 32.9 },
-  { iso: "tz", minLat: -11.8, maxLat: -0.9, minLng: 29.3, maxLng: 40.5 },
-  { iso: "sc", minLat: -10.5, maxLat: -3.7, minLng: 46.2, maxLng: 56.3 },
-  { iso: "ae", minLat: 22.6, maxLat: 26.1, minLng: 51.5, maxLng: 56.4 },
-  { iso: "jo", minLat: 29.1, maxLat: 33.4, minLng: 34.9, maxLng: 39.3 },
-  { iso: "il", minLat: 29.4, maxLat: 33.4, minLng: 34.2, maxLng: 35.9 },
-  { iso: "in", minLat: 6.7, maxLat: 35.7, minLng: 68.1, maxLng: 97.4 },
-  { iso: "mv", minLat: -0.8, maxLat: 7.2, minLng: 72.6, maxLng: 73.8 },
-  { iso: "bd", minLat: 20.5, maxLat: 26.7, minLng: 88.0, maxLng: 92.7 },
-  { iso: "th", minLat: 5.6, maxLat: 20.5, minLng: 97.3, maxLng: 105.7 },
-  { iso: "my", minLat: 0.8, maxLat: 7.4, minLng: 99.6, maxLng: 119.3 },
-  { iso: "id", minLat: -11.1, maxLat: 6.1, minLng: 95.0, maxLng: 141.1 },
-  { iso: "ph", minLat: 4.5, maxLat: 21.2, minLng: 116.9, maxLng: 126.7 },
-  { iso: "jp", minLat: 24.0, maxLat: 45.6, minLng: 122.9, maxLng: 153.9 },
-  { iso: "kr", minLat: 33.1, maxLat: 38.7, minLng: 124.6, maxLng: 131.9 },
-  { iso: "cn", minLat: 18.1, maxLat: 53.6, minLng: 73.5, maxLng: 134.8 },
-  { iso: "au", minLat: -43.7, maxLat: -10.0, minLng: 112.9, maxLng: 153.7 },
-  { iso: "nz", minLat: -47.3, maxLat: -34.4, minLng: 166.4, maxLng: 178.6 },
-  { iso: "ca", minLat: 41.7, maxLat: 83.2, minLng: -141.0, maxLng: -52.6 },
-  { iso: "us", minLat: 18.9, maxLat: 71.4, minLng: -179.2, maxLng: -66.9 },
-  { iso: "mx", minLat: 14.5, maxLat: 32.8, minLng: -118.4, maxLng: -86.7 },
-  { iso: "bs", minLat: 20.9, maxLat: 27.3, minLng: -79.9, maxLng: -72.7 },
-  { iso: "cu", minLat: 19.8, maxLat: 23.3, minLng: -85.0, maxLng: -74.1 },
-  { iso: "ky", minLat: 19.2, maxLat: 19.8, minLng: -81.5, maxLng: -79.7 },
-  { iso: "cr", minLat: 8.0, maxLat: 11.3, minLng: -86.0, maxLng: -82.5 },
-  { iso: "ec", minLat: -5.1, maxLat: 1.7, minLng: -92.1, maxLng: -75.2 },
-  { iso: "pe", minLat: -18.4, maxLat: -0.0, minLng: -81.4, maxLng: -68.6 },
-  { iso: "cl", minLat: -56.0, maxLat: -17.5, minLng: -109.5, maxLng: -66.4 },
-  { iso: "br", minLat: -33.8, maxLat: 5.3, minLng: -74.0, maxLng: -34.7 }
-];
-
-function getIsoCodeFromLatLong(lat, lng) {
-  const numLat = Number(lat);
-  const numLng = Number(lng);
-  if (!Number.isFinite(numLat) || !Number.isFinite(numLng)) return null;
-  for (const box of LAT_LONG_ISO_BOXES) {
-    if (
-      numLat >= box.minLat &&
-      numLat <= box.maxLat &&
-      numLng >= box.minLng &&
-      numLng <= box.maxLng
-    ) {
-      return box.iso;
-    }
-  }
-  return null;
-}
-
-function renderCountryFlagHtml(countryName, lat = null, lng = null) {
-  const iso = getCountryIsoCode(countryName) || getIsoCodeFromLatLong(lat, lng);
+function renderCountryFlagHtml(countryName) {
+  const iso = getCountryIsoCode(countryName);
   if (!iso) {
     return `<span class="flag-fallback" title="${escapeHtml(countryName)}">🏳️</span>`;
   }
@@ -564,7 +488,7 @@ function renderCountryTable() {
     tr.innerHTML = `
       <td>
         <div class="country-cell-flex">
-          ${renderCountryFlagHtml(country.name, country.sands[0]?.lat, country.sands[0]?.lng)}
+          ${renderCountryFlagHtml(country.name)}
           <span class="country-label">${escapeHtml(country.name)}</span>
           <span class="count-bracket">(${country.sands.length})</span>
         </div>
@@ -607,7 +531,7 @@ function renderSandTable() {
     sourceSands = countryObj.sands;
     backBtn.classList.remove("hidden");
     countryColHeader.classList.add("hidden");
-    titleEl.innerHTML = `<span class="country-title-flex">${renderCountryFlagHtml(countryObj.name, countryObj.sands[0]?.lat, countryObj.sands[0]?.lng)} <span>${escapeHtml(countryObj.name)} (${countryObj.sands.length} samples — sorted by ID)</span></span>`;
+    titleEl.innerHTML = `<span class="country-title-flex">${renderCountryFlagHtml(countryObj.name)} <span>${escapeHtml(countryObj.name)} (${countryObj.sands.length} samples — sorted by ID)</span></span>`;
   }
 
   countryPanel.classList.add("hidden");
@@ -636,7 +560,7 @@ function renderSandTable() {
     const coordLabel = hasCoords ? `${sand.lat.toFixed(4)}, ${sand.lng.toFixed(4)}` : "N/A";
     const tr = document.createElement("tr");
     const countryCellHtml = isAllMode
-      ? `<td><div class="country-cell-flex">${renderCountryFlagHtml(sand.country, sand.lat, sand.lng)} <span>${escapeHtml(sand.country)}</span></div></td>`
+      ? `<td><div class="country-cell-flex">${renderCountryFlagHtml(sand.country)} <span>${escapeHtml(sand.country)}</span></div></td>`
       : "";
 
     tr.innerHTML = `
@@ -801,7 +725,7 @@ function populateMapMarkers() {
           ID #${escapeHtml(String(sand.id))} · ${escapeHtml(sand.continent)}
         </span>
         <h4>${escapeHtml(sand.name)}</h4>
-        <p class="popup-country-row">${renderCountryFlagHtml(sand.country, sand.lat, sand.lng)} <strong>${escapeHtml(sand.country)}</strong></p>
+        <p class="popup-country-row">${renderCountryFlagHtml(sand.country)} <strong>${escapeHtml(sand.country)}</strong></p>
         <p><strong>Coordinates:</strong> ${sand.lat.toFixed(4)}, ${sand.lng.toFixed(4)}</p>
         ${sand.notes ? `<p><strong>Notes:</strong> ${escapeHtml(sand.notes)}</p>` : ""}
       </div>
