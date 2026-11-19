@@ -327,6 +327,16 @@ function renderAlphabetBar() {
   const container = document.getElementById("alphabet-bar");
   container.innerHTML = "";
 
+  const allBtn = document.createElement("button");
+  allBtn.className = "letter-btn all-btn";
+  allBtn.textContent = "ALL";
+  allBtn.disabled = state.sands.length === 0;
+  allBtn.title = "List all sand samples";
+  allBtn.addEventListener("click", () => {
+    selectFilter("all", "ALL");
+  });
+  container.appendChild(allBtn);
+
   const availableLetters = new Set();
   for (const countryName of state.countriesMap.keys()) {
     const firstChar = countryName.charAt(0).toUpperCase();
@@ -380,11 +390,21 @@ function selectFilter(type, value) {
   state.selectedCountry = null;
 
   document.querySelectorAll(".letter-btn").forEach((b) => {
-    b.classList.toggle("active", type === "letter" && b.textContent === value);
+    if (b.classList.contains("all-btn")) {
+      b.classList.toggle("active", type === "all");
+    } else {
+      b.classList.toggle("active", type === "letter" && b.textContent === value);
+    }
   });
   document.querySelectorAll(".continent-btn").forEach((b) => {
     b.classList.toggle("active", type === "continent" && b.dataset.continent === value);
   });
+
+  if (type === "all") {
+    document.getElementById("sand-filter-input").value = "";
+    renderSandTable();
+    return;
+  }
 
   document.getElementById("country-filter-input").value = "";
   renderCountryTable();
@@ -493,22 +513,37 @@ function renderSandTable() {
   const sandPanel = document.getElementById("sand-panel");
   const tbody = document.getElementById("sand-table-body");
   const titleEl = document.getElementById("sand-panel-title");
+  const backBtn = document.getElementById("back-to-countries-btn");
+  const countryColHeader = document.getElementById("sand-country-col-header");
   const query = document.getElementById("sand-filter-input").value.trim().toLowerCase();
 
-  const countryObj = state.countriesMap.get(state.selectedCountry);
-  if (!countryObj) return;
+  const isAllMode = state.filterMode && state.filterMode.type === "all";
+  let sourceSands = [];
+
+  if (isAllMode) {
+    sourceSands = [...state.sands].sort(compareById);
+    backBtn.classList.add("hidden");
+    countryColHeader.classList.remove("hidden");
+    titleEl.textContent = `All Sands (${sourceSands.length.toLocaleString()} samples — sorted by ID)`;
+  } else {
+    const countryObj = state.countriesMap.get(state.selectedCountry);
+    if (!countryObj) return;
+    sourceSands = countryObj.sands;
+    backBtn.classList.remove("hidden");
+    countryColHeader.classList.add("hidden");
+    titleEl.innerHTML = `<span class="country-title-flex">${renderCountryFlagHtml(countryObj.name)} <span>${escapeHtml(countryObj.name)} (${countryObj.sands.length} samples — sorted by ID)</span></span>`;
+  }
 
   countryPanel.classList.add("hidden");
   sandPanel.classList.remove("hidden");
-
-  titleEl.innerHTML = `<span class="country-title-flex">${renderCountryFlagHtml(countryObj.name)} <span>${escapeHtml(countryObj.name)} (${countryObj.sands.length} samples — sorted by ID)</span></span>`;
   updateBreadcrumbs();
 
-  const matchingSands = countryObj.sands.filter((s) => {
+  const matchingSands = sourceSands.filter((s) => {
     if (!query) return true;
     return (
       String(s.id).toLowerCase().includes(query) ||
       s.name.toLowerCase().includes(query) ||
+      (isAllMode && s.country.toLowerCase().includes(query)) ||
       s.notes.toLowerCase().includes(query)
     );
   });
@@ -516,7 +551,7 @@ function renderSandTable() {
   tbody.innerHTML = "";
 
   if (matchingSands.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="6">No samples match your search filter.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="${isAllMode ? 7 : 6}">No samples match your search filter.</td></tr>`;
     return;
   }
 
@@ -524,9 +559,14 @@ function renderSandTable() {
     const hasCoords = sand.lat !== null && sand.lng !== null;
     const coordLabel = hasCoords ? `${sand.lat.toFixed(4)}, ${sand.lng.toFixed(4)}` : "N/A";
     const tr = document.createElement("tr");
+    const countryCellHtml = isAllMode
+      ? `<td><div class="country-cell-flex">${renderCountryFlagHtml(sand.country)} <span>${escapeHtml(sand.country)}</span></div></td>`
+      : "";
+
     tr.innerHTML = `
       <td class="id-col">#${escapeHtml(String(sand.id))}</td>
       <td><strong>${escapeHtml(sand.name)}</strong></td>
+      ${countryCellHtml}
       <td>${escapeHtml(sand.continent)}</td>
       <td class="coords-text">${coordLabel}</td>
       <td>${escapeHtml(sand.notes || "—")}</td>
@@ -556,6 +596,11 @@ function updateBreadcrumbs() {
   }
 
   bar.classList.remove("hidden");
+  if (state.filterMode.type === "all") {
+    bar.innerHTML = `<span>Index</span> &rsaquo; <strong>All Sands</strong>`;
+    return;
+  }
+
   const filterLabel =
     state.filterMode.type === "letter"
       ? `Letter "${state.filterMode.value}"`
@@ -582,7 +627,9 @@ function bindBrowseControls() {
   });
 
   document.getElementById("sand-filter-input").addEventListener("input", () => {
-    if (state.selectedCountry) renderSandTable();
+    if (state.selectedCountry || (state.filterMode && state.filterMode.type === "all")) {
+      renderSandTable();
+    }
   });
 
 

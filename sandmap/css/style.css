@@ -655,3 +655,24 @@ body {
   opacity: 1;
   color: var(--sand-accent-dark);
 }
+
+
+/* ALL Sands Button in Alphabet Bar */
+.letter-btn.all-btn {
+  grid-column: span 2;
+  background: var(--ocean-light);
+  border-color: var(--ocean);
+  color: var(--ocean-dark);
+  letter-spacing: 0.5px;
+}
+
+.letter-btn.all-btn:hover:not(:disabled) {
+  background: #d5e6ed;
+  border-color: var(--ocean-dark);
+}
+
+.letter-btn.all-btn.active {
+  background: var(--sand-accent);
+  border-color: var(--sand-accent);
+  color: #ffffff;
+}
