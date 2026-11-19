@@ -676,3 +676,9 @@ body {
   border-color: var(--sand-accent);
   color: #ffffff;
 }
+
+
+/* Double-width chart card in Statistics grid */
+.chart-card-wide {
+  grid-column: 1 / -1;
+}
