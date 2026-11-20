@@ -867,6 +867,11 @@ function bindStatsControls() {
       state.countryChartSort = sortMode;
       updateCountryChartSortButtons();
       renderCountriesAllChart();
+      requestAnimationFrame(() => {
+        if (state.charts.countriesAll) {
+          state.charts.countriesAll.resize();
+        }
+      });
     });
   });
 }
@@ -877,13 +882,25 @@ function updateCountryChartSortButtons() {
   });
 }
 
+function resizeAllCharts() {
+  Object.values(state.charts).forEach((chart) => {
+    if (chart && typeof chart.resize === "function") {
+      chart.resize();
+    }
+  });
+}
+
 function renderStatistics() {
   updateCountryChartSortButtons();
   renderKpis();
   renderContinentChart();
+  renderContinentCountriesChart();
   renderCountriesAllChart();
   renderLatitudeChart();
   renderLongitudeChart();
+  requestAnimationFrame(() => {
+    resizeAllCharts();
+  });
 }
 
 function renderKpis() {
@@ -979,6 +996,41 @@ function renderContinentChart() {
   });
 }
 
+function renderContinentCountriesChart() {
+  destroyChartIfExists("continentCountries");
+  const sorted = Array.from(state.continentsMap.values()).sort(
+    (a, b) => b.countries.size - a.countries.size || a.name.localeCompare(b.name)
+  );
+
+  const ctx = document.getElementById("chart-continent-countries");
+  if (!ctx) return;
+
+  state.charts.continentCountries = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: sorted.map((c) => c.name),
+      datasets: [
+        {
+          label: "Countries",
+          data: sorted.map((c) => c.countries.size),
+          backgroundColor: sorted.map((c) => getOlympicContinentStyle(c.name).fill),
+          borderRadius: 5
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false }
+      },
+      scales: {
+        y: { beginAtZero: true, ticks: { precision: 0 } }
+      }
+    }
+  });
+}
+
 function renderCountriesAllChart() {
   destroyChartIfExists("topCountries");
   destroyChartIfExists("countriesAll");
@@ -996,13 +1048,14 @@ function renderCountriesAllChart() {
   }
 
   const wrapper = document.getElementById("countries-chart-wrapper");
-  if (wrapper) {
-    const calculatedHeight = Math.max(360, filteredCountries.length * 26 + 60);
-    wrapper.style.height = `${calculatedHeight}px`;
-  }
-
   const ctx = document.getElementById("chart-countries-all");
   if (!ctx) return;
+
+  const calculatedHeight = Math.max(360, filteredCountries.length * 26 + 60);
+  if (wrapper) {
+    wrapper.style.height = `${calculatedHeight}px`;
+  }
+  ctx.height = calculatedHeight;
 
   state.charts.countriesAll = new Chart(ctx, {
     type: "bar",
