@@ -135,24 +135,23 @@
       <div class="kpi-grid" id="kpi-grid"></div>
 
       <div class="charts-grid">
-        <div class="card chart-card">
+        <div class="card chart-card chart-card-wide">
           <h3>Samples by Continent</h3>
           <div class="canvas-wrapper">
             <canvas id="chart-continents"></canvas>
           </div>
         </div>
 
-        <div class="card chart-card">
-          <h3>Top 15 Countries by Sand Count</h3>
-          <div class="canvas-wrapper">
-            <canvas id="chart-top-countries"></canvas>
+        <div class="card chart-card chart-card-wide">
+          <div class="chart-header-row">
+            <h3>Samples by Country (All Countries with 1+ Sand)</h3>
+            <div class="chart-sort-controls" role="group" aria-label="Sort country chart">
+              <button type="button" class="chart-sort-btn active" data-country-sort="count">By Sand Amount</button>
+              <button type="button" class="chart-sort-btn" data-country-sort="alpha">Alphabetical (A–Z)</button>
+            </div>
           </div>
-        </div>
-
-        <div class="card chart-card">
-          <h3>Countries per Starting Letter (A–Z)</h3>
-          <div class="canvas-wrapper">
-            <canvas id="chart-letters"></canvas>
+          <div class="canvas-wrapper canvas-wrapper-countries" id="countries-chart-wrapper">
+            <canvas id="chart-countries-all"></canvas>
           </div>
         </div>
 

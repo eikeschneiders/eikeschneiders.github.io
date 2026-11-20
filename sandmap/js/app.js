@@ -16,6 +16,7 @@ const state = {
   filterMode: null, // { type: 'letter' | 'continent', value: string }
   selectedCountry: null,
   countrySort: { column: 'country', direction: 'asc' },
+  countryChartSort: 'count', // 'count' | 'alpha'
   mapInstance: null,
   markerCluster: null,
   markersById: new Map(),
@@ -252,6 +253,7 @@ document.addEventListener("DOMContentLoaded", () => {
   bindNavigation();
   bindBrowseControls();
   bindMapControls();
+  bindStatsControls();
   bindFileUploadPreview();
   loadExcelFromServer(XLSX_PATH);
 });
@@ -857,11 +859,29 @@ function bindMapControls() {
 
 /* ---------------- SAND STATISTICS ---------------- */
 
+function bindStatsControls() {
+  document.querySelectorAll(".chart-sort-btn[data-country-sort]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const sortMode = btn.dataset.countrySort;
+      if (!sortMode || state.countryChartSort === sortMode) return;
+      state.countryChartSort = sortMode;
+      updateCountryChartSortButtons();
+      renderCountriesAllChart();
+    });
+  });
+}
+
+function updateCountryChartSortButtons() {
+  document.querySelectorAll(".chart-sort-btn[data-country-sort]").forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.countrySort === state.countryChartSort);
+  });
+}
+
 function renderStatistics() {
+  updateCountryChartSortButtons();
   renderKpis();
   renderContinentChart();
-  renderTopCountriesChart();
-  renderLetterChart();
+  renderCountriesAllChart();
   renderLatitudeChart();
   renderLongitudeChart();
 }
@@ -959,23 +979,41 @@ function renderContinentChart() {
   });
 }
 
-function renderTopCountriesChart() {
+function renderCountriesAllChart() {
   destroyChartIfExists("topCountries");
-  const top15 = Array.from(state.countriesMap.values())
-    .sort((a, b) => b.sands.length - a.sands.length)
-    .slice(0, 15);
+  destroyChartIfExists("countriesAll");
 
-  const ctx = document.getElementById("chart-top-countries");
-  state.charts.topCountries = new Chart(ctx, {
+  const filteredCountries = Array.from(state.countriesMap.values()).filter(
+    (c) => c.sands.length >= 1
+  );
+
+  if (state.countryChartSort === "alpha") {
+    filteredCountries.sort((a, b) => a.name.localeCompare(b.name));
+  } else {
+    filteredCountries.sort(
+      (a, b) => b.sands.length - a.sands.length || a.name.localeCompare(b.name)
+    );
+  }
+
+  const wrapper = document.getElementById("countries-chart-wrapper");
+  if (wrapper) {
+    const calculatedHeight = Math.max(360, filteredCountries.length * 26 + 60);
+    wrapper.style.height = `${calculatedHeight}px`;
+  }
+
+  const ctx = document.getElementById("chart-countries-all");
+  if (!ctx) return;
+
+  state.charts.countriesAll = new Chart(ctx, {
     type: "bar",
     data: {
-      labels: top15.map((c) => c.name),
+      labels: filteredCountries.map((c) => c.name),
       datasets: [
         {
           label: "Sand Samples",
-          data: top15.map((c) => c.sands.length),
+          data: filteredCountries.map((c) => c.sands.length),
           backgroundColor: "#1f4e5f",
-          borderRadius: 5
+          borderRadius: 4
         }
       ]
     },
@@ -1098,47 +1136,7 @@ function renderLongitudeChart() {
   });
 }
 
-function renderLetterChart() {
-  destroyChartIfExists("letters");
-  const letters = [];
-  const sampleCounts = [];
 
-  for (let code = 65; code <= 90; code++) {
-    const ch = String.fromCharCode(code);
-    letters.push(ch);
-    let total = 0;
-    for (const c of state.countriesMap.values()) {
-      if (c.name.charAt(0).toUpperCase() === ch) {
-        total += c.sands.length;
-      }
-    }
-    sampleCounts.push(total);
-  }
-
-  const ctx = document.getElementById("chart-letters");
-  state.charts.letters = new Chart(ctx, {
-    type: "bar",
-    data: {
-      labels: letters,
-      datasets: [
-        {
-          label: "Samples by Country Initial",
-          data: sampleCounts,
-          backgroundColor: "#3c7a89",
-          borderRadius: 4
-        }
-      ]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
-      scales: {
-        y: { beginAtZero: true, ticks: { precision: 0 } }
-      }
-    }
-  });
-}
 
 /* ---------------- UTILITIES ---------------- */
 
