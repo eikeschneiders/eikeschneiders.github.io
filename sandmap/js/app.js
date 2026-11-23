@@ -415,16 +415,23 @@ function renderAlphabetBar() {
   });
   container.appendChild(allBtn);
 
+  const alphabetLetters = [
+    ..."ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    "Ä",
+    "Ö",
+    "Ü"
+  ];
+  const allowedSet = new Set(alphabetLetters);
+
   const availableLetters = new Set();
   for (const countryName of state.countriesMap.keys()) {
-    const firstChar = countryName.charAt(0).toUpperCase();
-    if (firstChar >= "A" && firstChar <= "Z") {
+    const firstChar = countryName.charAt(0).toLocaleUpperCase("de-DE");
+    if (allowedSet.has(firstChar)) {
       availableLetters.add(firstChar);
     }
   }
 
-  for (let code = 65; code <= 90; code++) {
-    const letter = String.fromCharCode(code);
+  for (const letter of alphabetLetters) {
     const btn = document.createElement("button");
     btn.className = "letter-btn";
     btn.textContent = letter;
@@ -494,7 +501,7 @@ function getFilteredCountries() {
 
   let list = Array.from(state.countriesMap.values());
   if (type === "letter") {
-    list = list.filter((c) => c.name.charAt(0).toUpperCase() === value);
+    list = list.filter((c) => c.name.charAt(0).toLocaleUpperCase("de-DE") === value);
   } else if (type === "continent") {
     list = list.filter((c) => c.continent.toLowerCase() === value.toLowerCase());
   }
